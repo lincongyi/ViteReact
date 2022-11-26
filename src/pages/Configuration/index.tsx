@@ -3,7 +3,7 @@ import "./index.scss";
 
 const { Title, Text } = Typography;
 
-function Configuration() {
+const Configuration = () => {
   const techniqueList = [
     "脚手架：Vite",
     "react hook",
@@ -85,6 +85,6 @@ function Configuration() {
       </Card>
     </>
   );
-}
+};
 
 export default Configuration;

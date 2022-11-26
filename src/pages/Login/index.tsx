@@ -1,9 +1,5 @@
-function Layout(){
-  return (
-    <div>
-      Layout
-    </div>
-  )
-}
+const Login = () => {
+  return <div>Login</div>;
+};
 
-export default Layout
+export default Login;

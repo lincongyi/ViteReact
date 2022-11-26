@@ -1,15 +1,12 @@
-import { Button } from 'antd';
+import { Button } from "antd";
 
-
-function Layout(){
+const Layout = () => {
   return (
     <div>
       <Button type="primary">Primary Button</Button>
       Layout
     </div>
-  )
-}
+  );
+};
 
-export default Layout
-
- 
+export default Layout;
