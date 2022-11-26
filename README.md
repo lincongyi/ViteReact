@@ -8,7 +8,7 @@
 
 ### /pages 项目页面
 
-### /store mobx 状态仓库
+### /store mobx 状态管理
 
 ### /utils 工具函数
 
