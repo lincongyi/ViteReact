@@ -1,8 +1,6 @@
 import axios from 'axios'
 import { useStore } from '@stores/index'
 
-let { loginStore } = useStore()
-
 const request = axios.create({
   baseURL: 'http://127.0.0.1:3000',
   timeout: 5000,
@@ -10,8 +8,10 @@ const request = axios.create({
 // 添加请求拦截器
 request.interceptors.request.use(
   (config) => {
-    const token = loginStore.getToken() || ''
-    if (token) config.headers!.Authorization = token // token持久化存储
+    // let { loginStore } = useStore()
+    // const token = loginStore.getToken() || ''
+    // if (token) config.headers!.Authorization = token // token持久化存储
+    // useStore只能在函数式组件中使用，以上调用会报错
     return config
   },
   (error) => {
