@@ -4,11 +4,14 @@ import './index.scss'
 import type { FormInstance } from 'antd/es/form'
 import { useNavigate } from 'react-router-dom'
 import { login } from '@api/login'
+import { useStore } from '@stores/index'
 
 const Login: React.FC = () => {
   let navigate = useNavigate()
   const onFinish = async (values: Record<string, any>) => {
-    let { status } = await login(values)
+    let { status, data } = await login(values)
+    let { loginStore } = useStore()
+    loginStore.setToken(data.token)
     status === 400 && navigate('/')
   }
 
