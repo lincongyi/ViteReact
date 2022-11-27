@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import { Card, Button, Checkbox, Form, Input } from 'antd'
+import { Card, Button, Checkbox, Form, Input, message } from 'antd'
 import './index.scss'
 import type { FormInstance } from 'antd/es/form'
 import { useNavigate } from 'react-router-dom'
@@ -7,12 +7,18 @@ import { login } from '@api/login'
 import { useStore } from '@stores/index'
 
 const Login: React.FC = () => {
+  const [messageApi, contextHolder] = message.useMessage()
   let navigate = useNavigate()
   let { loginStore } = useStore()
   const onFinish = async (values: Record<string, any>) => {
     let { status, data } = await login(values)
     loginStore.setToken(data.token)
-    status === 400 && navigate('/')
+    messageApi.open({
+      type: 'success',
+      content: '登录成功！',
+      duration: 2,
+      onClose: () => status === 400 && navigate('/'),
+    })
   }
 
   const onFinishFailed = (errorInfo: Record<string, any>) => {
@@ -28,56 +34,59 @@ const Login: React.FC = () => {
   }, [])
 
   return (
-    <div className="wrapper">
-      <div className="card-wrapper">
-        <Card title="登录" bordered={false} style={{ width: 400 }}>
-          <Form
-            ref={form}
-            name="basic"
-            labelCol={{ span: 6 }}
-            wrapperCol={{ span: 16 }}
-            initialValues={{ remember: true }}
-            onFinish={onFinish}
-            onFinishFailed={onFinishFailed}
-            autoComplete="off"
-          >
-            <Form.Item
-              label="用户名"
-              name="username"
-              rules={[
-                { required: true, message: 'Please input your username!' },
-              ]}
+    <>
+      {contextHolder}
+      <div className="wrapper">
+        <div className="card-wrapper">
+          <Card title="登录" bordered={false} style={{ width: 400 }}>
+            <Form
+              ref={form}
+              name="basic"
+              labelCol={{ span: 6 }}
+              wrapperCol={{ span: 16 }}
+              initialValues={{ remember: true }}
+              onFinish={onFinish}
+              onFinishFailed={onFinishFailed}
+              autoComplete="off"
             >
-              <Input />
-            </Form.Item>
+              <Form.Item
+                label="用户名"
+                name="username"
+                rules={[
+                  { required: true, message: 'Please input your username!' },
+                ]}
+              >
+                <Input />
+              </Form.Item>
 
-            <Form.Item
-              label="密码"
-              name="password"
-              rules={[
-                { required: true, message: 'Please input your password!' },
-              ]}
-            >
-              <Input.Password />
-            </Form.Item>
+              <Form.Item
+                label="密码"
+                name="password"
+                rules={[
+                  { required: true, message: 'Please input your password!' },
+                ]}
+              >
+                <Input.Password />
+              </Form.Item>
 
-            <Form.Item
-              name="remember"
-              valuePropName="checked"
-              wrapperCol={{ offset: 6, span: 16 }}
-            >
-              <Checkbox>Remember me</Checkbox>
-            </Form.Item>
+              <Form.Item
+                name="remember"
+                valuePropName="checked"
+                wrapperCol={{ offset: 6, span: 16 }}
+              >
+                <Checkbox>Remember me</Checkbox>
+              </Form.Item>
 
-            <Form.Item wrapperCol={{ offset: 2, span: 20 }}>
-              <Button type="primary" htmlType="submit" block>
-                Submit
-              </Button>
-            </Form.Item>
-          </Form>
-        </Card>
+              <Form.Item wrapperCol={{ offset: 2, span: 20 }}>
+                <Button type="primary" htmlType="submit" block>
+                  Submit
+                </Button>
+              </Form.Item>
+            </Form>
+          </Card>
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 
