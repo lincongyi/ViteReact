@@ -1,21 +1,35 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Card, Button, Checkbox, Form, Input } from "antd";
 import "./index.scss";
+import type { FormInstance } from "antd/es/form";
+import { request } from "@utils/request";
+import { useNavigate } from "react-router-dom";
 
 const Login: React.FC = () => {
-  const onFinish = (values: any) => {
-    console.log("Success:", values);
+  let navigate = useNavigate();
+  const onFinish = async (values: Record<string, any>) => {
+    let { status } = await request.post("/login", values);
+    status === 400 && navigate("/");
   };
 
-  const onFinishFailed = (errorInfo: any) => {
+  const onFinishFailed = (errorInfo: Record<string, any>) => {
     console.log("Failed:", errorInfo);
   };
+
+  const form = useRef<FormInstance>(null);
+  useEffect(() => {
+    form.current!.setFieldsValue({
+      username: "admin",
+      password: "admin",
+    });
+  }, []);
 
   return (
     <div className="wrapper">
       <div className="card-wrapper">
         <Card title="登录" bordered={false} style={{ width: 400 }}>
           <Form
+            ref={form}
             name="basic"
             labelCol={{ span: 6 }}
             wrapperCol={{ span: 16 }}

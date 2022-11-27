@@ -75,6 +75,8 @@ const Configuration = () => {
             path.resolve(__dirname, "./src/assets/images"), ......
             {"\u007d"},{"\u007d"}
           </Text>
+        </p>
+        <p>
           （2）<Text>在tsconfig.json中配置compilerOptions.paths属性</Text>
           <Text code>
             "paths": {"\u007b"}
@@ -82,6 +84,18 @@ const Configuration = () => {
             {"\u007d"}
           </Text>
         </p>
+      </Card>
+      <Card title="6.安装axios">
+        <p>
+          <Text code>npm i axios</Text>
+        </p>
+        <p>/utils/request.js文件封装axios请求拦截、相应</p>
+      </Card>
+      <Card title="7.安装mobx">
+        <p>
+          <Text code>npm i mobx mobx-react-lite</Text>
+        </p>
+        <p>/stores/index.js文件负责汇总所有存储模块</p>
       </Card>
     </>
   );
