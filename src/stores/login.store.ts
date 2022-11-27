@@ -2,13 +2,16 @@
 import { makeAutoObservable } from 'mobx'
 
 class LoginStore {
-  token = ''
   constructor() {
     makeAutoObservable(this)
   }
+  token = ''
+  getToken = () => {
+    return this.token
+  }
   setToken = (token: string) => {
     this.token = token
-    return token
+    return this.token
   }
 }
 

@@ -8,9 +8,9 @@ import { useStore } from '@stores/index'
 
 const Login: React.FC = () => {
   let navigate = useNavigate()
+  let { loginStore } = useStore()
   const onFinish = async (values: Record<string, any>) => {
     let { status, data } = await login(values)
-    let { loginStore } = useStore()
     loginStore.setToken(data.token)
     status === 400 && navigate('/')
   }
