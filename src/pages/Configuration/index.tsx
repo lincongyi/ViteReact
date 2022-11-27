@@ -15,6 +15,7 @@ const Configuration = () => {
     "typescript",
   ];
   const fileList = [
+    { file: "/api", description: "接口文件" },
     { file: "/assets", description: "项目资源文件" },
     { file: "/components", description: "通用组件" },
     { file: "/pages", description: "项目页面" },

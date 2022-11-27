@@ -2,13 +2,13 @@ import React, { useEffect, useRef } from "react";
 import { Card, Button, Checkbox, Form, Input } from "antd";
 import "./index.scss";
 import type { FormInstance } from "antd/es/form";
-import { request } from "@utils/request";
 import { useNavigate } from "react-router-dom";
+import { login } from "@api/login";
 
 const Login: React.FC = () => {
   let navigate = useNavigate();
   const onFinish = async (values: Record<string, any>) => {
-    let { status } = await request.post("/login", values);
+    let { status } = await login(values);
     status === 400 && navigate("/");
   };
 

@@ -2,6 +2,8 @@
 
 ### /src
 
+### /api 接口文件
+
 ### /assets 项目资源文件
 
 ### /components 通用组件

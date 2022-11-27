@@ -5,7 +5,7 @@ const Layout = () => {
   const handleEvent = () => {
     // request.get("/member").then(({ data }) => console.log(data));
     request
-      .post("/login", { name: "zoe" })
+      .post("/login", { username: "admin", password: "admin" })
       .then(({ data }) => console.log(data));
   };
   return (
