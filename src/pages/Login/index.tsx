@@ -1,28 +1,28 @@
-import React, { useEffect, useRef } from "react";
-import { Card, Button, Checkbox, Form, Input } from "antd";
-import "./index.scss";
-import type { FormInstance } from "antd/es/form";
-import { useNavigate } from "react-router-dom";
-import { login } from "@api/login";
+import React, { useEffect, useRef } from 'react'
+import { Card, Button, Checkbox, Form, Input } from 'antd'
+import './index.scss'
+import type { FormInstance } from 'antd/es/form'
+import { useNavigate } from 'react-router-dom'
+import { login } from '@api/login'
 
 const Login: React.FC = () => {
-  let navigate = useNavigate();
+  let navigate = useNavigate()
   const onFinish = async (values: Record<string, any>) => {
-    let { status } = await login(values);
-    status === 400 && navigate("/");
-  };
+    let { status } = await login(values)
+    status === 400 && navigate('/')
+  }
 
   const onFinishFailed = (errorInfo: Record<string, any>) => {
-    console.log("Failed:", errorInfo);
-  };
+    console.log('Failed:', errorInfo)
+  }
 
-  const form = useRef<FormInstance>(null);
+  const form = useRef<FormInstance>(null)
   useEffect(() => {
     form.current!.setFieldsValue({
-      username: "admin",
-      password: "admin",
-    });
-  }, []);
+      username: 'admin',
+      password: 'admin',
+    })
+  }, [])
 
   return (
     <div className="wrapper">
@@ -42,7 +42,7 @@ const Login: React.FC = () => {
               label="用户名"
               name="username"
               rules={[
-                { required: true, message: "Please input your username!" },
+                { required: true, message: 'Please input your username!' },
               ]}
             >
               <Input />
@@ -52,7 +52,7 @@ const Login: React.FC = () => {
               label="密码"
               name="password"
               rules={[
-                { required: true, message: "Please input your password!" },
+                { required: true, message: 'Please input your password!' },
               ]}
             >
               <Input.Password />
@@ -75,7 +75,7 @@ const Login: React.FC = () => {
         </Card>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login

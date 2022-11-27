@@ -1,15 +1,15 @@
-import { useState } from "react";
-import "reset-css";
-import "./App.scss";
-import "antd/dist/antd.css";
-import "normalize.css/normalize.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Login from "@pages/Login";
-import Layout from "@pages/Layout";
-import Configuration from "@pages/Configuration";
+import { useState } from 'react'
+import 'reset-css'
+import './App.scss'
+import 'antd/dist/antd.css'
+import 'normalize.css/normalize.css'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Login from '@pages/Login'
+import Layout from '@pages/Layout'
+import Configuration from '@pages/Configuration'
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0)
 
   return (
     // 路由配置
@@ -23,7 +23,7 @@ function App() {
         </Routes>
       </div>
     </BrowserRouter>
-  );
+  )
 }
 
-export default App;
+export default App
