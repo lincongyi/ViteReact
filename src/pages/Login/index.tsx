@@ -5,19 +5,29 @@ import type { FormInstance } from 'antd/es/form'
 import { useNavigate } from 'react-router-dom'
 import { login } from '@api/login'
 import { useStore } from '@stores/index'
+import { setToken } from '@utils/token'
 
 const Login: React.FC = () => {
   const [messageApi, contextHolder] = message.useMessage()
   let navigate = useNavigate()
   let { loginStore } = useStore()
   const onFinish = async (values: Record<string, any>) => {
-    let { status, data } = await login(values)
-    loginStore.setToken(data.token)
+    let result
+    try {
+      result = await login(values)
+    } catch (error) {
+      console.log(error)
+      return false
+    }
+    let { token } = result.data
+    loginStore.setToken(token) // mobx存储
+    setToken(token) // localStorage存储
+
     messageApi.open({
       type: 'success',
       content: '登录成功！',
       duration: 2,
-      onClose: () => status === 400 && navigate('/'),
+      onClose: () => navigate('/'),
     })
   }
 
