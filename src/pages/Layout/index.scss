@@ -14,7 +14,18 @@
 }
 .header{
   padding: 0;
-  background-color: transparent
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .user-tool{
+    display: flex;
+    margin-right: 20px;
+    .logoff{
+      margin-left: 20px;
+      cursor: pointer;
+    }
+  }
 }
 .content{
   padding: 24px;
