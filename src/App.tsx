@@ -4,9 +4,12 @@ import './App.scss'
 import 'antd/dist/antd.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Auth } from '@components/auth'
+import Configuration from '@pages/Configuration'
 import Login from '@pages/Login'
 import Layout from '@pages/Layout'
-import Configuration from '@pages/Configuration'
+import Home from '@pages/Home'
+import Article from '@pages/Article'
+import Publish from '@pages/Publish'
 
 function App () {
   return (
@@ -22,7 +25,11 @@ function App () {
                 <Layout></Layout>
               </Auth>
             }
-          ></Route>
+          >
+            <Route index element={<Home/>}></Route>
+            <Route path='article' element={<Article/>}></Route>
+            <Route path='publish' element={<Publish/>}></Route>
+          </Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/configuration" element={<Configuration />}></Route>
         </Routes>
