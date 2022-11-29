@@ -1,10 +1,20 @@
-import { Menu } from 'antd'
+import React, { useState } from 'react'
+import { Menu, Layout } from 'antd'
 import type { MenuProps } from 'antd'
-import { useState } from 'react'
+import {
+  MenuFoldOutlined,
+  MenuUnfoldOutlined,
+  AppstoreOutlined,
+} from '@ant-design/icons'
+import './index.scss'
 
-const Layout = () => {
+const { Header, Sider, Content } = Layout
+
+const AppLayout: React.FC = () => {
+  const [collapsed, setCollapsed] = useState(false)
+
   const items = [
-    { label: '菜单项一', key: 'item-1' }, // 菜单项务必填写 key
+    { label: '菜单项一', key: 'item-1', icon: <AppstoreOutlined /> }, // 菜单项务必填写 key
     { label: '菜单项二', key: 'item-2' },
     {
       label: '子菜单1',
@@ -24,16 +34,33 @@ const Layout = () => {
     setCurrent(e.key)
   }
   return (
-    <>
-      <Menu
-        theme="dark"
-        mode="inline"
-        items={items}
-        selectedKeys={[current]}
-        onClick={onClick}
-      />
-    </>
+    <Layout className="layout-wrap">
+      <Sider trigger={null} collapsible collapsed={collapsed}>
+        <div className="logo">
+          <div className="bg"></div>
+        </div>
+        <Menu
+          theme="dark"
+          mode="inline"
+          items={items}
+          selectedKeys={[current]}
+          onClick={onClick}
+        />
+      </Sider>
+      <Layout className="site-layout">
+        <Header className="header">
+          {React.createElement(
+            collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
+            {
+              className: 'collapsed',
+              onClick: () => setCollapsed(!collapsed),
+            }
+          )}
+        </Header>
+        <Content className="content">Content</Content>
+      </Layout>
+    </Layout>
   )
 }
 
-export default Layout
+export default AppLayout
