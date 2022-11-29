@@ -19,3 +19,5 @@
 ### App.scss 全局样式
 
 ### main.tsx 项目入口
+
+#### npm init @eslint/config or npx eslint --init
