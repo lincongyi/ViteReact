@@ -1,3 +1,4 @@
+import React from 'react'
 import 'reset-css'
 import './App.scss'
 import 'antd/dist/antd.css'
@@ -7,7 +8,7 @@ import Login from '@pages/Login'
 import Layout from '@pages/Layout'
 import Configuration from '@pages/Configuration'
 
-function App() {
+function App () {
   return (
     // 路由配置
     <BrowserRouter>

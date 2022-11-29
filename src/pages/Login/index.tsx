@@ -9,8 +9,8 @@ import { setToken } from '@utils/token'
 
 const Login: React.FC = () => {
   const [messageApi, contextHolder] = message.useMessage()
-  let navigate = useNavigate()
-  let { loginStore } = useStore()
+  const navigate = useNavigate()
+  const { loginStore } = useStore()
   const onFinish = async (values: Record<string, any>) => {
     let result
     try {
@@ -19,7 +19,7 @@ const Login: React.FC = () => {
       console.log(error)
       return false
     }
-    let { token } = result.data
+    const { token } = result.data
     loginStore.setToken(token) // mobx存储
     setToken(token) // localStorage存储
 

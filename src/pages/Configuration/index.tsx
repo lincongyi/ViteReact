@@ -1,3 +1,4 @@
+import React from 'react'
 import { List, Typography, Card } from 'antd'
 import './index.scss'
 
@@ -44,8 +45,8 @@ const Configuration = () => {
         <div>
           <Text strong>/src</Text>
         </div>
-        {fileList.map((item) => (
-          <div className="project-file-item">
+        {fileList.map((item, index) => (
+          <div className="project-file-item" key={index}>
             <Text strong>{item.file}</Text>
             <Text mark>{item.description}</Text>
           </div>
@@ -63,7 +64,7 @@ const Configuration = () => {
         </p>
         <p>
           （2）<Text>在App.tsx中导入基础样式文件</Text>
-          <Text code>import 'antd/dist/antd.css';</Text>
+          <Text code>import &apos;antd/dist/antd.css&apos;</Text>
         </p>
       </Card>
       <Card title="5.配置项目文件夹目录别名">
@@ -72,16 +73,16 @@ const Configuration = () => {
           <Text code>
             resolve: {'\u007b'}
             alias: {'\u007b'}
-            "@": path.resolve(__dirname, "./src"), "@images":
-            path.resolve(__dirname, "./src/assets/images"), ......
+            &quot;@&quot;: path.resolve(__dirname, &quot;./src&quot;), &quot;@images&quot;:
+            path.resolve(__dirname, &quot;./src/assets/images&quot;), ......
             {'\u007d'},{'\u007d'}
           </Text>
         </p>
         <p>
           （2）<Text>在tsconfig.json中配置compilerOptions.paths属性</Text>
           <Text code>
-            "paths": {'\u007b'}
-            "@images/*":["./src/assets/images/*"],......
+            &quot;paths&quot;: {'\u007b'}
+            &quot;@images/*&quot;:[&quot;./src/assets/images/*&quot;],......
             {'\u007d'}
           </Text>
         </p>
