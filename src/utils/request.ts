@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { getToken, isAuth } from '@utils/token'
+import { getToken } from '@utils/token'
 
 const request = axios.create({
   baseURL: 'http://127.0.0.1:3000',
@@ -8,7 +8,7 @@ const request = axios.create({
 // 添加请求拦截器
 request.interceptors.request.use(
   (config) => {
-    let token = getToken()
+    const token = getToken()
     if (token) config.headers!.Authorization = token // token持久化存储
     return config
   },

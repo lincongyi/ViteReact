@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { Outlet, useNavigate, useLocation } from 'react-router-dom'
 import { observer } from 'mobx-react-lite'
-import { Menu, Layout, Popconfirm } from 'antd'
+import { Menu, Layout, Popconfirm, message } from 'antd'
 import type { MenuProps } from 'antd'
 import { useStore } from '@stores/index'
+import { logoff } from '@api/logoff'
+import { removeToken } from '@utils/token'
 import {
   PoweroffOutlined,
   MenuFoldOutlined,
@@ -29,8 +31,19 @@ const AppLayout: React.FC = () => {
     userStore.getProfile() // 用户名字
   }, [])
 
+  const [messageApi, contextHolder] = message.useMessage()
+
   // 退出登录
-  const onConfirm = () => {}
+  const onConfirm = async () => {
+    await logoff()
+    removeToken()
+    messageApi.open({
+      type: 'success',
+      content: '退出登录！',
+      duration: 2,
+      onClose: () => navigate('/login'),
+    })
+  }
 
   const [collapsed, setCollapsed] = useState(false)
 
@@ -59,50 +72,53 @@ const AppLayout: React.FC = () => {
     navigate(e.key)
   }
   return (
-    <Layout className="layout-wrap">
-      <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div className="logo">
-          <div className="bg"></div>
-        </div>
-        <Menu
-          theme="dark"
-          mode="inline"
-          items={items}
-          selectedKeys={[current]}
-          onClick={onClick}
-        />
-      </Sider>
-      <Layout className="site-layout">
-        <Header className="header">
-          {React.createElement(
-            collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
-            {
-              className: 'collapsed',
-              onClick: () => setCollapsed(!collapsed),
-            }
-          )}
-          <div className="user-tool">
-            { userStore.profile?.username }
-            <Popconfirm
-              placement="bottomRight"
-              title={text}
-              onConfirm={onConfirm}
-              okText="确定"
-              cancelText="取消"
-            >
-              <div className="logoff">
-                <PoweroffOutlined />
-                退出登录
-              </div>
-            </Popconfirm>
+    <>
+      { contextHolder }
+      <Layout className="layout-wrap">
+        <Sider trigger={null} collapsible collapsed={collapsed}>
+          <div className="logo">
+            <div className="bg"></div>
           </div>
-        </Header>
-        <Content className="content">
-          {/* 二级路由出口 */}
-          <Outlet></Outlet>
-        </Content>
+          <Menu
+            theme="dark"
+            mode="inline"
+            items={items}
+            selectedKeys={[current]}
+            onClick={onClick}
+          />
+        </Sider>
+        <Layout className="site-layout">
+          <Header className="header">
+            {React.createElement(
+              collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
+              {
+                className: 'collapsed',
+                onClick: () => setCollapsed(!collapsed),
+              }
+            )}
+            <div className="user-tool">
+              { userStore.profile?.username }
+              <Popconfirm
+                placement="bottomRight"
+                title={text}
+                onConfirm={onConfirm}
+                okText="确定"
+                cancelText="取消"
+              >
+                <div className="logoff">
+                  <PoweroffOutlined />
+                  退出登录
+                </div>
+              </Popconfirm>
+            </div>
+          </Header>
+          <Content className="content">
+            {/* 二级路由出口 */}
+            <Outlet></Outlet>
+          </Content>
+        </Layout>
       </Layout>
-    </Layout>
+    </>
   )
 }
 
