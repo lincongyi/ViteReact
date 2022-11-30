@@ -1,4 +1,4 @@
-import { request } from "@utils/request"
+import { request } from '@utils/request'
 
 type Response = {
   code: string
@@ -9,7 +9,12 @@ type Response = {
 
 // 登录
 const login = (data: Record<string, any>): Promise<Response> => {
-  return request.post("/login", data)
+  return request.post('/login', data)
 }
 
-export { login }
+// 获取用户信息
+const getUerProfile = (): Promise<Response> => {
+  return request.post('/profile')
+}
+
+export { login, getUerProfile }

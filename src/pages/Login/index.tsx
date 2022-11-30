@@ -14,7 +14,7 @@ const Login: React.FC = () => {
   const onFinish = async (values: Record<string, any>) => {
     let result
     try {
-      result = await login(values)
+      result = await login(values) // 登录
     } catch (error) {
       console.log(error)
       return false

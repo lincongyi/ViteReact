@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Outlet, useNavigate, useLocation } from 'react-router-dom'
+import { observer } from 'mobx-react-lite'
 import { Menu, Layout, Popconfirm } from 'antd'
 import type { MenuProps } from 'antd'
+import { useStore } from '@stores/index'
 import {
   PoweroffOutlined,
   MenuFoldOutlined,
@@ -21,6 +23,11 @@ const text = '是否确认退出登录？'
 const AppLayout: React.FC = () => {
   const navigate = useNavigate()
   const { pathname } = useLocation()
+  const { userStore } = useStore()
+
+  useEffect(() => {
+    userStore.getProfile() // 用户名字
+  }, [])
 
   // 退出登录
   const onConfirm = () => {}
@@ -75,7 +82,7 @@ const AppLayout: React.FC = () => {
             }
           )}
           <div className="user-tool">
-            user name
+            { userStore.profile?.username }
             <Popconfirm
               placement="bottomRight"
               title={text}
@@ -99,4 +106,4 @@ const AppLayout: React.FC = () => {
   )
 }
 
-export default AppLayout
+export default observer(AppLayout)

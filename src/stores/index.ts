@@ -2,11 +2,14 @@
 // 同时返回一个useStore方法，通过该方法可访问存储数据
 import React from 'react'
 import LoginStore from './login.store'
+import UserStore from './user.store'
 
 class RootStore {
   loginStore
-  constructor() {
+  userStore
+  constructor () {
     this.loginStore = new LoginStore()
+    this.userStore = new UserStore()
   }
 }
 
