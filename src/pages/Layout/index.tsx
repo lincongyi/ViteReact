@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Outlet, useNavigate } from 'react-router-dom'
+import { Outlet, useNavigate, useLocation } from 'react-router-dom'
 import { Menu, Layout, Popconfirm } from 'antd'
 import type { MenuProps } from 'antd'
 import {
@@ -20,6 +20,7 @@ const text = '是否确认退出登录？'
 
 const AppLayout: React.FC = () => {
   const navigate = useNavigate()
+  const { pathname } = useLocation()
 
   // 退出登录
   const onConfirm = () => {}
@@ -43,7 +44,7 @@ const AppLayout: React.FC = () => {
       children: [{ label: '子菜单项2-1', key: 'submenu-item-2-1' }],
     },
   ]
-  const [current, setCurrent] = useState('/')
+  const [current, setCurrent] = useState(pathname)
 
   // 切换菜单
   const onClick: MenuProps['onClick'] = (e) => {
