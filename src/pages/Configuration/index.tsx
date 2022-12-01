@@ -95,13 +95,13 @@ const Configuration = () => {
       </Card>
       <Card title="7.安装axios">
         <p>
-          <Text code>npm i axios</Text>
+          <Text code>npm i axios -S</Text>
         </p>
         <p>/utils/request.js文件封装axios请求拦截、相应</p>
       </Card>
       <Card title="8.安装mobx">
         <p>
-          <Text code>npm i mobx mobx-react-lite</Text>
+          <Text code>npm i mobx mobx-react-lite -S</Text>
         </p>
         <p>/stores/index.js文件负责汇总所有存储模块</p>
       </Card>
