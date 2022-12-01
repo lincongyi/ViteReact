@@ -88,19 +88,24 @@ const Configuration = () => {
           </Text>
         </p>
       </Card>
-      <Card title="6.安装axios">
+      <Card title="6.安装react-router">
+        <p>
+          <Text code>npm i react-router-dom@6 -S</Text>
+        </p>
+      </Card>
+      <Card title="7.安装axios">
         <p>
           <Text code>npm i axios</Text>
         </p>
         <p>/utils/request.js文件封装axios请求拦截、相应</p>
       </Card>
-      <Card title="7.安装mobx">
+      <Card title="8.安装mobx">
         <p>
           <Text code>npm i mobx mobx-react-lite</Text>
         </p>
         <p>/stores/index.js文件负责汇总所有存储模块</p>
       </Card>
-      <Card title="8.配置host">
+      <Card title="9.配置host">
         <p>
           vite.config.ts文件里添加
           <Text code>
@@ -108,7 +113,7 @@ const Configuration = () => {
           </Text>
         </p>
       </Card>
-      <Card title="9.配置eslint">
+      <Card title="10.配置eslint">
         <p>
           <Text code>npx eslint --init</Text>
         </p>
