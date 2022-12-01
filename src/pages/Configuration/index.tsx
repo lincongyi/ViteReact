@@ -108,6 +108,12 @@ const Configuration = () => {
           </Text>
         </p>
       </Card>
+      <Card title="9.配置eslint">
+        <p>
+          <Text code>npx eslint --init</Text>
+        </p>
+        <p>根据引导流程选择eslint的配置</p>
+      </Card>
     </>
   )
 }
