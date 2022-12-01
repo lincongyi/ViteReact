@@ -73,8 +73,9 @@ const Configuration = () => {
           <Text code>
             resolve: {'\u007b'}
             alias: {'\u007b'}
-            &quot;@&quot;: path.resolve(__dirname, &quot;./src&quot;), &quot;@images&quot;:
-            path.resolve(__dirname, &quot;./src/assets/images&quot;), ......
+            &quot;@&quot;: path.resolve(__dirname, &quot;./src&quot;),
+            &quot;@images&quot;: path.resolve(__dirname,
+            &quot;./src/assets/images&quot;), ......
             {'\u007d'},{'\u007d'}
           </Text>
         </p>
@@ -98,6 +99,14 @@ const Configuration = () => {
           <Text code>npm i mobx mobx-react-lite</Text>
         </p>
         <p>/stores/index.js文件负责汇总所有存储模块</p>
+      </Card>
+      <Card title="8.配置host">
+        <p>
+          vite.config.ts文件里添加
+          <Text code>
+            server: {'\u007b'}host: &quot;0.0.0.0&quot;{'\u007d'}
+          </Text>
+        </p>
       </Card>
     </>
   )
