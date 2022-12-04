@@ -87,7 +87,7 @@ const AppLayout: React.FC = () => {
             onClick={onClick}
           />
         </Sider>
-        <Layout className="site-layout">
+        <Layout>
           <Header className="header">
             {React.createElement(
               collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
