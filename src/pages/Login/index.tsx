@@ -45,7 +45,7 @@ const Login: React.FC = () => {
 
   return (
     <>
-      { contextHolder }
+      {contextHolder}
       <div className="wrapper">
         <div className="card-wrapper">
           <Card title="登录" bordered={false} style={{ width: 400 }}>

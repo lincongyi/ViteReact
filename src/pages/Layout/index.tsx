@@ -28,7 +28,7 @@ const AppLayout: React.FC = () => {
   const { userStore } = useStore()
 
   useEffect(() => {
-    userStore.getProfile() // 用户名字
+    // userStore.getProfile() // 用户名字
   }, [])
 
   const [messageApi, contextHolder] = message.useMessage()
@@ -73,7 +73,7 @@ const AppLayout: React.FC = () => {
   }
   return (
     <>
-      { contextHolder }
+      {contextHolder}
       <Layout className="layout-wrap">
         <Sider trigger={null} collapsible collapsed={collapsed}>
           <div className="logo">
@@ -97,7 +97,7 @@ const AppLayout: React.FC = () => {
               }
             )}
             <div className="user-tool">
-              { userStore.profile?.username }
+              {userStore.profile?.username}
               <Popconfirm
                 placement="bottomRight"
                 title={text}
