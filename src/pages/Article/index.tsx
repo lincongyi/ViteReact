@@ -38,7 +38,11 @@ const columns: ColumnsType<IcolumnsType> = [
     title: '封面',
     dataIndex: 'cover',
     render: (cover: string) =>
-      cover ? <Image width={200} src={cover} /> : <Empty />,
+      cover ? (
+        <Image width={200} src={cover} />
+      ) : (
+        <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
+      ),
     align: 'center',
   },
   { title: '标题', dataIndex: 'title' },

@@ -28,5 +28,6 @@ module.exports = {
     'no-multiple-empty-lines': [2, { max: 2 }],
     'no-useless-escape': 0,
     'comma-dangle': 0,
+    'multiline-ternary': 0,
   },
 }
