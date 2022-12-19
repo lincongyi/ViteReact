@@ -28,7 +28,7 @@ const AppLayout: React.FC = () => {
   const { userStore } = useStore()
 
   useEffect(() => {
-    // userStore.getProfile() // 用户名字
+    userStore.getProfile() // 用户名字
   }, [])
 
   const [messageApi, contextHolder] = message.useMessage()
