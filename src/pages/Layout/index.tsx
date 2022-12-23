@@ -11,6 +11,8 @@ import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
   AppstoreOutlined,
+  UserOutlined,
+  SnippetsOutlined,
   ProfileOutlined,
   FileTextOutlined,
   FileDoneOutlined,
@@ -49,6 +51,8 @@ const AppLayout: React.FC = () => {
 
   const items = [
     { label: '数据概览', key: '/', icon: <AppstoreOutlined /> }, // 菜单项务必填写 key
+    { label: '用户管理', key: '/member', icon: <UserOutlined /> },
+    { label: '文章类型', key: '/articleType', icon: <SnippetsOutlined /> },
     { label: '内容管理', key: '/article', icon: <ProfileOutlined /> },
     { label: '发布文章', key: '/publish', icon: <FileTextOutlined /> },
     {
@@ -67,28 +71,28 @@ const AppLayout: React.FC = () => {
   const [current, setCurrent] = useState(pathname)
 
   // 切换菜单
-  const onClick: MenuProps['onClick'] = (e) => {
+  const onClick: MenuProps['onClick'] = e => {
     setCurrent(e.key)
     navigate(e.key)
   }
   return (
     <>
       {contextHolder}
-      <Layout className="layout-wrap">
+      <Layout className='layout-wrap'>
         <Sider trigger={null} collapsible collapsed={collapsed}>
-          <div className="logo">
-            <div className="bg"></div>
+          <div className='logo'>
+            <div className='bg'></div>
           </div>
           <Menu
-            theme="dark"
-            mode="inline"
+            theme='dark'
+            mode='inline'
             items={items}
             selectedKeys={[current]}
             onClick={onClick}
           />
         </Sider>
         <Layout>
-          <Header className="header">
+          <Header className='header'>
             {React.createElement(
               collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
               {
@@ -96,23 +100,23 @@ const AppLayout: React.FC = () => {
                 onClick: () => setCollapsed(!collapsed),
               }
             )}
-            <div className="user-tool">
+            <div className='user-tool'>
               {userStore.profile?.username}
               <Popconfirm
-                placement="bottomRight"
+                placement='bottomRight'
                 title={text}
                 onConfirm={onConfirm}
-                okText="确定"
-                cancelText="取消"
+                okText='确定'
+                cancelText='取消'
               >
-                <div className="logoff">
+                <div className='logoff'>
                   <PoweroffOutlined />
                   退出登录
                 </div>
               </Popconfirm>
             </div>
           </Header>
-          <Content className="content">
+          <Content className='content'>
             {/* 二级路由出口 */}
             <Outlet></Outlet>
           </Content>
