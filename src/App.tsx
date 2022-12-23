@@ -5,13 +5,14 @@ import 'antd/dist/antd.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Auth } from '@components/auth'
 import Configuration from '@pages/Configuration'
+import Playground from '@pages/Playground'
 import Login from '@pages/Login'
 import Layout from '@pages/Layout'
 import Home from '@pages/Home'
 import Article from '@pages/Article'
 import Publish from '@pages/Publish'
 
-function App () {
+const App: React.FC = () => {
   return (
     // 路由配置
     <BrowserRouter>
@@ -26,12 +27,13 @@ function App () {
               </Auth>
             }
           >
-            <Route index element={<Home/>}></Route>
-            <Route path='article' element={<Article/>}></Route>
-            <Route path='publish' element={<Publish/>}></Route>
+            <Route index element={<Home />}></Route>
+            <Route path="article" element={<Article />}></Route>
+            <Route path="publish" element={<Publish />}></Route>
           </Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/configuration" element={<Configuration />}></Route>
+          <Route path="/playground" element={<Playground />}></Route>
         </Routes>
       </div>
     </BrowserRouter>

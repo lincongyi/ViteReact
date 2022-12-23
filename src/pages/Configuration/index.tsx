@@ -4,7 +4,7 @@ import './index.scss'
 
 const { Title, Text } = Typography
 
-const Configuration = () => {
+const Configuration: React.FC = () => {
   const techniqueList = [
     '脚手架：Vite',
     'react hook',
