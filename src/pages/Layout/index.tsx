@@ -17,6 +17,7 @@ import {
   FileTextOutlined,
   FileDoneOutlined,
   TagsOutlined,
+  ExceptionOutlined,
 } from '@ant-design/icons'
 import './index.scss'
 
@@ -55,6 +56,7 @@ const AppLayout: React.FC = () => {
     { label: '文章类型', key: '/articleType', icon: <SnippetsOutlined /> },
     { label: '内容管理', key: '/article', icon: <ProfileOutlined /> },
     { label: '发布文章', key: '/publish', icon: <FileTextOutlined /> },
+    { label: '记录&总结', key: '/summary', icon: <ExceptionOutlined /> },
     {
       label: '子菜单1',
       key: 'submenu-1',

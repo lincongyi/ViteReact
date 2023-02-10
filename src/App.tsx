@@ -1,7 +1,6 @@
 import React from 'react'
 import 'reset-css'
 import './App.scss'
-import 'antd/dist/antd.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Auth } from '@components/auth'
 import Configuration from '@pages/Configuration'
@@ -13,6 +12,7 @@ import Member from '@pages/Member'
 import ArticleType from '@pages/ArticleType'
 import Article from '@pages/Article'
 import Publish from '@pages/Publish'
+import Summary from '@pages/Summary'
 
 const App: React.FC = () => {
   return (
@@ -34,6 +34,7 @@ const App: React.FC = () => {
             <Route path='articleType' element={<ArticleType />}></Route>
             <Route path='article' element={<Article />}></Route>
             <Route path='publish' element={<Publish />}></Route>
+            <Route path='summary' element={<Summary />}></Route>
           </Route>
           <Route path='/login' element={<Login />}></Route>
           <Route path='/configuration' element={<Configuration />}></Route>

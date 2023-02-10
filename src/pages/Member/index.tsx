@@ -1,14 +1,30 @@
 import React, { useEffect, useState } from 'react'
 import './index.scss'
-import { Button, Col, DatePicker, Form, Input, Row, Table } from 'antd'
-import locale from 'antd/es/date-picker/locale/zh_CN'
-import 'moment/dist/locale/zh-cn'
-import moment from 'moment'
+import {
+  Button,
+  Col,
+  ConfigProvider,
+  DatePicker,
+  Form,
+  Input,
+  Row,
+  Table,
+} from 'antd'
+import type { Dayjs } from 'dayjs'
+import 'dayjs/locale/zh-cn'
+import locale from 'antd/locale/zh_CN'
 import { getMember } from '@api/member'
 
 const { Column } = Table
 
-const Member: React.FC = () => {
+const Member = () => {
+  const [form] = Form.useForm()
+  /**
+   * 设置表单中日期的值
+   */
+  const onChange = (date: Dayjs | null, dateString: string) =>
+    form.setFieldValue('datePicker', dateString)
+
   const onFinish = (values: any) => {
     console.log(values)
   }
@@ -30,13 +46,7 @@ const Member: React.FC = () => {
 
   return (
     <>
-      <Form
-        labelCol={{ span: 4 }}
-        initialValues={{
-          datePicker: moment('2011/11/11', 'YYYY/MM/DD'),
-        }}
-        onFinish={onFinish}
-      >
+      <Form form={form} labelCol={{ span: 6 }} onFinish={onFinish}>
         <Row gutter={16}>
           <Col span={6}>
             <Form.Item label='用户名' name='name'>
@@ -50,7 +60,9 @@ const Member: React.FC = () => {
           </Col>
           <Col span={6}>
             <Form.Item label='注册日期' name='datePicker'>
-              <DatePicker locale={locale} />
+              <ConfigProvider locale={locale}>
+                <DatePicker onChange={onChange} />
+              </ConfigProvider>
             </Form.Item>
           </Col>
         </Row>

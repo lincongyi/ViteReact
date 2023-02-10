@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import './index.scss'
 import {
   Col,
   Row,
@@ -13,12 +14,13 @@ import {
   Empty,
   Space,
   Modal,
+  ConfigProvider,
 } from 'antd'
 import { ExclamationCircleOutlined } from '@ant-design/icons'
-import './index.scss'
-import locale from 'antd/es/date-picker/locale/zh_CN'
-import 'moment/dist/locale/zh-cn'
-import moment from 'moment'
+import type { Dayjs } from 'dayjs'
+import 'dayjs/locale/zh-cn'
+import locale from 'antd/locale/zh_CN'
+import type { RangeValue } from 'rc-picker/lib/interface.d'
 import type { ColumnsType } from 'antd/es/table'
 import { getArticleType, getArticleList } from '@api/article'
 
@@ -101,7 +103,9 @@ const onDelete = (id: string) => {
   })
 }
 
-const Article: React.FC = () => {
+const Article = () => {
+  const [form] = Form.useForm()
+
   const [articleType, setArticleType] = useState([]) // 文章类型
   // 获取文章类型
   useEffect(() => {
@@ -136,6 +140,17 @@ const Article: React.FC = () => {
     setVariety(variety)
   }
 
+  /**
+   * 设置表单中日期的值
+   */
+  const onChange = (date: Dayjs | null, dateString: string) =>
+    form.setFieldValue('datePicker', dateString)
+
+  const onRangePickerChange = (
+    date: RangeValue<Dayjs>,
+    dateString: [string, string]
+  ) => form.setFieldValue('rangeDate', dateString)
+
   const onFinish = (values: any) => {
     console.log(values)
     // const { rangeDate } = values
@@ -147,11 +162,11 @@ const Article: React.FC = () => {
   return (
     <>
       <Form
-        labelCol={{ span: 4 }}
+        form={form}
+        labelCol={{ span: 6 }}
         initialValues={{
           status,
           variety,
-          datePicker: moment('2011/11/11', 'YYYY/MM/DD'),
         }}
         onValuesChange={onValuesChange}
         onFinish={onFinish}
@@ -174,7 +189,9 @@ const Article: React.FC = () => {
           </Col>
           <Col span={6}>
             <Form.Item label='DatePicker' name='datePicker'>
-              <DatePicker locale={locale} />
+              <ConfigProvider locale={locale}>
+                <DatePicker onChange={onChange} />
+              </ConfigProvider>
             </Form.Item>
           </Col>
           <Col span={6}>
@@ -201,7 +218,9 @@ const Article: React.FC = () => {
           </Col>
           <Col span={12}>
             <Form.Item label='发布区间' name='rangeDate'>
-              <RangePicker locale={locale} />
+              <ConfigProvider locale={locale}>
+                <RangePicker onChange={onRangePickerChange} />
+              </ConfigProvider>
             </Form.Item>
           </Col>
         </Row>

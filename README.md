@@ -1,3 +1,14 @@
+## 安装使用
+
+```sh
+# 安装依赖
+npm i
+# 运行
+npm run dev
+# 打包
+npm run build
+```
+
 ## 项目结构
 
 ### /src

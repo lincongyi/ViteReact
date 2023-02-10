@@ -30,4 +30,9 @@ module.exports = {
     'comma-dangle': 0,
     'multiline-ternary': 0,
   },
+  settings: {
+    react: {
+      version: '18.2.0'
+    }
+  }
 }
