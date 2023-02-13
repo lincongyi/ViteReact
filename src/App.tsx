@@ -13,6 +13,7 @@ import ArticleType from '@pages/ArticleType'
 import Article from '@pages/Article'
 import Publish from '@pages/Publish'
 import Summary from '@pages/Summary'
+import ReactMemo from '@pages/Summary/ReactMemo'
 
 const App: React.FC = () => {
   return (
@@ -34,7 +35,10 @@ const App: React.FC = () => {
             <Route path='articleType' element={<ArticleType />}></Route>
             <Route path='article' element={<Article />}></Route>
             <Route path='publish' element={<Publish />}></Route>
-            <Route path='summary' element={<Summary />}></Route>
+            <Route path='summary' element={<Summary />}>
+              <Route index element={<ReactMemo />}></Route>
+              <Route path='/summary/reactMemo' element={<ReactMemo />}></Route>
+            </Route>
           </Route>
           <Route path='/login' element={<Login />}></Route>
           <Route path='/configuration' element={<Configuration />}></Route>

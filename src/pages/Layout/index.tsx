@@ -56,7 +56,12 @@ const AppLayout: React.FC = () => {
     { label: '文章类型', key: '/articleType', icon: <SnippetsOutlined /> },
     { label: '内容管理', key: '/article', icon: <ProfileOutlined /> },
     { label: '发布文章', key: '/publish', icon: <FileTextOutlined /> },
-    { label: '记录&总结', key: '/summary', icon: <ExceptionOutlined /> },
+    {
+      label: '记录&总结',
+      key: '/summary',
+      icon: <ExceptionOutlined />,
+      children: [{ label: 'React.memo', key: '/summary/reactMemo' }],
+    },
     {
       label: '子菜单1',
       key: 'submenu-1',
