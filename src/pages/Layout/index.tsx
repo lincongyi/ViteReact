@@ -60,7 +60,10 @@ const AppLayout: React.FC = () => {
       label: '记录&总结',
       key: '/summary',
       icon: <ExceptionOutlined />,
-      children: [{ label: 'React.memo', key: '/summary/reactMemo' }],
+      children: [
+        { label: 'React.memo', key: '/summary/reactMemo' },
+        { label: 'useReducer', key: '/summary/reactReducer' },
+      ],
     },
     {
       label: '子菜单1',
@@ -86,7 +89,13 @@ const AppLayout: React.FC = () => {
     <>
       {contextHolder}
       <Layout className='layout-wrap'>
-        <Sider trigger={null} collapsible collapsed={collapsed}>
+        <Sider
+          trigger={null}
+          collapsible
+          collapsed={collapsed}
+          width={200}
+          style={{ position: 'fixed', height: '100vh' }}
+        >
           <div className='logo'>
             <div className='bg'></div>
           </div>
@@ -98,8 +107,13 @@ const AppLayout: React.FC = () => {
             onClick={onClick}
           />
         </Sider>
-        <Layout>
-          <Header className='header'>
+        <Layout style={{ marginLeft: !collapsed ? 200 : 80 }}>
+          <Header
+            className='header'
+            style={{
+              width: !collapsed ? 'calc(100% - 200px)' : 'calc(100% - 80px)',
+            }}
+          >
             {React.createElement(
               collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
               {

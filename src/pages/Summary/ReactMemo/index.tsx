@@ -1,6 +1,6 @@
+import React from 'react'
 import CodeHighLight from '@components/CodeHighLight'
 import { Col, Divider, Row, Timeline, Typography } from 'antd'
-import React from 'react'
 import {
   codeString1,
   codeString2,
@@ -23,7 +23,9 @@ const ReactMemo = () => {
   return (
     <Row>
       <Col span={6}>
-        <Timeline items={items} />
+        <div style={{ position: 'fixed' }}>
+          <Timeline items={items} />
+        </div>
       </Col>
       <Col span={18}>
         <Typography>
@@ -31,7 +33,8 @@ const ReactMemo = () => {
             <Col span={24}>
               <Title>React.memo的作用</Title>
               <Paragraph>
-                React.memo()是一个高阶组件，作用于函数组件，通过对前后props进行浅比较，如果前后props不一致，该组件将重新渲染，反之，不进行渲染，使用缓存中的组件。
+                <Text code>React.memo()</Text>
+                是一个高阶组件，作用于函数组件，通过对前后props进行浅比较，如果前后props不一致，该组件将重新渲染，反之，不进行渲染，使用缓存中的组件。
               </Paragraph>
               <Paragraph>
                 memo函数第二个参数接收一个函数，该函数比较前后props是否一致。

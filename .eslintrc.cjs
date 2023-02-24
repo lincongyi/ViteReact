@@ -14,7 +14,7 @@ module.exports = {
   },
   plugins: ['react', '@typescript-eslint'],
   rules: {
-    indent: [2, 2],
+    indent: 0,
     semi: [2, 'never'],
     quotes: [1, 'single'],
     eqeqeq: 2,
@@ -32,7 +32,7 @@ module.exports = {
   },
   settings: {
     react: {
-      version: '18.2.0'
-    }
-  }
+      version: '18.2.0',
+    },
+  },
 }
