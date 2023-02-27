@@ -1,4 +1,4 @@
-import React, { useReducer, useRef, useState } from 'react'
+import React, { useContext, useReducer, useRef, useState } from 'react'
 import './index.scss'
 import {
   Button,
@@ -10,10 +10,21 @@ import {
   Select,
   Space,
   Table,
+  Typography,
 } from 'antd'
 import type { InputRef } from 'antd'
 import type { ColumnsType } from 'antd/es/table'
 import { generateId } from '@utils/index'
+
+type TContext = {
+  sonValue: string
+  grandsonValue: string
+}
+
+const myContext = React.createContext<TContext>({
+  sonValue: '',
+  grandsonValue: '',
+})
 
 const Playground = () => {
   const [state, setState] = useState(0)
@@ -108,6 +119,11 @@ const Playground = () => {
   const onFinishFailed = (errorInfo: any) => {
     console.log('Failed:', errorInfo)
   }
+
+  const [provideValue, setProvideValue] = useState({
+    sonValue: 'this is son component value',
+    grandsonValue: 'this is grandson component value',
+  })
 
   return (
     <>
@@ -208,6 +224,52 @@ const Playground = () => {
         </Form>
         <Table columns={columns} dataSource={data} rowKey='id' />
       </div>
+
+      <Divider />
+
+      <Button
+        onClick={() =>
+          setProvideValue({
+            sonValue: `sonValue is changed! ~ ${Math.random() * 100}`,
+            grandsonValue: `grandsonValue is changed! ~ ${Math.random() * 100}`,
+          })
+        }
+      >
+        改变provide
+      </Button>
+      <br />
+
+      <myContext.Provider value={provideValue}>
+        <SonComponent />
+        <Divider />
+      </myContext.Provider>
+
+      <Divider />
+    </>
+  )
+}
+
+const SonComponent = () => {
+  const context = useContext(myContext)
+  return (
+    <>
+      <Typography.Text type='success'>son component</Typography.Text>
+      <br />
+      <Typography.Text type='warning'>{context.sonValue}</Typography.Text>
+      <br />
+      <Divider />
+      <GrandsonComponent />
+    </>
+  )
+}
+
+const GrandsonComponent = () => {
+  const context = useContext(myContext)
+  return (
+    <>
+      <Typography.Text type='secondary'>grandson component</Typography.Text>
+      <br />
+      <Typography.Text type='danger'>{context.grandsonValue}</Typography.Text>
     </>
   )
 }

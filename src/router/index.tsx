@@ -81,6 +81,10 @@ const routes: TRoutes[] = [
             path: 'reactReducer',
             element: lazyLoad('Summary/ReactReducer'),
           },
+          {
+            path: 'reactContext',
+            element: lazyLoad('Summary/ReactContext'),
+          },
         ],
       },
     ],

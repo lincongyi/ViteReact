@@ -63,6 +63,7 @@ const AppLayout: React.FC = () => {
       children: [
         { label: 'React.memo', key: '/summary/reactMemo' },
         { label: 'useReducer', key: '/summary/reactReducer' },
+        { label: 'createContext', key: '/summary/reactContext' },
       ],
     },
     {
