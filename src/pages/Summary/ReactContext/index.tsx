@@ -8,6 +8,8 @@ import {
   codeString3,
   codeString4,
   codeString5,
+  codeString6,
+  codeString7,
 } from './code'
 import Example2 from './Example2'
 
@@ -79,6 +81,10 @@ const ReactReducer = () => {
                   <CodeHighLight codeString={codeString4} />
                   <Text mark>ComponentB.tsx</Text>
                   <CodeHighLight codeString={codeString5} />
+                  <Text mark>ButtonGroup.tsx</Text>
+                  <CodeHighLight codeString={codeString6} />
+                  <Text mark>index.tsx</Text>
+                  <CodeHighLight codeString={codeString7} />
                   <Divider />
                   <Example2 />
                   <Divider />
