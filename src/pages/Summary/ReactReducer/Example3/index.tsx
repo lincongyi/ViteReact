@@ -3,7 +3,7 @@ import { Button, Col, Form, Input, Row, Select, Table } from 'antd'
 import type { ColumnsType } from 'antd/es/table'
 import { generateId } from '@utils/index'
 
-const Example2 = () => {
+const Example3 = () => {
   const [form] = Form.useForm()
 
   type TData = {
@@ -156,4 +156,4 @@ const Example2 = () => {
   )
 }
 
-export default Example2
+export default Example3
