@@ -15,6 +15,9 @@ import {
 import type { InputRef } from 'antd'
 import type { ColumnsType } from 'antd/es/table'
 import { generateId } from '@utils/index'
+import { useStore } from '@stores/index'
+import { useStoreHooks } from '@stores/index.hooks'
+import { observer } from 'mobx-react-lite'
 
 type TContext = {
   sonValue: string
@@ -124,6 +127,9 @@ const Playground = () => {
     sonValue: 'this is son component value',
     grandsonValue: 'this is grandson component value',
   })
+
+  const { countStore } = useStore()
+  const { countStoreHooks } = useStoreHooks()
 
   return (
     <>
@@ -237,7 +243,6 @@ const Playground = () => {
       >
         改变provide
       </Button>
-      <br />
 
       <myContext.Provider value={provideValue}>
         <SonComponent />
@@ -245,6 +250,62 @@ const Playground = () => {
       </myContext.Provider>
 
       <Divider />
+
+      <Row gutter={8}>
+        <Col span={6}>
+          <Input placeholder='Basic usage' value={countStore.count} />
+        </Col>
+        <Col span={18}>
+          <Space>
+            <Button onClick={() => countStore.increment()}>+</Button>
+            <Button type='dashed' onClick={() => countStore.decrement()}>
+              -
+            </Button>
+            <Button
+              type='dashed'
+              onClick={() => console.log(countStore.getDoubleCount())}
+            >
+              double
+            </Button>
+            <Button
+              type='dashed'
+              onClick={() => console.log(countStore.getTrebleCount.get())}
+            >
+              trible
+            </Button>
+          </Space>
+        </Col>
+      </Row>
+
+      <Divider />
+
+      <Typography.Title>hooks 版</Typography.Title>
+
+      <Row gutter={8}>
+        <Col span={6}>
+          <Input placeholder='Basic usage' value={countStoreHooks.count} />
+        </Col>
+        <Col span={18}>
+          <Space>
+            <Button onClick={() => countStoreHooks.increment()}>+</Button>
+            <Button type='dashed' onClick={() => countStoreHooks.decrement()}>
+              -
+            </Button>
+            <Button
+              type='dashed'
+              onClick={() => console.log(countStoreHooks.getDoubleCount())}
+            >
+              double
+            </Button>
+            <Button
+              type='dashed'
+              onClick={() => console.log(countStoreHooks.getTrebleCount)}
+            >
+              trible
+            </Button>
+          </Space>
+        </Col>
+      </Row>
     </>
   )
 }
@@ -274,4 +335,4 @@ const GrandsonComponent = () => {
   )
 }
 
-export default Playground
+export default observer(Playground)

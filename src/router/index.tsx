@@ -85,6 +85,10 @@ const routes: TRoutes[] = [
             path: 'reactContext',
             element: lazyLoad('Summary/ReactContext'),
           },
+          {
+            path: 'reactMobxUseContext',
+            element: lazyLoad('Summary/ReactMobxUseContext'),
+          },
         ],
       },
     ],

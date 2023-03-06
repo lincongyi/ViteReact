@@ -3,13 +3,16 @@
 import React from 'react'
 import LoginStore from './login.store'
 import UserStore from './user.store'
+import CountStore from './count.store'
 
 class RootStore {
   loginStore
   userStore
+  countStore
   constructor () {
     this.loginStore = new LoginStore()
     this.userStore = new UserStore()
+    this.countStore = new CountStore()
   }
 }
 

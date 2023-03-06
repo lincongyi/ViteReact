@@ -64,6 +64,7 @@ const AppLayout: React.FC = () => {
         { label: 'React.memo', key: '/summary/reactMemo' },
         { label: 'useReducer', key: '/summary/reactReducer' },
         { label: 'createContext', key: '/summary/reactContext' },
+        { label: 'Mobx & useContext', key: '/summary/reactMobxUseContext' },
       ],
     },
     {
