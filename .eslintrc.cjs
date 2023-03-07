@@ -36,4 +36,15 @@ module.exports = {
       version: '18.2.0',
     },
   },
+  globals: {
+    JSX: true
+  },
+  overrides: [
+    {
+      files: ['*.ts', '*.tsx'],
+      rules: {
+        'no-undef': 0
+      }
+    }
+  ]
 }

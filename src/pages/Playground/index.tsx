@@ -18,6 +18,9 @@ import { generateId } from '@utils/index'
 import { useStore } from '@stores/index'
 import { useStoreHooks } from '@stores/index.hooks'
 import { observer } from 'mobx-react-lite'
+import { useNavigate } from 'react-router-dom'
+import { context } from '@/App'
+import { lazyLoad } from '@/router'
 
 type TContext = {
   sonValue: string
@@ -130,6 +133,10 @@ const Playground = () => {
 
   const { countStore } = useStore()
   const { countStoreHooks } = useStoreHooks()
+
+  const navigate = useNavigate()
+
+  const { dispatchAuthRoute } = useContext(context)!
 
   return (
     <>
@@ -306,6 +313,26 @@ const Playground = () => {
           </Space>
         </Col>
       </Row>
+
+      <Divider />
+
+      <Space direction='vertical'>
+        <Button type='primary' onClick={() => navigate('/authRoute')}>
+          路由跳转
+        </Button>
+        <Button
+          onClick={() =>
+            dispatchAuthRoute([
+              {
+                path: 'authRoute',
+                element: lazyLoad('authRoute'),
+              },
+            ])
+          }
+        >
+          添加路由权限
+        </Button>
+      </Space>
     </>
   )
 }

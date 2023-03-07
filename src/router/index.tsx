@@ -1,10 +1,10 @@
 import React, { Suspense, lazy } from 'react'
-import { Navigate } from 'react-router-dom'
 import { Spin } from 'antd'
 import { Auth } from '@components/auth'
 import Home from '@pages/Home'
 import Layout from '@pages/Layout'
 import Login from '@pages/Login'
+import NotFound from '@pages/NotFound'
 import Configuration from '@pages/Configuration'
 import Playground from '@pages/Playground'
 
@@ -22,16 +22,14 @@ const lazyLoad = (module: string) => {
   )
 }
 
-type TRoutes = {
-  path: string
-  element?: JSX.Element
-  children?: TRoutes[]
-}
-
 const routes: TRoutes[] = [
   {
     path: '*', // 未匹配到路由，重定向到首页
-    element: <Navigate to='/login' />,
+    element: <NotFound />,
+  },
+  {
+    path: 'notFound',
+    element: <NotFound />,
   },
   {
     path: '/', // 首页
@@ -89,6 +87,10 @@ const routes: TRoutes[] = [
             path: 'reactMobxUseContext',
             element: lazyLoad('Summary/ReactMobxUseContext'),
           },
+          {
+            path: 'reactDynamicRoute',
+            element: lazyLoad('Summary/ReactDynamicRoute'),
+          },
         ],
       },
     ],
@@ -107,4 +109,4 @@ const routes: TRoutes[] = [
   },
 ]
 
-export { routes }
+export { routes, lazyLoad }

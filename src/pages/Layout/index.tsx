@@ -65,6 +65,7 @@ const AppLayout: React.FC = () => {
         { label: 'useReducer', key: '/summary/reactReducer' },
         { label: 'createContext', key: '/summary/reactContext' },
         { label: 'Mobx & useContext', key: '/summary/reactMobxUseContext' },
+        { label: '动态路由', key: '/summary/reactDynamicRoute' },
       ],
     },
     {
