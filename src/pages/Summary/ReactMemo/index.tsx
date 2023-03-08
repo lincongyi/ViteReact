@@ -77,9 +77,9 @@ const ReactMemo = () => {
                   <Example2 />
                   <Divider />
                   <Text type='danger'>
-                    现在能从控制台中看到，无论点击哪一个按钮，都会触发ChildCommon组件的重新渲染
+                    现在能从控制台中看到，无论点击哪一个按钮，都会触发PureComponent组件的重新渲染
                     <br />
-                    由于ChildCommon组件接收了一个onclick函数（引用类型）传入，当Parent组件重新渲染，它也会被重新创建，使得React.memo()失效；
+                    由于PureComponent组件接收了一个onclick函数（引用类型）传入，当Parent组件重新渲染，它也会被重新创建，使得React.memo()失效；
                     <br />
                     所以我们只能够用到React.memo()的第二个参数，传入一个比较函数（结构出引用类型，不做判断）。
                     <br />
@@ -102,6 +102,9 @@ const ReactMemo = () => {
                   <CodeHighLight codeString={codeString7} />
                   <Divider />
                   <Example4 />
+                  <Divider />
+                  <Text strong>在大部分情况下，应该把<Text code>useMemo</Text>用在程序里渲染昂贵的组件上，而不是数值计算上，组件渲染才是性能的瓶颈。</Text>
+                  <Text strong><Text code>useMemo</Text>和<Text code>useCallback</Text>是有成本的，它会增加整体程序初始化的耗时，并不适合全局全面使用，它更适合做局部的优化。</Text>
                 </Col>
               </Row>
             </Col>
