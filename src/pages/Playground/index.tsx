@@ -21,6 +21,7 @@ import { observer } from 'mobx-react-lite'
 import { useNavigate } from 'react-router-dom'
 import { context } from '@/App'
 import { lazyLoad } from '@/router'
+import { getMusic } from '@/api'
 
 type TContext = {
   sonValue: string
@@ -66,7 +67,7 @@ const Playground = () => {
       title: 'Sex',
       dataIndex: 'sex',
       key: 'sex',
-      render: values => ['男', '女'][values],
+      render: (values) => ['男', '女'][values],
     },
     {
       title: 'Score',
@@ -78,7 +79,7 @@ const Playground = () => {
       key: 'action',
       render: ({ id }) => {
         return (
-          <Button type='text' danger onClick={() => onDelete(id)}>
+          <Button type="text" danger onClick={() => onDelete(id)}>
             Delete
           </Button>
         )
@@ -93,7 +94,7 @@ const Playground = () => {
         case 'add':
           return [...state, rest]
         case 'delete': {
-          return state.filter(item => item.id !== action.id)
+          return state.filter((item) => item.id !== action.id)
         }
         case 'clear':
           return []
@@ -138,16 +139,23 @@ const Playground = () => {
 
   const { dispatchAuthRoute } = useContext(context)!
 
+  const openId = 'JH70113137ace719bef195ded8c9225477'
+
+  const fn = async () => {
+    const res = await getMusic()
+    console.log(res)
+  }
+
   return (
     <>
       <div>
         <p
           dangerouslySetInnerHTML={{ __html: '<i style="color:red;">123</i>' }}
         />
-        <Button type='primary' onClick={() => setState(state + 1)}>
+        <Button type="primary" onClick={() => setState(state + 1)}>
           plus 1
         </Button>
-        <Button type='primary' onClick={() => setState(value => value + 2)}>
+        <Button type="primary" onClick={() => setState((value) => value + 2)}>
           plus 2
         </Button>
         {state}
@@ -156,9 +164,9 @@ const Playground = () => {
         <Divider />
         useReducer count: {count}
         <br />
-        <Input placeholder='useReducer count Input' ref={ref} />
+        <Input placeholder="useReducer count Input" ref={ref} />
         <Button
-          type='primary'
+          type="primary"
           onClick={() => countDispatch(Number(ref.current?.input?.value))}
         >
           set count
@@ -169,40 +177,40 @@ const Playground = () => {
 
       <div>
         <Form
-          name='form'
+          name="form"
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 16 }}
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
-          autoComplete='off'
+          autoComplete="off"
         >
           <Row gutter={10}>
             <Col span={6}>
               <Form.Item
-                label='Username'
-                name='name'
+                label="Username"
+                name="name"
                 rules={[{ required: true, message: 'Please input your name!' }]}
               >
-                <Input placeholder='Usename' />
+                <Input placeholder="Usename" />
               </Form.Item>
             </Col>
             <Col span={6}>
               <Form.Item
-                label='Age'
-                name='age'
+                label="Age"
+                name="age"
                 rules={[{ required: true, message: 'Please input your age!' }]}
               >
-                <Input placeholder='Age' />
+                <Input placeholder="Age" />
               </Form.Item>
             </Col>
             <Col span={6}>
               <Form.Item
-                label='Sex'
-                name='sex'
+                label="Sex"
+                name="sex"
                 rules={[{ required: true, message: 'Please select your sex!' }]}
               >
                 <Select
-                  placeholder='Sex'
+                  placeholder="Sex"
                   options={[
                     { value: 0, label: '男' },
                     { value: 1, label: '女' },
@@ -212,19 +220,19 @@ const Playground = () => {
             </Col>
             <Col span={6}>
               <Form.Item
-                label='Score'
-                name='score'
+                label="Score"
+                name="score"
                 rules={[
                   { required: true, message: 'Please input your score!' },
                 ]}
               >
-                <Input placeholder='Score' />
+                <Input placeholder="Score" />
               </Form.Item>
             </Col>
             <Col span={24}>
               <Form.Item wrapperCol={{ offset: 2, span: 4 }}>
                 <Space>
-                  <Button type='primary' htmlType='submit'>
+                  <Button type="primary" htmlType="submit">
                     Submit
                   </Button>
                   <Button onClick={() => dataDispatch({ type: 'clear' })}>
@@ -235,7 +243,7 @@ const Playground = () => {
             </Col>
           </Row>
         </Form>
-        <Table columns={columns} dataSource={data} rowKey='id' />
+        <Table columns={columns} dataSource={data} rowKey="id" />
       </div>
 
       <Divider />
@@ -260,22 +268,22 @@ const Playground = () => {
 
       <Row gutter={8}>
         <Col span={6}>
-          <Input placeholder='Basic usage' value={countStore.count} />
+          <Input placeholder="Basic usage" value={countStore.count} />
         </Col>
         <Col span={18}>
           <Space>
             <Button onClick={() => countStore.increment()}>+</Button>
-            <Button type='dashed' onClick={() => countStore.decrement()}>
+            <Button type="dashed" onClick={() => countStore.decrement()}>
               -
             </Button>
             <Button
-              type='dashed'
+              type="dashed"
               onClick={() => console.log(countStore.getDoubleCount())}
             >
               double
             </Button>
             <Button
-              type='dashed'
+              type="dashed"
               onClick={() => console.log(countStore.getTrebleCount.get())}
             >
               trible
@@ -290,22 +298,22 @@ const Playground = () => {
 
       <Row gutter={8}>
         <Col span={6}>
-          <Input placeholder='Basic usage' value={countStoreHooks.count} />
+          <Input placeholder="Basic usage" value={countStoreHooks.count} />
         </Col>
         <Col span={18}>
           <Space>
             <Button onClick={() => countStoreHooks.increment()}>+</Button>
-            <Button type='dashed' onClick={() => countStoreHooks.decrement()}>
+            <Button type="dashed" onClick={() => countStoreHooks.decrement()}>
               -
             </Button>
             <Button
-              type='dashed'
+              type="dashed"
               onClick={() => console.log(countStoreHooks.getDoubleCount())}
             >
               double
             </Button>
             <Button
-              type='dashed'
+              type="dashed"
               onClick={() => console.log(countStoreHooks.getTrebleCount)}
             >
               trible
@@ -316,8 +324,8 @@ const Playground = () => {
 
       <Divider />
 
-      <Space direction='vertical'>
-        <Button type='primary' onClick={() => navigate('/authRoute')}>
+      <Space direction="vertical">
+        <Button type="primary" onClick={() => navigate('/authRoute')}>
           路由跳转
         </Button>
         <Button
@@ -333,6 +341,12 @@ const Playground = () => {
           添加路由权限
         </Button>
       </Space>
+
+      <Divider />
+
+      <Button type="primary" onClick={fn}>
+        请求接口
+      </Button>
     </>
   )
 }
@@ -341,9 +355,9 @@ const SonComponent = () => {
   const context = useContext(myContext)
   return (
     <>
-      <Typography.Text type='success'>son component</Typography.Text>
+      <Typography.Text type="success">son component</Typography.Text>
       <br />
-      <Typography.Text type='warning'>{context.sonValue}</Typography.Text>
+      <Typography.Text type="warning">{context.sonValue}</Typography.Text>
       <br />
       <Divider />
       <GrandsonComponent />
@@ -355,9 +369,9 @@ const GrandsonComponent = () => {
   const context = useContext(myContext)
   return (
     <>
-      <Typography.Text type='secondary'>grandson component</Typography.Text>
+      <Typography.Text type="secondary">grandson component</Typography.Text>
       <br />
-      <Typography.Text type='danger'>{context.grandsonValue}</Typography.Text>
+      <Typography.Text type="danger">{context.grandsonValue}</Typography.Text>
     </>
   )
 }

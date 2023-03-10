@@ -1,19 +1,12 @@
 import { request } from '@utils/request'
 
-type Response = {
-  code: string
-  msg: string
-  status: number
-  data: Record<string, any>
-}
-
 // 登录
-const login = (data: Record<string, any>): Promise<Response> => {
+const login = (data: Record<string, any>): Promise<TResponse> => {
   return request.post('/login', data)
 }
 
 // 获取用户信息
-const getUerProfile = (): Promise<Response> => {
+const getUerProfile = (): Promise<TResponse> => {
   return request.post('/profile')
 }
 

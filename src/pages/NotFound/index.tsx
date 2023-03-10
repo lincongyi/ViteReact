@@ -7,15 +7,15 @@ const NotFound = () => {
 
   return (
     <Result
-      status='404'
-      title='404'
-      subTitle='Sorry, the page you visited does not exist.'
+      status="404"
+      title="404"
+      subTitle="Sorry, the page you visited does not exist."
       extra={
         <Space>
-          <Button type='primary' onClick={() => navigate(-1)}>
+          <Button type="primary" onClick={() => navigate(-1)}>
             Back
           </Button>
-          <Button type='primary'>Back Home</Button>
+          <Button type="primary">Back Home</Button>
         </Space>
       }
     />

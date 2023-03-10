@@ -1,14 +1,7 @@
 import { request } from '@utils/request'
 
-type Response = {
-  code: string
-  msg: string
-  status: number
-  data: Record<string, any>
-}
-
 // 退出登录
-const logoff = (): Promise<Response> => {
+const logoff = (): Promise<TResponse> => {
   return request.post('/logoff')
 }
 
