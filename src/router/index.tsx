@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react'
+import React, { ComponentType, Suspense, lazy } from 'react'
 import { Spin } from 'antd'
 import { Auth } from '@components/auth'
 import Home from '@pages/Home'
@@ -8,13 +8,20 @@ import NotFound from '@pages/NotFound'
 import Configuration from '@pages/Configuration'
 import Playground from '@pages/Playground'
 
+// 从文件系统导入多个模块
+const modules = import.meta.glob(['../pages/*/*.tsx', '../pages/*/*/*.tsx'])
+
 /**
  * 路由懒加载
  * @param {string} module 模块名称
  * @returns {JSX.Element} 懒加载组件
  */
 const lazyLoad = (module: string) => {
-  const Component = lazy(() => import(`../pages/${module}`))
+  const Component = lazy(
+    modules[`../pages/${module}/index.tsx`] as () => Promise<{
+      default: ComponentType<any>
+    }>
+  )
   return (
     <Suspense fallback={<Spin tip='Loading' size='large'></Spin>}>
       <Component />
