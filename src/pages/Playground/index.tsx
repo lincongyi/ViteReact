@@ -23,10 +23,11 @@ import { observer } from 'mobx-react-lite'
 import { useNavigate } from 'react-router-dom'
 import { context } from '@/App'
 import { lazyLoad } from '@/router'
-import { getMusic, upload } from '@/api'
+import { getMusic, getImages, upload } from '@/api'
 import type { UploadProps } from 'antd/lib/upload/interface'
 import type { UploadFile } from 'antd/es/upload/interface'
 import { PlusOutlined } from '@ant-design/icons'
+import type { UploadRequestOption } from 'rc-upload/lib/interface'
 
 type TContext = {
   sonValue: string
@@ -37,6 +38,31 @@ const myContext = React.createContext<TContext>({
   sonValue: '',
   grandsonValue: '',
 })
+
+const SonComponent = () => {
+  const context = useContext(myContext)
+  return (
+    <>
+      <Typography.Text type='success'>son component</Typography.Text>
+      <br />
+      <Typography.Text type='warning'>{context.sonValue}</Typography.Text>
+      <br />
+      <Divider />
+      <GrandsonComponent />
+    </>
+  )
+}
+
+const GrandsonComponent = () => {
+  const context = useContext(myContext)
+  return (
+    <>
+      <Typography.Text type='secondary'>grandson component</Typography.Text>
+      <br />
+      <Typography.Text type='danger'>{context.grandsonValue}</Typography.Text>
+    </>
+  )
+}
 
 const Playground = () => {
   const [state, setState] = useState(0)
@@ -144,11 +170,14 @@ const Playground = () => {
 
   const { dispatchAuthRoute } = useContext(context)!
 
-  const fetch = async () => {
+  const fetch1 = async () => {
     const res = await getMusic()
     console.log(res)
   }
 
+  /**
+   * 照片墙图片列表
+   */
   const [fileList, setFileList] = useState<UploadFile[]>([
     {
       uid: '-3',
@@ -158,8 +187,19 @@ const Playground = () => {
     },
   ])
 
-  const handleChange: UploadProps['onChange'] = ({ fileList: newFileList }) =>
-    setFileList(newFileList)
+  /**
+   * 初始化照片墙
+   */
+  const initFileList = async () => {
+    const { data } = await getImages()
+    setFileList(data)
+  }
+
+  /**
+   * 上传文件改变时的回调（文件状态改变的回调），感觉有自定义的上传方法可以忽略onChange
+   */
+  const onChange: UploadProps['onChange'] = ({ fileList: newFileList }) =>
+    console.log(newFileList)
 
   const uploadButton = (
     <div>
@@ -168,11 +208,13 @@ const Playground = () => {
     </div>
   )
 
-  const customRequest = () => {}
-
-  const onUpload = async () => {
-    const res = await upload({ a: 1, b: 2 })
-    console.log(res)
+  const customRequest = async (options: UploadRequestOption) => {
+    const { file } = options
+    const formData = new FormData()
+    formData.append('file', file)
+    const { data } = await upload(formData)
+    const { uid, type: name, url } = data
+    setFileList([...fileList, { uid, name, url, status: 'done' }])
   }
 
   return (
@@ -378,48 +420,25 @@ const Playground = () => {
 
       <Divider />
 
-      <Button type='primary' onClick={fetch}>
-        请求接口
-      </Button>
-
-      <Divider />
+      <Space>
+        <Button type='primary' onClick={fetch1}>
+          请求接口1
+        </Button>
+        <Button type='primary' onClick={initFileList}>
+          初始化照片墙
+        </Button>
+      </Space>
 
       <Card>
         <Upload
           listType='picture-card'
           fileList={fileList}
-          // onPreview={handlePreview}
-          onChange={handleChange}
+          onChange={onChange}
           customRequest={customRequest}
         >
           {fileList.length >= 8 ? null : uploadButton}
         </Upload>
       </Card>
-    </>
-  )
-}
-
-const SonComponent = () => {
-  const context = useContext(myContext)
-  return (
-    <>
-      <Typography.Text type='success'>son component</Typography.Text>
-      <br />
-      <Typography.Text type='warning'>{context.sonValue}</Typography.Text>
-      <br />
-      <Divider />
-      <GrandsonComponent />
-    </>
-  )
-}
-
-const GrandsonComponent = () => {
-  const context = useContext(myContext)
-  return (
-    <>
-      <Typography.Text type='secondary'>grandson component</Typography.Text>
-      <br />
-      <Typography.Text type='danger'>{context.grandsonValue}</Typography.Text>
     </>
   )
 }

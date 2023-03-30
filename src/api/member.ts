@@ -7,7 +7,9 @@ type Response = {
   data: Record<string, any>
 }
 
-// 退出登录
+/**
+ * 获取用户列表页面
+ */
 const getMember = (): Promise<Response> => {
   return request.post('/member')
 }
