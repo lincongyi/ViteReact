@@ -79,6 +79,10 @@ const routes: TRoutes[] = [
         element: lazyLoad('Summary'),
         children: [
           {
+            path: 'gitCommitizen',
+            element: lazyLoad('Summary/GitCommitizen'),
+          },
+          {
             path: 'reactMemo',
             element: lazyLoad('Summary/ReactMemo'),
           },

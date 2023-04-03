@@ -1,7 +1,6 @@
 import React from 'react'
 import { Col, Divider, Row, Timeline, Typography } from 'antd'
 import CodeHighLight from '@components/CodeHighLight'
-import Example1 from './Example1'
 import {
   codeString1,
   codeString2,
@@ -11,6 +10,7 @@ import {
   codeString6,
   codeString7,
 } from './code'
+import Example1 from './Example1'
 import Example2 from './Example2'
 
 const { Title, Paragraph, Text } = Typography

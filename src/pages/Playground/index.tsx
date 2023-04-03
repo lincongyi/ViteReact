@@ -208,6 +208,9 @@ const Playground = () => {
     </div>
   )
 
+  /**
+   * 图片上传
+   */
   const customRequest = async (options: UploadRequestOption) => {
     const { file } = options
     const formData = new FormData()
@@ -420,6 +423,8 @@ const Playground = () => {
 
       <Divider />
 
+      <Typography.Title level={3}>单文件上传</Typography.Title>
+
       <Space>
         <Button type='primary' onClick={fetch1}>
           请求接口1
@@ -428,6 +433,8 @@ const Playground = () => {
           初始化照片墙
         </Button>
       </Space>
+
+      <Divider />
 
       <Card>
         <Upload
@@ -439,6 +446,8 @@ const Playground = () => {
           {fileList.length >= 8 ? null : uploadButton}
         </Upload>
       </Card>
+
+      <Divider />
     </>
   )
 }

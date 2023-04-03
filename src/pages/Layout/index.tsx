@@ -61,6 +61,7 @@ const AppLayout: React.FC = () => {
       key: '/summary',
       icon: <ExceptionOutlined />,
       children: [
+        { label: 'Commitizen', key: '/summary/gitCommitizen' },
         { label: 'React.memo', key: '/summary/reactMemo' },
         { label: 'useReducer', key: '/summary/reactReducer' },
         { label: 'createContext', key: '/summary/reactContext' },
