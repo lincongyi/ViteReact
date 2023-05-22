@@ -16,13 +16,12 @@ import {
 } from 'antd'
 import type { InputRef } from 'antd'
 import type { ColumnsType } from 'antd/es/table'
-import { generateId } from '@utils/index'
+import { generateId, lazyLoad } from '@utils/index'
 import { useStore } from '@stores/index'
 import { useStoreHooks } from '@stores/index.hooks'
 import { observer } from 'mobx-react-lite'
 import { useNavigate } from 'react-router-dom'
-import { context } from '@/App'
-import { lazyLoad } from '@/router'
+import { context } from '@/context'
 import { getMusic, getImages, upload } from '@/api'
 import type { UploadProps } from 'antd/lib/upload/interface'
 import type { UploadFile } from 'antd/es/upload/interface'
@@ -168,9 +167,9 @@ const Playground = () => {
 
   const navigate = useNavigate()
 
-  const { dispatchAuthRoute } = useContext(context)!
+  const { dispatchRoute } = useContext(context)!
 
-  const fetch1 = async () => {
+  const handleFetch = async () => {
     const res = await getMusic()
     console.log(res)
   }
@@ -219,6 +218,30 @@ const Playground = () => {
     const { uid, type: name, url } = data
     setFileList([...fileList, { uid, name, url, status: 'done' }])
   }
+
+  const barRef = useRef<InputRef | null>(null)
+
+  const Bar = React.forwardRef<InputRef>((props, ref) => {
+    const onClick = () => {
+      if (ref) {
+        console.log(
+          (ref as React.MutableRefObject<InputRef>).current?.input?.value
+        )
+      }
+    }
+    return (
+      <div id='bar'>
+        bar 组件
+        <Space direction='vertical'>
+          <Input ref={ref} placeholder='Basic usage' defaultValue='input ref' />
+          <Button type='primary' onClick={onClick}>
+            Primary Button
+          </Button>
+        </Space>
+      </div>
+    )
+  })
+  Bar.displayName = 'Bar'
 
   return (
     <>
@@ -409,10 +432,10 @@ const Playground = () => {
         </Button>
         <Button
           onClick={() =>
-            dispatchAuthRoute([
+            dispatchRoute([
               {
                 path: 'authRoute',
-                element: lazyLoad('authRoute'),
+                element: lazyLoad('AuthRoute'),
               },
             ])
           }
@@ -426,8 +449,8 @@ const Playground = () => {
       <Typography.Title level={3}>单文件上传</Typography.Title>
 
       <Space>
-        <Button type='primary' onClick={fetch1}>
-          请求接口1
+        <Button type='primary' onClick={handleFetch}>
+          请求接口
         </Button>
         <Button type='primary' onClick={initFileList}>
           初始化照片墙
@@ -448,6 +471,8 @@ const Playground = () => {
       </Card>
 
       <Divider />
+
+      <Bar ref={barRef} />
     </>
   )
 }

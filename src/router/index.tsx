@@ -1,33 +1,13 @@
-import React, { ComponentType, Suspense, lazy } from 'react'
-import { Spin } from 'antd'
+import React from 'react'
 import { Auth } from '@components/auth'
 import Home from '@pages/Home'
 import Layout from '@pages/Layout'
 import Login from '@pages/Login'
-import NotFound from '@pages/NotFound'
 import Configuration from '@pages/Configuration'
 import Playground from '@pages/Playground'
-
-// 从文件系统导入多个模块
-const modules = import.meta.glob(['../pages/*/*.tsx', '../pages/*/*/*.tsx'])
-
-/**
- * 路由懒加载
- * @param {string} module 模块名称
- * @returns {JSX.Element} 懒加载组件
- */
-const lazyLoad = (module: string) => {
-  const Component = lazy(
-    modules[`../pages/${module}/index.tsx`] as () => Promise<{
-      default: ComponentType<any>
-    }>
-  )
-  return (
-    <Suspense fallback={<Spin tip='Loading' size='large'></Spin>}>
-      <Component />
-    </Suspense>
-  )
-}
+import Html2PDF from '@pages/Html2PDF'
+import NotFound from '@pages/NotFound'
+import { lazyLoad } from '@/utils'
 
 const routes: TRoutes[] = [
   {
@@ -118,6 +98,10 @@ const routes: TRoutes[] = [
     path: 'playground',
     element: <Playground />,
   },
+  {
+    path: 'html2pdf',
+    element: <Html2PDF />,
+  },
 ]
 
-export { routes, lazyLoad }
+export { routes }

@@ -103,8 +103,14 @@ const ReactMemo = () => {
                   <Divider />
                   <Example4 />
                   <Divider />
-                  <Text strong>在大部分情况下，应该把<Text code>useMemo</Text>用在程序里渲染昂贵的组件上，而不是数值计算上，组件渲染才是性能的瓶颈。</Text>
-                  <Text strong><Text code>useMemo</Text>和<Text code>useCallback</Text>是有成本的，它会增加整体程序初始化的耗时，并不适合全局全面使用，它更适合做局部的优化。</Text>
+                  <Text strong>
+                    在大部分情况下，应该把<Text code>useMemo</Text>
+                    用在程序里渲染昂贵的组件上，而不是数值计算上，组件渲染才是性能的瓶颈。
+                  </Text>
+                  <Text strong>
+                    <Text code>useMemo</Text>和<Text code>useCallback</Text>
+                    是有成本的，它会增加整体程序初始化的耗时，并不适合全局全面使用，它更适合做局部的优化。
+                  </Text>
                 </Col>
               </Row>
             </Col>

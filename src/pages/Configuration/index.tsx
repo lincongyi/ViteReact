@@ -1,10 +1,11 @@
 import React from 'react'
-import { List, Typography, Card } from 'antd'
 import './index.scss'
+import { List, Typography, Card } from 'antd'
+import { observer } from 'mobx-react-lite'
 
 const { Title, Text } = Typography
 
-const Configuration: React.FC = () => {
+const Configuration = () => {
   const techniqueList = [
     '脚手架：Vite',
     'react hook',
@@ -32,33 +33,33 @@ const Configuration: React.FC = () => {
       <List
         bordered
         dataSource={techniqueList}
-        renderItem={(item) => <List.Item>{item}</List.Item>}
+        renderItem={item => <List.Item>{item}</List.Item>}
       />
       <Title level={2}>项目搭建流程：</Title>
-      <Card title="1.Vite创建项目">
+      <Card title='1.Vite创建项目'>
         <p>
           <Text code>npm create vite@latest</Text>
         </p>
         <p>根据配置选择项目所需的库</p>
       </Card>
-      <Card title="2.调整项目目录">
+      <Card title='2.调整项目目录'>
         <div>
           <Text strong>/src</Text>
         </div>
         {fileList.map((item, index) => (
-          <div className="project-file-item" key={index}>
+          <div className='project-file-item' key={index}>
             <Text strong>{item.file}</Text>
             <Text mark>{item.description}</Text>
           </div>
         ))}
       </Card>
-      <Card title="3.配置sass">
+      <Card title='3.配置sass'>
         <p>
           <Text code>npm i sass -D</Text>
         </p>
         <p>React 中内置了处理 SASS 的配置，安装sass后可直接使用</p>
       </Card>
-      <Card title="4.安装ant Design组件库">
+      <Card title='4.安装ant Design组件库'>
         <p>
           （1）<Text code>npm i antd</Text>
         </p>
@@ -67,7 +68,7 @@ const Configuration: React.FC = () => {
           <Text code>import &apos;antd/dist/antd.css&apos;</Text>
         </p>
       </Card>
-      <Card title="5.配置项目文件夹目录别名">
+      <Card title='5.配置项目文件夹目录别名'>
         <p>
           （1）<Text>在vite.config.ts中配置alias属性</Text>
           <Text code>
@@ -88,24 +89,24 @@ const Configuration: React.FC = () => {
           </Text>
         </p>
       </Card>
-      <Card title="6.安装react-router">
+      <Card title='6.安装react-router'>
         <p>
           <Text code>npm i react-router-dom@6 -S</Text>
         </p>
       </Card>
-      <Card title="7.安装axios">
+      <Card title='7.安装axios'>
         <p>
           <Text code>npm i axios -S</Text>
         </p>
         <p>/utils/request.js文件封装axios请求拦截、相应</p>
       </Card>
-      <Card title="8.安装mobx">
+      <Card title='8.安装mobx'>
         <p>
           <Text code>npm i mobx mobx-react-lite -S</Text>
         </p>
         <p>/stores/index.js文件负责汇总所有存储模块</p>
       </Card>
-      <Card title="9.配置host">
+      <Card title='9.配置host'>
         <p>
           vite.config.ts文件里添加
           <Text code>
@@ -113,7 +114,7 @@ const Configuration: React.FC = () => {
           </Text>
         </p>
       </Card>
-      <Card title="10.配置eslint">
+      <Card title='10.配置eslint'>
         <p>
           <Text code>npx eslint --init</Text>
         </p>
@@ -123,4 +124,4 @@ const Configuration: React.FC = () => {
   )
 }
 
-export default Configuration
+export default observer(Configuration)

@@ -3,25 +3,19 @@ import 'reset-css'
 import './App.scss'
 import { BrowserRouter, useRoutes } from 'react-router-dom'
 import { routes } from './router'
-
-export const context = React.createContext<
-  | {
-      dispatchAuthRoute: React.Dispatch<TRoutes[]>
-    }
-  | undefined
->(undefined)
+import { context } from './context'
 
 const App = () => {
-  const [authRoute, dispatchAuthRoute] = useReducer(
+  const [currentRoute, dispatchRoute] = useReducer(
     (state: TRoutes[], action: TRoutes[]) => [...state, ...action],
     routes
   )
 
-  const GetRoutes = () => useRoutes(authRoute)
+  const GetRoutes = () => useRoutes(currentRoute)
 
   return (
     // 动态路由配置
-    <context.Provider value={{ dispatchAuthRoute }}>
+    <context.Provider value={{ currentRoute, dispatchRoute }}>
       <BrowserRouter>
         <GetRoutes />
       </BrowserRouter>
