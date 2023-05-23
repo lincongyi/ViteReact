@@ -1,4 +1,10 @@
-import React, { useContext, useReducer, useRef, useState } from 'react'
+import React, {
+  useContext,
+  useEffect,
+  useReducer,
+  useRef,
+  useState,
+} from 'react'
 import './index.scss'
 import {
   Button,
@@ -221,7 +227,7 @@ const Playground = () => {
 
   const barRef = useRef<InputRef | null>(null)
 
-  const Bar = React.forwardRef<InputRef>((props, ref) => {
+  const Bar = React.forwardRef<InputRef, { value?: string }>((props, ref) => {
     const onClick = () => {
       if (ref) {
         console.log(
@@ -233,7 +239,11 @@ const Playground = () => {
       <div id='bar'>
         bar 组件
         <Space direction='vertical'>
-          <Input ref={ref} placeholder='Basic usage' defaultValue='input ref' />
+          <Input
+            ref={ref}
+            placeholder='Basic usage'
+            defaultValue={props.value || 'input ref'}
+          />
           <Button type='primary' onClick={onClick}>
             Primary Button
           </Button>
@@ -243,11 +253,69 @@ const Playground = () => {
   })
   Bar.displayName = 'Bar'
 
+  const Baz = React.forwardRef<InputRef, { value?: string; type?: string }>(
+    ({ value, type }, ref) => {
+      const onClick = () => {
+        console.log(`inputValue: ${inputValue}`)
+      }
+      const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setInputValue(e.target.value)
+      }
+      const [inputValue, setInputValue] = useState('Bazzzzz')
+      useEffect(() => {
+        if (value) setInputValue(value)
+      }, [value])
+      return (
+        <>
+          baz 组件({type || 'common'})
+          <Space direction='vertical'>
+            <Input
+              ref={ref}
+              placeholder='Bazzzzz component'
+              value={inputValue}
+              onChange={onChange}
+            />
+            <Button type='primary' onClick={onClick}>
+              Primary Button
+            </Button>
+          </Space>
+        </>
+      )
+    }
+  )
+
+  Baz.displayName = 'Baz'
+
+  const wrapComponent = (
+    Component: React.ForwardRefExoticComponent<
+      {
+        value?: string | undefined
+        type?: string | undefined
+      } & React.RefAttributes<InputRef>
+    >
+  ) => {
+    const WithHOC = (props: {}, ref: any) => {
+      const [value, setValue] = useState<string>()
+      useEffect(() => {
+        setValue('return a HOC function')
+      }, [])
+      const type = 'high order component'
+      return <Component value={value} type={type} ref={ref} />
+    }
+    return React.forwardRef(WithHOC)
+  }
+
+  const HOCRef = useRef<InputRef | null>(null)
+
+  const HOCBaz = wrapComponent(Baz)
+
   return (
     <>
       <div>
         <p
-          dangerouslySetInnerHTML={{ __html: '<i style="color:red;">123</i>' }}
+          dangerouslySetInnerHTML={{
+            __html: '<i style="color:red;">dangerouslySetInnerHTML</i>',
+          }}
         />
         <Button type='primary' onClick={() => setState(state + 1)}>
           plus 1
@@ -257,7 +325,7 @@ const Playground = () => {
         </Button>
         {state}
         <br />
-        {array}
+        {array.join('-')}
         <Divider />
         useReducer count: {count}
         <br />
@@ -356,6 +424,7 @@ const Playground = () => {
       >
         改变provide
       </Button>
+      <br />
 
       <myContext.Provider value={provideValue}>
         <SonComponent />
@@ -473,6 +542,23 @@ const Playground = () => {
       <Divider />
 
       <Bar ref={barRef} />
+
+      <Divider />
+
+      <Baz />
+
+      <Divider />
+
+      <Typography.Title level={3}>高阶组件forwardRef</Typography.Title>
+
+      <HOCBaz ref={HOCRef} />
+
+      <Button
+        type='primary'
+        onClick={() => console.log(HOCRef.current?.input?.value)}
+      >
+        获取current
+      </Button>
     </>
   )
 }
