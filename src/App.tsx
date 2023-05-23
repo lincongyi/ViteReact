@@ -7,7 +7,14 @@ import { context } from './context'
 
 const App = () => {
   const [currentRoute, dispatchRoute] = useReducer(
-    (state: TRoutes[], action: TRoutes[]) => [...state, ...action],
+    (state: TRoutes[], action: TRoutes[]) => {
+      const target: TRoutes[] = []
+      action.forEach(item => {
+        const result = state.some(__item => item.path === __item.path)
+        if (!result) target.push(item)
+      })
+      return [...state, ...target]
+    },
     routes
   )
 
