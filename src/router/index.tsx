@@ -82,6 +82,10 @@ const routes: TRoutes[] = [
             path: 'reactDynamicRoute',
             element: lazyLoad('Summary/ReactDynamicRoute'),
           },
+          {
+            path: 'reactForwardRef',
+            element: lazyLoad('Summary/ReactForwardRef'),
+          },
         ],
       },
     ],

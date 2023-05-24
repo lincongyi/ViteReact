@@ -286,6 +286,9 @@ const Playground = () => {
 
   Baz.displayName = 'Baz'
 
+  /**
+   * 高阶组件
+   */
   const wrapComponent = (
     Component: React.ForwardRefExoticComponent<
       {
@@ -294,10 +297,10 @@ const Playground = () => {
       } & React.RefAttributes<InputRef>
     >
   ) => {
-    const WithHOC = (props: {}, ref: any) => {
+    const WithHOC = (props: {}, ref: Ref<InputRef> | undefined) => {
       const [value, setValue] = useState<string>()
       useEffect(() => {
-        setValue('return a HOC function')
+        setValue('return HOC function')
       }, [])
       const type = 'high order component'
       return <Component value={value} type={type} ref={ref} />
