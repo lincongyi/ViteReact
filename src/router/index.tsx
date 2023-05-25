@@ -86,6 +86,10 @@ const routes: TRoutes[] = [
             path: 'reactForwardRef',
             element: lazyLoad('Summary/ReactForwardRef'),
           },
+          {
+            path: 'reactUseImperativeHandle',
+            element: lazyLoad('Summary/ReactUseImperativeHandle'),
+          },
         ],
       },
     ],

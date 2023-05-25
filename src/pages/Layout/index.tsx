@@ -68,6 +68,10 @@ const AppLayout: React.FC = () => {
         { label: 'Mobx & useContext', key: '/summary/ReactMobxUseContext' },
         { label: '动态路由', key: '/summary/ReactDynamicRoute' },
         { label: 'forwardRef', key: '/summary/ReactForwardRef' },
+        {
+          label: 'useImperativeHandle',
+          key: '/summary/ReactUseImperativeHandle',
+        },
       ],
     },
     {
