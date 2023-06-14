@@ -1,4 +1,5 @@
 import React, {
+  Ref,
   useContext,
   useEffect,
   useReducer,
@@ -33,6 +34,8 @@ import type { UploadProps } from 'antd/lib/upload/interface'
 import type { UploadFile } from 'antd/es/upload/interface'
 import { PlusOutlined } from '@ant-design/icons'
 import type { UploadRequestOption } from 'rc-upload/lib/interface'
+import axios from 'axios'
+import { getMember } from '@api/member'
 
 type TContext = {
   sonValue: string
@@ -312,6 +315,39 @@ const Playground = () => {
 
   const HOCBaz = wrapComponent(Baz)
 
+  const CancelToken = axios.CancelToken
+  let cancel: Function
+
+  /**
+   * 发起请求
+   */
+  const onRequest = async () => {
+    axios.post(
+      'http://127.0.0.1:3000/article/type',
+      {},
+      {
+        cancelToken: new CancelToken(function execotor (c) {
+          cancel = c
+        }),
+      }
+    )
+  }
+
+  /**
+   * 终止请求
+   */
+  const onCancelRequest = () => {
+    cancel && cancel()
+  }
+
+  /**
+   * 发起请求
+   */
+  const onRequest2 = async () => {
+    const { data } = await getMember()
+    console.log(data)
+  }
+
   return (
     <>
       <div>
@@ -561,6 +597,21 @@ const Playground = () => {
         onClick={() => console.log(HOCRef.current?.input?.value)}
       >
         获取current
+      </Button>
+
+      <Divider orientation='left'>针对单个请求，进行处理</Divider>
+
+      <Space>
+        <Button type='primary' onClick={() => onRequest()}>
+          发起请求
+        </Button>
+        <Button onClick={() => onCancelRequest()}>终止请求</Button>
+      </Space>
+
+      <Divider orientation='left'>在拦截器上统一封装，防止重复请求</Divider>
+
+      <Button type='primary' onClick={() => onRequest2()}>
+        发起请求
       </Button>
     </>
   )

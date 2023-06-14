@@ -25,8 +25,10 @@ const Member = () => {
   const onChange = (date: Dayjs | null, dateString: string) =>
     form.setFieldValue('datePicker', dateString)
 
-  const onFinish = (values: any) => {
-    console.log(values)
+  const onFinish = async (values: any) => {
+    const result = await getMember()
+    const { list } = result.data
+    setMemberList(list)
   }
 
   const [memberList, setMemberList] = useState([])
@@ -47,7 +49,7 @@ const Member = () => {
   return (
     <>
       <Form form={form} labelCol={{ span: 6 }} onFinish={onFinish}>
-        <Row gutter={16}>
+        <Row gutter={[20, 20]}>
           <Col span={6}>
             <Form.Item label='用户名' name='name'>
               <Input />
@@ -65,9 +67,7 @@ const Member = () => {
               </ConfigProvider>
             </Form.Item>
           </Col>
-        </Row>
-        <Row justify='end'>
-          <Col span={6} className='tr'>
+          <Col span={24} className='tr'>
             <Button type='primary' htmlType='submit'>
               查询
             </Button>

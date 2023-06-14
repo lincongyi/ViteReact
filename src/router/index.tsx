@@ -90,6 +90,10 @@ const routes: TRoutes[] = [
             path: 'reactUseImperativeHandle',
             element: lazyLoad('Summary/ReactUseImperativeHandle'),
           },
+          {
+            path: 'axiosCancelToken',
+            element: lazyLoad('Summary/AxiosCancelToken'),
+          },
         ],
       },
     ],
