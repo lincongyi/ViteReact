@@ -1,7 +1,7 @@
 import React, { useReducer } from 'react'
 import 'reset-css'
 import './App.scss'
-import { BrowserRouter, useRoutes } from 'react-router-dom'
+import { HashRouter, useRoutes } from 'react-router-dom'
 import { routes } from './router'
 import { context } from './context'
 
@@ -23,9 +23,9 @@ const App = () => {
   return (
     // 动态路由配置
     <context.Provider value={{ currentRoute, dispatchRoute }}>
-      <BrowserRouter>
+      <HashRouter>
         <GetRoutes />
-      </BrowserRouter>
+      </HashRouter>
     </context.Provider>
   )
 }
