@@ -151,12 +151,12 @@ const Article = () => {
     dateString: [string, string]
   ) => form.setFieldValue('rangeDate', dateString)
 
+  const onReset = () => {
+    form.resetFields()
+  }
+
   const onFinish = (values: any) => {
     console.log(values)
-    // const { rangeDate } = values
-    // const [startDate, endDate] = rangeDate
-    // console.log(startDate.format('yyyy-MM-DD'))
-    // console.log(endDate.format('yyyy-MM-DD'))
   }
 
   return (
@@ -226,9 +226,12 @@ const Article = () => {
         </Row>
         <Row justify='end'>
           <Col span={6} className='tr'>
-            <Button type='primary' htmlType='submit'>
-              查询
-            </Button>
+            <Space>
+              <Button onClick={onReset}>重置</Button>
+              <Button type='primary' htmlType='submit'>
+                查询
+              </Button>
+            </Space>
           </Col>
         </Row>
       </Form>
