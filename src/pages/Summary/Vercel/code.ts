@@ -1,0 +1,1 @@
+export const codeString1 = ''
