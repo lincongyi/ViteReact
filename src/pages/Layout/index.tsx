@@ -73,6 +73,7 @@ const AppLayout: React.FC = () => {
           key: '/summary/ReactUseImperativeHandle',
         },
         { label: 'axios终止请求', key: '/summary/AxiosCancelToken' },
+        { label: 'Vercel', key: '/summary/Vercel' },
       ],
     },
     {

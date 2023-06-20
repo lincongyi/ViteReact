@@ -94,6 +94,10 @@ const routes: TRoutes[] = [
             path: 'axiosCancelToken',
             element: lazyLoad('Summary/AxiosCancelToken'),
           },
+          {
+            path: 'vercel',
+            element: lazyLoad('Summary/Vercel'),
+          },
         ],
       },
     ],
