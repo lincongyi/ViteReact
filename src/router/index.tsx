@@ -133,6 +133,11 @@ const routes: TRoutes[] = [
             element: lazyLoad('Summary/GithubPages'),
             meta: { title: 'Github Pages' },
           },
+          {
+            path: 'CSSInJs',
+            element: lazyLoad('Summary/CSSInJs'),
+            meta: { title: 'CSSInJs' },
+          },
         ],
         meta: {
           title: '记录&总结',
