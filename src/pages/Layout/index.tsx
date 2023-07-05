@@ -10,22 +10,17 @@ import {
   PoweroffOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
-  AppstoreOutlined,
-  UserOutlined,
-  SnippetsOutlined,
-  ProfileOutlined,
-  FileTextOutlined,
   FileDoneOutlined,
   TagsOutlined,
-  ExceptionOutlined,
 } from '@ant-design/icons'
 import './index.scss'
+import { getMenuItems } from '@/utils'
 
 const { Header, Sider, Content } = Layout
 
 const text = '是否确认退出登录？'
 
-const AppLayout: React.FC = () => {
+const AppLayout = () => {
   const navigate = useNavigate()
   const { pathname } = useLocation()
   const { userStore } = useStore()
@@ -51,31 +46,7 @@ const AppLayout: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false)
 
   const items = [
-    { label: '数据概览', key: '/', icon: <AppstoreOutlined /> }, // 菜单项务必填写 key
-    { label: '用户管理', key: '/member', icon: <UserOutlined /> },
-    { label: '文章类型', key: '/articleType', icon: <SnippetsOutlined /> },
-    { label: '内容管理', key: '/article', icon: <ProfileOutlined /> },
-    { label: '发布文章', key: '/publish', icon: <FileTextOutlined /> },
-    {
-      label: '记录&总结',
-      key: '/summary',
-      icon: <ExceptionOutlined />,
-      children: [
-        { label: 'Commitizen', key: '/summary/GitCommitizen' },
-        { label: 'React.memo', key: '/summary/ReactMemo' },
-        { label: 'useReducer', key: '/summary/ReactReducer' },
-        { label: 'createContext', key: '/summary/ReactContext' },
-        { label: 'Mobx & useContext', key: '/summary/ReactMobxUseContext' },
-        { label: '动态路由', key: '/summary/ReactDynamicRoute' },
-        { label: 'forwardRef', key: '/summary/ReactForwardRef' },
-        {
-          label: 'useImperativeHandle',
-          key: '/summary/ReactUseImperativeHandle',
-        },
-        { label: 'axios终止请求', key: '/summary/AxiosCancelToken' },
-        { label: 'Vercel', key: '/summary/Vercel' },
-      ],
-    },
+    ...getMenuItems(),
     {
       label: '子菜单1',
       key: 'submenu-1',
@@ -94,7 +65,8 @@ const AppLayout: React.FC = () => {
   // 切换菜单
   const onClick: MenuProps['onClick'] = e => {
     setCurrent(e.key)
-    navigate(e.key)
+    const keyPath = e.keyPath.slice().reverse().join('/')
+    navigate(`/${keyPath}`)
   }
   return (
     <>

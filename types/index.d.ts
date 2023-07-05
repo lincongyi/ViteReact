@@ -1,7 +1,12 @@
+/* eslint-disable no-unused-vars */
 declare type TRoutes = {
   path: string
   element?: JSX.Element
   children?: TRoutes[]
+  meta?: {
+    title?: string
+    icon?: React.ReactNode
+  }
 }
 
 declare type TResponse = {

@@ -2,7 +2,7 @@ import React from 'react'
 import { Col, Row, Timeline, Typography } from 'antd'
 
 const { Title, Paragraph } = Typography
-const ReactReducer = () => {
+const demo = () => {
   const items = [
     { children: '标题导航-xxx的作用' },
     { children: '标题导航-xxx具体实例' },
@@ -29,4 +29,4 @@ const ReactReducer = () => {
   )
 }
 
-export default ReactReducer
+export default demo
