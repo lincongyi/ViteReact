@@ -14,7 +14,7 @@ import {
   TagsOutlined,
 } from '@ant-design/icons'
 import './index.scss'
-import { getMenuItems } from '@/utils'
+import { getMenuItems } from '@/utils/router'
 
 const { Header, Sider, Content } = Layout
 
