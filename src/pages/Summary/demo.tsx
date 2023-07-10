@@ -2,6 +2,7 @@ import React from 'react'
 import { Col, Row, Timeline, Typography } from 'antd'
 
 const { Title, Paragraph } = Typography
+
 const demo = () => {
   const items = [
     { children: '标题导航-xxx的作用' },

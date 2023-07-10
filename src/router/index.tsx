@@ -134,6 +134,11 @@ const routes: TRoutes[] = [
             meta: { title: 'Github Pages' },
           },
           {
+            path: 'compressImage',
+            element: lazyLoad('Summary/CompressImage'),
+            meta: { title: 'Compress Image' },
+          },
+          {
             path: 'CSSInJs',
             element: lazyLoad('Summary/CSSInJs'),
             meta: { title: 'CSSInJs' },
