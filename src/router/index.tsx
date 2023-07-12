@@ -139,6 +139,11 @@ const routes: TRoutes[] = [
             meta: { title: 'Compress Image' },
           },
           {
+            path: 'forOf',
+            element: lazyLoad('Summary/ForOf'),
+            meta: { title: 'ForOf' },
+          },
+          {
             path: 'CSSInJs',
             element: lazyLoad('Summary/CSSInJs'),
             meta: { title: 'CSSInJs' },
