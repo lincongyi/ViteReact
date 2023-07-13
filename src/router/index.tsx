@@ -94,8 +94,8 @@ const routes: TRoutes[] = [
             meta: { title: 'useReducer' },
           },
           {
-            path: 'reactContext',
-            element: lazyLoad('Summary/ReactContext'),
+            path: 'reactUseContext',
+            element: lazyLoad('Summary/ReactUseContext'),
             meta: { title: 'createContext' },
           },
           {
