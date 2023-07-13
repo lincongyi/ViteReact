@@ -89,8 +89,8 @@ const routes: TRoutes[] = [
             meta: { title: 'React.memo' },
           },
           {
-            path: 'reactReducer',
-            element: lazyLoad('Summary/ReactReducer'),
+            path: 'reactUseReducer',
+            element: lazyLoad('Summary/ReactUseReducer'),
             meta: { title: 'useReducer' },
           },
           {

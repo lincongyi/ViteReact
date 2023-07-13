@@ -14,7 +14,7 @@ import Example1 from './Example1'
 import Example2 from './Example2'
 
 const { Title, Paragraph, Text } = Typography
-const ReactReducer = () => {
+const ReactUseContext = () => {
   const items = [
     { children: 'createContext的作用' },
     { children: 'createContext具体实例' },
@@ -98,4 +98,4 @@ const ReactReducer = () => {
   )
 }
 
-export default ReactReducer
+export default ReactUseContext

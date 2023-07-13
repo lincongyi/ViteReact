@@ -8,7 +8,7 @@ import Example3 from './Example3'
 import Example4 from './Example4'
 
 const { Title, Paragraph, Text } = Typography
-const ReactReducer = () => {
+const ReactUseReducer = () => {
   const items = [
     { children: 'useReducer的作用' },
     { children: 'useReducer具体实例' },
@@ -93,4 +93,4 @@ const ReactReducer = () => {
   )
 }
 
-export default ReactReducer
+export default ReactUseReducer
