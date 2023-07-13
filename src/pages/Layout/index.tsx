@@ -31,7 +31,9 @@ const AppLayout = () => {
 
   const [messageApi, contextHolder] = message.useMessage()
 
-  // 退出登录
+  /**
+   * 退出登录
+   */
   const onConfirm = async () => {
     await logoff()
     removeToken()
@@ -60,13 +62,22 @@ const AppLayout = () => {
       children: [{ label: '子菜单项2-1', key: 'submenu-item-2-1' }],
     },
   ]
-  const [current, setCurrent] = useState(pathname)
+  const [current, setCurrent] = useState('')
+  /**
+   * 初始化导航菜单高亮
+   */
+  useEffect(() => {
+    const target = pathname.split('/').at(-1)
+    if (target) setCurrent(target)
+  }, [])
 
-  // 切换菜单
+  /**
+   * 切换菜单
+   */
   const onClick: MenuProps['onClick'] = e => {
     setCurrent(e.key)
     const keyPath = e.keyPath.slice().reverse().join('/')
-    navigate(`/${keyPath}`)
+    navigate(`/${keyPath === '/' ? '' : keyPath}`)
   }
   return (
     <>
