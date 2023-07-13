@@ -28,4 +28,18 @@ const lazyLoad = (module: string) => {
   )
 }
 
-export { generateId, lazyLoad }
+/**
+ * 锚点跳转
+ * @param {string} id DOM id
+ */
+const toAchor = (id: string) => {
+  const element = document.getElementById(id)
+  if (!element) return
+  const offsetTop = element.offsetTop
+  window.scroll({
+    top: offsetTop + 24,
+    behavior: 'smooth',
+  })
+}
+
+export { generateId, lazyLoad, toAchor }
