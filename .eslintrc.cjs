@@ -30,6 +30,7 @@ module.exports = {
     'comma-dangle': 0,
     'multiline-ternary': 0,
     'space-before-function-paren': 2,
+    'react/no-unknown-property': ['error', { ignore: ['css'] }],
   },
   settings: {
     react: {
@@ -37,14 +38,14 @@ module.exports = {
     },
   },
   globals: {
-    JSX: true
+    JSX: true,
   },
   overrides: [
     {
       files: ['*.ts', '*.tsx'],
       rules: {
-        'no-undef': 0
-      }
-    }
-  ]
+        'no-undef': 0,
+      },
+    },
+  ],
 }

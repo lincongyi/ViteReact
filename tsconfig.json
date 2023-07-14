@@ -16,15 +16,16 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "paths": {
-      "@/*":["./src/*"],
-      "@images/*":["./src/assets/images/*"],
-      "@pages/*":["./src/pages/*"],
-      "@components/*":["./src/components/*"],
-      "@utils/*":["./src/utils/*"],
-      "@stores/*":["./src/stores/*"],
-      "@api/*":["./src/api/*"],
+      "@/*": ["./src/*"],
+      "@images/*": ["./src/assets/images/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@components/*": ["./src/components/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@stores/*": ["./src/stores/*"],
+      "@api/*": ["./src/api/*"]
     }
+    // "jsxImportSource": "@emotion/react"
   },
-  "include": ["src","**/*.d.ts"],
+  "include": ["src", "**/*.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
