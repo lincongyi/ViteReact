@@ -7,7 +7,7 @@ const fontStyle = css`
   font-size: 30px;
 `
 
-console.log(fontStyle)
+console.log('fontStyle', fontStyle)
 
 const Example2 = () => {
   return <div css={fontStyle}>@emotion/react</div>

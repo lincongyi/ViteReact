@@ -11,8 +11,17 @@ import {
   codeString5,
   codeString6,
   codeString7,
+  codeString8,
+  codeString9,
+  codeString10,
+  codeString11,
 } from './code'
 import Example3 from './Example3'
+import Example4 from './Example4'
+import Example5 from './Example5'
+import Example6 from './Example6'
+import Example7 from './Example7'
+import Example8 from './Example8'
 
 const { Title, Paragraph, Text } = Typography
 const CSSInJs = () => {
@@ -156,11 +165,35 @@ const CSSInJs = () => {
               </Paragraph>
               <CodeHighLight codeString={codeString6} />
               <Text type='success'>更推荐使用该方式，一步到位。</Text>
-              <Title level={5}>3.css方法</Title>
-              <Paragraph>(1)string style</Paragraph>
-              <Paragraph>(2)object style</Paragraph>
+              <Title level={5}>3.css方法的使用方式</Title>
+              <Paragraph>
+                (1)string style : <Text mark>字符串模板类型</Text>
+              </Paragraph>
+              <Paragraph>
+                (2)object style : <Text mark>对象类型</Text>
+              </Paragraph>
               <CodeHighLight codeString={codeString7} />
               <Example3 />
+              <Title level={5}>4.css属性优先级</Title>
+              <Paragraph>
+                props中的css属性优先级高于组件内部的css属性（父组件透传样式覆盖子组件默认样式）
+              </Paragraph>
+              <CodeHighLight codeString={codeString8} />
+              <Example4 />
+              <Title level={5}>5.styled component 样式化组件</Title>
+              <Paragraph>定制化html标签样式</Paragraph>
+              <CodeHighLight codeString={codeString9} />
+              <Example5 />
+              <Title level={5}>6.props样式覆盖</Title>
+              <Paragraph>动态声明样式</Paragraph>
+              <CodeHighLight codeString={codeString10} />
+              <Example6 />
+              <Title level={5}>7.定制化组件样式</Title>
+              <Paragraph>类似于样式化的HOC</Paragraph>
+              <CodeHighLight codeString={codeString11} />
+              <Example7 />
+              <Title level={5}>8.父组件决定子组件样式</Title>
+              <Example8 />
             </Col>
           </Row>
         </Typography>
