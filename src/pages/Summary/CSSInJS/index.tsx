@@ -13,6 +13,8 @@ import {
   codeString9,
   codeString10,
   codeString11,
+  codeString12,
+  codeString13,
 } from './code'
 import Example1 from './Example1'
 import Example2 from './Example2'
@@ -22,9 +24,12 @@ import Example5 from './Example5'
 import Example6 from './Example6'
 import Example7 from './Example7'
 import Example8 from './Example8'
+import Example9 from './Example9'
+import Example10 from './Example10'
 
 const { Title, Paragraph, Text } = Typography
-const CSSInJs = () => {
+
+const CSSInJS = () => {
   const items = [
     { children: 'CSS In Js 介绍' },
     { children: '为什么会有CSS IN JS' },
@@ -193,7 +198,18 @@ const CSSInJs = () => {
               <CodeHighLight codeString={codeString11} />
               <Example7 />
               <Title level={5}>8.父组件决定子组件样式</Title>
+              <Paragraph>
+                单独调用子组件时，无异样。当结合父组件一起调用的时候，样式由父组件决定。
+              </Paragraph>
+              <CodeHighLight codeString={codeString12} />
               <Example8 />
+              <Title level={5}>9.全局样式</Title>
+              <Paragraph>通过css方法声明全局样式并赋值给Global组件。</Paragraph>
+              <CodeHighLight codeString={codeString13} />
+              <Example9 />
+              <Title level={5}>10.关键帧动画</Title>
+              <Paragraph>通过keyframes方法定义关键帧动画。</Paragraph>
+              <Example10 />
             </Col>
           </Row>
         </Typography>
@@ -202,4 +218,4 @@ const CSSInJs = () => {
   )
 }
 
-export default CSSInJs
+export default CSSInJS

@@ -209,3 +209,78 @@ const Example7 = () => {
 }
 
 export default Example7`
+
+export const codeString12 = `import React from 'react'
+import styled from '@emotion/styled'
+import { Space } from 'antd'
+
+const Child = styled.div\`
+  padding: 20px;
+  background-color: #f6ffa4;
+\`
+
+const Parent1 = styled.div\`
+  $\{Child\} {
+    background-color: #31aa75;
+  }
+\`
+
+const Parent2 = styled.div({
+  [Child]: {
+    backgroundColor: '#53c7f0',
+  },
+})
+
+const Example8 = () => {
+  return (
+    <Space>
+      <Child>Child</Child>
+      <Parent1>
+        <Child>Parent1 Child</Child>
+      </Parent1>
+      <Parent2>
+        <Child>Parent2 Child</Child>
+      </Parent2>
+    </Space>
+  )
+}
+
+export default Example8`
+
+export const codeString13 = `import React from 'react'
+import { css, Global } from '@emotion/react'
+import { Space } from 'antd'
+
+const globalStyles1 = css\`
+  .my-color {
+    color: skyblue;
+  }
+\`
+
+const globalStyles2 = css({
+  '.my-size': {
+    fontSize: 24,
+  },
+})
+
+const Example9 = () => {
+  return (
+    <Space>
+      <Global
+        styles={[
+          globalStyles1,
+          globalStyles2,
+          css({
+            '.my-bold': {
+              fontWeight: 'bold',
+            },
+          }),
+        ]}
+      />
+      <p className='my-color my-size my-bold'>全局样式</p>
+    </Space>
+  )
+}
+
+export default Example9
+`

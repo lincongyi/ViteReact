@@ -150,9 +150,9 @@ const routes: TRoutes[] = [
             meta: { title: 'ForOf' },
           },
           {
-            path: 'CSSInJs',
-            element: lazyLoad('Summary/CSSInJs'),
-            meta: { title: 'CSSInJs' },
+            path: 'CSSInJS',
+            element: lazyLoad('Summary/CSSInJS'),
+            meta: { title: 'CSSInJS' },
           },
         ],
         meta: {
