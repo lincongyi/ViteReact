@@ -83,6 +83,12 @@ const routes: TRoutes[] = [
             element: lazyLoad('Summary/GitCommitizen'),
             meta: { title: 'Commitizen' },
           },
+
+          {
+            path: 'reactUseState',
+            element: lazyLoad('Summary/ReactUseState'),
+            meta: { title: 'useState' },
+          },
           {
             path: 'reactMemo',
             element: lazyLoad('Summary/ReactMemo'),

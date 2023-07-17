@@ -1,7 +1,5 @@
 import React from 'react'
 import { Col, Divider, Row, Timeline, Typography } from 'antd'
-import Example1 from './Example1'
-import Example2 from './Example2'
 import CodeHighLight from '@/components/CodeHighLight'
 import {
   codeString1,
@@ -16,6 +14,8 @@ import {
   codeString10,
   codeString11,
 } from './code'
+import Example1 from './Example1'
+import Example2 from './Example2'
 import Example3 from './Example3'
 import Example4 from './Example4'
 import Example5 from './Example5'
