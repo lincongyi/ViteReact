@@ -88,7 +88,7 @@ const AppLayout = () => {
           collapsible
           collapsed={collapsed}
           width={200}
-          style={{ position: 'fixed', height: '100vh' }}
+          style={{ position: 'fixed', height: '100vh', overflowY: 'auto' }}
         >
           <div className='logo'>
             <div className='bg'></div>
@@ -98,6 +98,7 @@ const AppLayout = () => {
             mode='inline'
             items={items}
             selectedKeys={[current]}
+            defaultOpenKeys={['summary']}
             onClick={onClick}
           />
         </Sider>
