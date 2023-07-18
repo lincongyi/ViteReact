@@ -15,6 +15,7 @@ import {
   codeString11,
   codeString12,
   codeString13,
+  codeString14,
 } from './code'
 import Example1 from './Example1'
 import Example2 from './Example2'
@@ -26,6 +27,7 @@ import Example7 from './Example7'
 import Example8 from './Example8'
 import Example9 from './Example9'
 import Example10 from './Example10'
+import Example11 from './Example11'
 
 const { Title, Paragraph, Text } = Typography
 
@@ -210,6 +212,24 @@ const CSSInJS = () => {
               <Title level={5}>10.关键帧动画</Title>
               <Paragraph>通过keyframes方法定义关键帧动画。</Paragraph>
               <Example10 />
+              <Title level={5}>
+                11.定义主题（变量）<Text code>ThemeProvider</Text>
+              </Title>
+              <Paragraph>
+                引入组件
+                <Text code>
+                  import {'\u007b'} ThemeProvider {'\u007d'} from
+                  &apos;@emotion/react&apos;
+                </Text>
+              </Paragraph>
+              <Paragraph>
+                <Text code>ThemeProvider</Text>
+                主要用于存储主题样式和提供其他组件获取主题样式。
+                <Text code>@emotion/react</Text>已包含
+                <Text code>ThemeProvider</Text>组件
+              </Paragraph>
+              <CodeHighLight codeString={codeString14} />
+              <Example11 />
             </Col>
           </Row>
         </Typography>
