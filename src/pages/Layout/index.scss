@@ -37,3 +37,20 @@
   margin-left: 20px;
   background-color: #fff;
 }
+
+.ant-layout-sider {
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: #b5b1b1;
+  }
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: 0;
+    border-radius: 0;
+    background: #191f28;
+  }
+}
+
+
