@@ -83,7 +83,16 @@ const routes: TRoutes[] = [
             element: lazyLoad('Summary/GitCommitizen'),
             meta: { title: 'Commitizen' },
           },
-
+          {
+            path: 'debounce',
+            element: lazyLoad('Summary/Debounce'),
+            meta: { title: '防抖' },
+          },
+          {
+            path: 'throttle',
+            element: lazyLoad('Summary/Throttle'),
+            meta: { title: '节流' },
+          },
           {
             path: 'reactUseState',
             element: lazyLoad('Summary/ReactUseState'),
