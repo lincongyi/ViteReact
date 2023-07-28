@@ -81,7 +81,7 @@ const ReactMemo = () => {
                     <br />
                     由于PureComponent组件接收了一个onclick函数（引用类型）传入，当Parent组件重新渲染，它也会被重新创建，使得React.memo()失效；
                     <br />
-                    所以我们只能够用到React.memo()的第二个参数，传入一个比较函数（结构出引用类型，不做判断）。
+                    所以我们只能够用到React.memo()的第二个参数，传入一个比较函数（解构出引用类型，不做判断）。
                     <br />
                   </Text>
                   <Divider />
