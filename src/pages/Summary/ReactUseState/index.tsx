@@ -1,11 +1,18 @@
 import React from 'react'
 import { Col, Row, Timeline, Typography, Divider } from 'antd'
 import CodeHighLight from '@components/CodeHighLight'
-import { codeString1, codeString2, codeString3, codeString4 } from './code'
+import {
+  codeString1,
+  codeString2,
+  codeString3,
+  codeString4,
+  codeString5,
+} from './code'
 import Example1 from './Example1'
 import Example2 from './Example2'
 import Example3 from './Example3'
 import Example4 from './Example4'
+import Example5 from './Example5'
 
 const { Title, Paragraph, Text } = Typography
 
@@ -90,7 +97,7 @@ const ReactUseState = () => {
               <Paragraph>
                 调用myUseState方法时，需要判断state是否已经存在值。
               </Paragraph>
-              <Title level={5}>3.多次调用myUseState声明多个state</Title>
+              <Title level={5}>3.多次调用myUseState可声明多个state</Title>
               <CodeHighLight codeString={codeString3} />
               <Example3 />
               <Divider orientation='left' plain>
@@ -109,8 +116,18 @@ const ReactUseState = () => {
                 分析
               </Divider>
               <Paragraph>
-                反复点击myUseState按钮，会发现count2、count3没有像预期；
+                通过数组state存储多个状态值后，其setState函数如何可以对应自身的state值呢？
+                <br />
+                所以需要把setState也声明成一个数组，用过stateIndex来对应；
+                <br />
+                <Text type='danger'>关键点：</Text>
+                <br />
+                同时在声明set函数时，为了拿到该状态对应的下标，需要采用[ 闭包
+                ]的方式，把各自状态对应的下标保存一份。这样才能在触发set函数时，拿到准确的下标值；
+                <br />
               </Paragraph>
+              <CodeHighLight codeString={codeString5} />
+              <Example5 />
             </Col>
           </Row>
         </Typography>

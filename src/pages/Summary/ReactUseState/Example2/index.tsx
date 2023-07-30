@@ -14,9 +14,9 @@ const render = () => {
   root.render(<Child />)
 }
 
-let state: any
+let state: any // 调整state作用域
 const myUseState = (initial: any) => {
-  state = state || initial
+  state = state || initial // 判断如果state有值，就不会重置，否则赋予初始默认值
   const setState = (newValue: any) => {
     state = newValue
     render()
