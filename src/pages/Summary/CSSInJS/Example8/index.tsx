@@ -14,6 +14,7 @@ const Parent1 = styled.div`
 `
 
 const Parent2 = styled.div({
+  // @ts-ignore
   [Child]: {
     backgroundColor: '#53c7f0',
   },
