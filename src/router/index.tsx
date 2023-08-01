@@ -94,6 +94,11 @@ const routes: TRoutes[] = [
             meta: { title: '节流' },
           },
           {
+            path: 'arrayApi',
+            element: lazyLoad('Summary/ArrayApi'),
+            meta: { title: '数组遍历的Api' },
+          },
+          {
             path: 'reactUseState',
             element: lazyLoad('Summary/ReactUseState'),
             meta: { title: 'useState' },
