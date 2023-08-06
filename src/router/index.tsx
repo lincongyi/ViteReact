@@ -99,6 +99,11 @@ const routes: TRoutes[] = [
             meta: { title: 'useState' },
           },
           {
+            path: 'reactUseEffect',
+            element: lazyLoad('Summary/ReactUseEffect'),
+            meta: { title: 'useEffect' },
+          },
+          {
             path: 'reactUseReducer',
             element: lazyLoad('Summary/ReactUseReducer'),
             meta: { title: 'useReducer' },
