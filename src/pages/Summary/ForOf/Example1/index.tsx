@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Button, Col, Row, Space } from 'antd'
 import React, { useState } from 'react'
 

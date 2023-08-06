@@ -3,7 +3,7 @@ import { Col, Row, Timeline, Typography } from 'antd'
 
 const { Title, Paragraph } = Typography
 
-const demo = () => {
+const Demo = () => {
   const items = [
     { children: '标题导航-xxx的作用' },
     { children: '标题导航-xxx具体实例' },
@@ -30,4 +30,4 @@ const demo = () => {
   )
 }
 
-export default demo
+export default Demo
