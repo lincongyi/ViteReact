@@ -94,7 +94,7 @@ const render = () => {
   const id = document.getElementById('Example5')
   if (!id) return
   root = root || createRoot(id)
-  stateIndex = 0 // 重新渲染的时候需要把下表归0，不然stateIndex会一直累计下去
+  stateIndex = 0 // 重新渲染的时候需要把下标归0，不然每次调用myUseState，stateIndex会一直累计下去
   root.render(<Child />)
 }
 

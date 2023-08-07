@@ -35,7 +35,7 @@ const ReactUseState = () => {
               <Title>基础用法</Title>
               <Title level={5}>1.初始值与初始函数</Title>
               <Paragraph>
-                <Text code>useState</Text>接受一个默认值，并返回2个值
+                <Text code>useState</Text>接受一个默认值，并返回2个值：
               </Paragraph>
               <Paragraph>1.当前状态</Paragraph>
               <Paragraph>2.一个用于更新值的函数</Paragraph>
