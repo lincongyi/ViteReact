@@ -1,17 +1,19 @@
 import React from 'react'
 import { Col, Divider, Row, Timeline, Typography } from 'antd'
 import CodeHighLight from '@components/CodeHighLight'
-import { codeString1, codeString2, codeString3 } from './code'
+import { codeString1, codeString2, codeString3, codeString4 } from './code'
 import Example1 from './Example1'
 import Example2 from './Example2'
 import Example3 from './Example3'
 import Example4 from './Example4'
+import Example5 from './Example5'
 
 const { Title, Paragraph, Text } = Typography
 const ReactUseReducer = () => {
   const items = [
     { children: 'useReducer的作用' },
     { children: 'useReducer具体实例' },
+    { children: 'useReducer-推断内部实现方式' },
   ]
   return (
     <Row>
@@ -85,6 +87,11 @@ const ReactUseReducer = () => {
                   <Divider />
                 </Col>
               </Row>
+            </Col>
+            <Col span={24}>
+              <Title>实现方式</Title>
+              <CodeHighLight codeString={codeString4} />
+              <Example5 />
             </Col>
           </Row>
         </Typography>

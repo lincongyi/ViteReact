@@ -69,3 +69,26 @@ const onFinish = (values: any) => {
   dataDispatch(param)
   form.resetFields()
 }`
+
+export const codeString4 = `const reducer = (state: number, action: { type: string }) => {
+  switch (action.type) {
+    case 'increment':
+      return state + 1
+    case 'decrement':
+      if (state > 0) return state - 1
+      else return state
+    case 'reset':
+      return 0
+    default:
+      return state
+  }
+}
+
+const myUseReducer = (callback: Function, initialValue: any) => {
+  const [state, setState] = useState(initialValue)
+  const dispatch = (action: { type: string }) => {
+    const result = callback(state, action)
+    setState(result)
+  }
+  return [state, dispatch]
+}`

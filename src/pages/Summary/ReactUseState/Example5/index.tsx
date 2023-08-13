@@ -22,8 +22,8 @@ let stateIndex = 0 // 下标用于记录状态值的对应关系
 /**
  * 重写useState方法
  */
-const myUseState = (initial: any) => {
-  state[stateIndex] = state[stateIndex] || initial
+const myUseState = (initialValue: any) => {
+  state[stateIndex] = state[stateIndex] || initialValue
   setState[stateIndex] = setState[stateIndex] || onSet(stateIndex)
 
   const index = stateIndex++
