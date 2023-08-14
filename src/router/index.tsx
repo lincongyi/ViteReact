@@ -173,6 +173,11 @@ const routes: TRoutes[] = [
             element: lazyLoad('Summary/CSSInJS'),
             meta: { title: 'CSSInJS' },
           },
+          {
+            path: 'miniProgramI18n',
+            element: lazyLoad('Summary/MiniProgramI18n'),
+            meta: { title: 'MiniProgram I18n' },
+          },
         ],
         meta: {
           title: '记录&总结',
