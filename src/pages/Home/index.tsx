@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react'
-import './index.scss'
 import * as echarts from 'echarts'
 import Line from '@components/charts/Line'
 import Doughnut from '@components/charts/Doughnut'

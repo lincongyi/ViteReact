@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import style from './index.module.scss'
 import { Outlet, useNavigate, useLocation } from 'react-router-dom'
 import { observer } from 'mobx-react-lite'
 import { Menu, Layout, Popconfirm, message } from 'antd'
@@ -13,7 +14,6 @@ import {
   FileDoneOutlined,
   TagsOutlined,
 } from '@ant-design/icons'
-import './index.scss'
 import { getMenuItems } from '@/utils/router'
 
 const { Header, Sider, Content } = Layout
@@ -82,7 +82,7 @@ const AppLayout = () => {
   return (
     <>
       {contextHolder}
-      <Layout className='layout-wrap'>
+      <Layout className={style['layout-wrap']}>
         <Sider
           trigger={null}
           collapsible
@@ -90,9 +90,7 @@ const AppLayout = () => {
           width={200}
           style={{ position: 'fixed', height: '100vh', overflowY: 'auto' }}
         >
-          <div className='logo'>
-            <div className='bg'></div>
-          </div>
+          <div className={style.logo}>还没想好用什么标题</div>
           <Menu
             theme='dark'
             mode='inline'
@@ -104,7 +102,7 @@ const AppLayout = () => {
         </Sider>
         <Layout style={{ marginLeft: !collapsed ? 200 : 80 }}>
           <Header
-            className='header'
+            className={style.header}
             style={{
               width: !collapsed ? 'calc(100% - 200px)' : 'calc(100% - 80px)',
             }}
@@ -116,7 +114,7 @@ const AppLayout = () => {
                 onClick: () => setCollapsed(!collapsed),
               }
             )}
-            <div className='user-tool'>
+            <div className={style['user-tool']}>
               {userStore.profile?.username}
               <Popconfirm
                 placement='bottomRight'
@@ -125,14 +123,14 @@ const AppLayout = () => {
                 okText='确定'
                 cancelText='取消'
               >
-                <div className='logoff'>
+                <div className={style.logoff}>
                   <PoweroffOutlined />
                   退出登录
                 </div>
               </Popconfirm>
             </div>
           </Header>
-          <Content className='content'>
+          <Content className={style.content}>
             {/* 二级路由出口 */}
             <Outlet></Outlet>
           </Content>

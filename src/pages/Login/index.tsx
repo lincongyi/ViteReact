@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
+import style from './index.module.scss'
 import { Card, Button, Checkbox, Form, Input, message } from 'antd'
-import './index.scss'
 import type { FormInstance } from 'antd/es/form'
 import { useNavigate } from 'react-router-dom'
 import { login } from '@api/login'
@@ -46,8 +46,8 @@ const Login: React.FC = () => {
   return (
     <>
       {contextHolder}
-      <div className='wrapper'>
-        <div className='card-wrapper'>
+      <div className={style.wrapper}>
+        <div className={style['card-wrapper']}>
           <Card title='登录' bordered={false} style={{ width: 400 }}>
             <Form
               ref={form}

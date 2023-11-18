@@ -6,7 +6,6 @@ import React, {
   useRef,
   useState,
 } from 'react'
-import './index.scss'
 import {
   Button,
   Card,
