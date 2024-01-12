@@ -1,0 +1,14 @@
+.item{
+  color: #555;
+  cursor: pointer;
+  &:hover{
+    color: #bfbfbf;
+  }
+
+  &.active{
+    color: #1677ff;
+    &:hover{
+      color: #1677ff9c;
+    }
+  }
+}

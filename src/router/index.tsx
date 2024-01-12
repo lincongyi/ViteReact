@@ -1,5 +1,4 @@
 import React from 'react'
-import { Auth } from '@components/auth'
 import Home from '@pages/Home'
 import Layout from '@pages/Layout'
 import Login from '@pages/Login'
@@ -17,26 +16,62 @@ import {
   ExceptionOutlined,
 } from '@ant-design/icons'
 
-const routes: TRoutes[] = [
+const basicRoutes: TRoutes[] = [
   {
     path: '*', // 未匹配到路由，重定向到首页
     element: <NotFound />,
+    inherent: true,
   },
   {
     path: 'notFound',
     element: <NotFound />,
+    inherent: true,
   },
   {
+    path: 'login',
+    element: <Login />,
+    inherent: true,
+  },
+  {
+    path: 'configuration',
+    element: <Configuration />,
+    inherent: true,
+  },
+  {
+    path: 'playground',
+    element: <Playground />,
+    inherent: true,
+  },
+  {
+    path: 'html2pdf',
+    element: <Html2PDF />,
+    inherent: true,
+  },
+]
+
+const javascriptRoutes = [
+  {
+    path: 'debounce',
+    elementPath: 'Summary/JavaScript/Debounce',
+    meta: { title: '防抖' },
+  },
+  {
+    path: 'throttle',
+    elementPath: 'Summary/JavaScript/Throttle',
+    meta: { title: '节流' },
+  },
+]
+
+const dynamicRoutes = [
+  {
     path: '/', // 首页
-    element: (
-      <Auth>
-        <Layout></Layout>
-      </Auth>
-    ),
+    element: <Layout></Layout>,
+    // elementPath: 'Layout',
     children: [
       {
         path: '',
         element: <Home />,
+        // elementPath: 'Home',
         meta: {
           title: '数据概览',
           icon: <AppstoreOutlined />,
@@ -44,7 +79,7 @@ const routes: TRoutes[] = [
       },
       {
         path: 'member',
-        element: lazyLoad('Member'),
+        elementPath: 'Member',
         meta: {
           title: '用户管理',
           icon: <UserOutlined />,
@@ -52,7 +87,7 @@ const routes: TRoutes[] = [
       },
       {
         path: 'articleType',
-        element: lazyLoad('ArticleType'),
+        elementPath: 'ArticleType',
         meta: {
           title: '文章类型',
           icon: <SnippetsOutlined />,
@@ -60,7 +95,7 @@ const routes: TRoutes[] = [
       },
       {
         path: 'article',
-        element: lazyLoad('Article'),
+        elementPath: 'Article',
         meta: {
           title: '内容管理',
           icon: <ProfileOutlined />,
@@ -68,7 +103,7 @@ const routes: TRoutes[] = [
       },
       {
         path: 'publish',
-        element: lazyLoad('Publish'),
+        elementPath: 'Publish',
         meta: {
           title: '发布文章',
           icon: <FileTextOutlined />,
@@ -76,106 +111,107 @@ const routes: TRoutes[] = [
       },
       {
         path: 'summary',
-        element: lazyLoad('Summary'),
+        elementPath: 'Summary',
         children: [
           {
+            path: 'scss',
+            elementPath: 'Summary/SCSS',
+            meta: { title: 'SCSS' },
+          },
+          {
+            path: 'javaScript',
+            elementPath: 'Summary/JavaScript',
+            meta: { title: 'JavaScript' },
+            children: [...javascriptRoutes],
+          },
+          {
             path: 'gitCommitizen',
-            element: lazyLoad('Summary/GitCommitizen'),
+            elementPath: 'Summary/GitCommitizen',
             meta: { title: 'Commitizen' },
           },
           {
-            path: 'debounce',
-            element: lazyLoad('Summary/Debounce'),
-            meta: { title: '防抖' },
-          },
-          {
-            path: 'throttle',
-            element: lazyLoad('Summary/Throttle'),
-            meta: { title: '节流' },
-          },
-          {
             path: 'arrayApi',
-            element: lazyLoad('Summary/ArrayApi'),
+            elementPath: 'Summary/ArrayApi',
             meta: { title: '数组遍历的Api' },
           },
           {
             path: 'reactUseState',
-            element: lazyLoad('Summary/ReactUseState'),
+            elementPath: 'Summary/ReactUseState',
             meta: { title: 'useState' },
           },
           {
             path: 'reactUseEffect',
-            element: lazyLoad('Summary/ReactUseEffect'),
+            elementPath: 'Summary/ReactUseEffect',
             meta: { title: 'useEffect' },
           },
           {
             path: 'reactUseReducer',
-            element: lazyLoad('Summary/ReactUseReducer'),
+            elementPath: 'Summary/ReactUseReducer',
             meta: { title: 'useReducer' },
           },
           {
             path: 'reactMemo',
-            element: lazyLoad('Summary/ReactMemo'),
+            elementPath: 'Summary/ReactMemo',
             meta: { title: 'React.memo' },
           },
           {
             path: 'reactUseContext',
-            element: lazyLoad('Summary/ReactUseContext'),
+            elementPath: 'Summary/ReactUseContext',
             meta: { title: 'createContext' },
           },
           {
             path: 'reactMobxUseContext',
-            element: lazyLoad('Summary/ReactMobxUseContext'),
+            elementPath: 'Summary/ReactMobxUseContext',
             meta: { title: 'Mobx && useContext' },
           },
           {
             path: 'reactDynamicRoute',
-            element: lazyLoad('Summary/ReactDynamicRoute'),
+            elementPath: 'Summary/ReactDynamicRoute',
             meta: { title: '动态路由' },
           },
           {
             path: 'reactForwardRef',
-            element: lazyLoad('Summary/ReactForwardRef'),
+            elementPath: 'Summary/ReactForwardRef',
             meta: { title: 'forwardRef' },
           },
           {
             path: 'reactUseImperativeHandle',
-            element: lazyLoad('Summary/ReactUseImperativeHandle'),
+            elementPath: 'Summary/ReactUseImperativeHandle',
             meta: { title: 'useImperativeHandle' },
           },
           {
             path: 'axiosCancelToken',
-            element: lazyLoad('Summary/AxiosCancelToken'),
+            elementPath: 'Summary/AxiosCancelToken',
             meta: { title: 'axios终止请求' },
           },
           {
             path: 'vercel',
-            element: lazyLoad('Summary/Vercel'),
+            elementPath: 'Summary/Vercel',
             meta: { title: 'Vercel' },
           },
           {
             path: 'githubPages',
-            element: lazyLoad('Summary/GithubPages'),
+            elementPath: 'Summary/GithubPages',
             meta: { title: 'Github Pages' },
           },
           {
             path: 'compressImage',
-            element: lazyLoad('Summary/CompressImage'),
+            elementPath: 'Summary/CompressImage',
             meta: { title: 'Compress Image' },
           },
           {
             path: 'forOf',
-            element: lazyLoad('Summary/ForOf'),
+            elementPath: 'Summary/ForOf',
             meta: { title: 'ForOf' },
           },
           {
             path: 'CSSInJS',
-            element: lazyLoad('Summary/CSSInJS'),
+            elementPath: 'Summary/CSSInJS',
             meta: { title: 'CSSInJS' },
           },
           {
             path: 'miniProgramI18n',
-            element: lazyLoad('Summary/MiniProgramI18n'),
+            elementPath: 'Summary/MiniProgramI18n',
             meta: { title: 'MiniProgram I18n' },
           },
         ],
@@ -186,22 +222,37 @@ const routes: TRoutes[] = [
       },
     ],
   },
-  {
-    path: 'login',
-    element: <Login />,
-  },
-  {
-    path: 'configuration',
-    element: <Configuration />,
-  },
-  {
-    path: 'playground',
-    element: <Playground />,
-  },
-  {
-    path: 'html2pdf',
-    element: <Html2PDF />,
-  },
 ]
 
-export { routes }
+/**
+ * 生成预渲染路由格式
+ */
+const generateRoute = (routes: TRoutes[]): TRoutes[] => {
+  return routes.map((item: TRoutes) => {
+    if (item.children) {
+      const routeItem: TRoutes = {
+        path: item.path,
+        element: item.element || lazyLoad(item.elementPath!),
+        children: generateRoute(item.children),
+        meta: item.meta,
+      }
+      return routeItem
+    } else {
+      const { inherent, ...rest } = item
+      if (inherent) {
+        // 是否为默认路由
+        return rest
+      } else {
+        const routeItem = {
+          ...item,
+          element: item.element || lazyLoad(item.elementPath!),
+        }
+        return routeItem
+      }
+    }
+  })
+}
+
+const routes = generateRoute([...basicRoutes, ...dynamicRoutes])
+
+export { javascriptRoutes, dynamicRoutes, routes }

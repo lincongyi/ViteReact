@@ -2,6 +2,8 @@
 declare type TRoutes = {
   path: string
   element?: JSX.Element
+  elementPath?: string
+  inherent?: boolean // 是否默认加载的路由
   children?: TRoutes[]
   meta?: {
     title?: string

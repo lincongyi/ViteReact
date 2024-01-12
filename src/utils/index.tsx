@@ -8,7 +8,11 @@ import { Spin } from 'antd'
 const generateId = () => Math.random().toString(16).slice(2)
 
 // 从文件系统导入多个模块
-const modules = import.meta.glob(['../pages/*/*.tsx', '../pages/*/*/*.tsx'])
+const modules = import.meta.glob([
+  '../pages/*/*.tsx',
+  '../pages/*/*/*.tsx',
+  '../pages/*/*/*/*.tsx',
+])
 
 /**
  * 路由懒加载
