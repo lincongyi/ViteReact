@@ -99,9 +99,30 @@ const CSSRoutes: TModuleRoutes[] = [
  */
 const GitRoutes: TModuleRoutes[] = [
   {
+    path: 'gitDirectives',
+    elementPath: 'Summary/Git/GitDirectives',
+    meta: { title: 'git常用指令' },
+  },
+  {
     path: 'gitCommitizen',
     elementPath: 'Summary/Git/GitCommitizen',
     meta: { title: 'Commitizen' },
+  },
+]
+
+/**
+ * 第三方工具模块路由
+ */
+const PluginRoutes: TModuleRoutes[] = [
+  {
+    path: 'axiosCancelToken',
+    elementPath: 'Summary/Plugin/AxiosCancelToken',
+    meta: { title: 'axios终止请求' },
+  },
+  {
+    path: 'miniProgramI18n',
+    elementPath: 'Summary/Plugin/MiniProgramI18n',
+    meta: { title: 'MiniProgram I18n' },
   },
 ]
 
@@ -180,6 +201,12 @@ const dynamicRoutes = [
             children: [...GitRoutes],
           },
           {
+            path: 'plugin',
+            elementPath: 'Summary/Plugin',
+            meta: { title: '第三方工具' },
+            children: [...PluginRoutes],
+          },
+          {
             path: 'reactUseState',
             elementPath: 'Summary/ReactUseState',
             meta: { title: 'useState' },
@@ -224,11 +251,7 @@ const dynamicRoutes = [
             elementPath: 'Summary/ReactUseImperativeHandle',
             meta: { title: 'useImperativeHandle' },
           },
-          {
-            path: 'axiosCancelToken',
-            elementPath: 'Summary/AxiosCancelToken',
-            meta: { title: 'axios终止请求' },
-          },
+
           {
             path: 'vercel',
             elementPath: 'Summary/Vercel',
@@ -238,11 +261,6 @@ const dynamicRoutes = [
             path: 'githubPages',
             elementPath: 'Summary/GithubPages',
             meta: { title: 'Github Pages' },
-          },
-          {
-            path: 'miniProgramI18n',
-            elementPath: 'Summary/MiniProgramI18n',
-            meta: { title: 'MiniProgram I18n' },
           },
         ],
         meta: {
@@ -285,4 +303,4 @@ const generateRoute = (routes: TRoutes[]): TRoutes[] => {
 
 const routes = generateRoute([...basicRoutes, ...dynamicRoutes])
 
-export { JSRoutes, CSSRoutes, GitRoutes, dynamicRoutes, routes }
+export { JSRoutes, CSSRoutes, GitRoutes, PluginRoutes, dynamicRoutes, routes }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Col, Row, Timeline, Typography, Image } from 'antd'
+import { Col, Row, Typography, Image, Anchor } from 'antd'
 import CodeHighLight from '@/components/CodeHighLight'
 import {
   codeString1,
@@ -22,21 +22,24 @@ const { Title, Paragraph, Link, Text } = Typography
 
 const MiniProgramI18n = () => {
   const items = [
-    { children: '微信小程序国际化' },
-    { children: 'miniprogram-i18n' },
-    { children: 'miniprogram-i18n-plus' },
+    { key: 'introduction', href: '#introduction', title: '微信小程序国际化' },
+    {
+      key: 'miniprogram-i18n',
+      href: '#miniprogram-i18n',
+      title: 'miniprogram-i18n',
+    },
+    {
+      key: 'miniprogram-i18n-plus',
+      href: '#miniprogram-i18n-plus',
+      title: 'miniprogram-i18n-plus',
+    },
   ]
   return (
-    <Row>
-      <Col span={6}>
-        <div style={{ position: 'fixed' }}>
-          <Timeline items={items} />
-        </div>
-      </Col>
-      <Col span={18}>
+    <Row gutter={10}>
+      <Col xs={18} xl={20}>
         <Typography>
           <Row>
-            <Col span={24}>
+            <Col span={24} id='introduction'>
               <Title>微信小程序国际化</Title>
               <Paragraph>微信小程序国际化可以通过一下2种方式实现：</Paragraph>
               <Paragraph>
@@ -60,7 +63,7 @@ const MiniProgramI18n = () => {
                 </Link>
               </Paragraph>
             </Col>
-            <Col span={24}>
+            <Col span={24} id='miniprogram-i18n'>
               <Title>miniprogram-i18n</Title>
               <Paragraph>
                 官方提供的国际化方案，针对老项目的配置流程可直接跟着README文件走。以下介绍针对新项目的目录结构进行国际化的配置。
@@ -120,9 +123,9 @@ const MiniProgramI18n = () => {
                 编译，即可构建成国际化后的文件。
               </Paragraph>
             </Col>
-            <Col span={24}>
+            <Col span={24} id='miniprogram-i18n-plus'>
               <Title>miniprogram-i18n-plus</Title>
-              <Paragraph>更加方便快捷睇接入i18n</Paragraph>
+              <Paragraph>更加方便快捷的接入i18n</Paragraph>
               <Title level={5}>1.安装依赖</Title>
               <Paragraph>
                 在miniprogram目录中安装依赖
@@ -145,6 +148,13 @@ const MiniProgramI18n = () => {
             </Col>
           </Row>
         </Typography>
+      </Col>
+      <Col xs={6} xl={4}>
+        <Anchor
+          offsetTop={86}
+          items={items}
+          onClick={e => e.preventDefault()}
+        />
       </Col>
     </Row>
   )
