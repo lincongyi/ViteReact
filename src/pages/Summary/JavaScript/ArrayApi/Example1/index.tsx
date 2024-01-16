@@ -11,7 +11,10 @@ const Example1 = () => {
     result1.push((item *= 2))
   })
 
-  Array.prototype.myForEach = function (callback: Function) {
+  Array.prototype.myForEach = function <T> (
+    callback: (element: T, index: number, array: T[]) => void,
+    thisArg?: any
+  ): undefined {
     for (let i = 0; i < this.length; i++) {
       callback(this[i], i, this)
     }

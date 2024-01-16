@@ -46,9 +46,9 @@ const Example1 = () => {
   const onBind = () => {
     Object.prototype[Symbol.iterator] = objectIterator
     const result: number[] = []
-    for (const key of obj) {
-      console.log(key)
-      result.push(key)
+    for (const value of obj) {
+      console.log(value)
+      result.push(value)
     }
     setIteratorValues(result)
   }
@@ -59,8 +59,8 @@ const Example1 = () => {
   const onUnBind = () => {
     Object.prototype[Symbol.iterator] = () => {}
     try {
-      for (const key of obj) {
-        console.log(key)
+      for (const value of obj) {
+        console.log(value)
       }
     } catch (error) {
       setIteratorValues(undefined)

@@ -2,32 +2,33 @@
 import React, { useState } from 'react'
 import { Space, Button } from 'antd'
 
-const Example3 = () => {
+const Example2 = () => {
   const arr = [1, 2, 3, 4, 5]
 
-  const result1 = arr.filter(item => {
-    return item % 2 === 0
+  const result1 = arr.map(item => {
+    return item * 2
   })
 
-  Array.prototype.myFilter = function (callback) {
+  Array.prototype.myMap = function <T, U> (
+    callback: (element: T, index: number, array: T[], thisArg?: any) => U
+  ): U[] {
     const result = []
     for (let i = 0; i < this.length; i++) {
-      const isAllowed = Boolean(callback(this[i], i, this))
-      isAllowed && result.push(this[i])
+      result.push(callback(this[i], i, this))
     }
     return result
   }
 
-  const result2 = arr.myFilter((item: number) => item % 2 !== 0)
+  const result2 = arr.myMap((item: number) => (item *= 4))
 
   const [state, setState] = useState<string>()
 
   return (
     <Space direction='vertical'>
       <Space>
-        <Button onClick={() => setState(result1.toString())}>原生filter</Button>
+        <Button onClick={() => setState(result1.toString())}>原生map</Button>
         <Button type='primary' onClick={() => setState(result2.toString())}>
-          myFilter
+          myMap
         </Button>
       </Space>
       {`默认arr : ${arr.toString()}`}
@@ -36,4 +37,4 @@ const Example3 = () => {
   )
 }
 
-export default Example3
+export default Example2

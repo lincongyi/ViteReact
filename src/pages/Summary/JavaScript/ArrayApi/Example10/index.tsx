@@ -7,7 +7,10 @@ const Example10 = () => {
 
   const result1 = arr.some(item => item > 4)
 
-  Array.prototype.mySome = function (callback) {
+  Array.prototype.mySome = function <T> (
+    callback: (element: T, index: number, array: T[]) => unknown,
+    thisArg?: any
+  ) {
     for (let i = 0; i < this.length; i++) {
       const result = callback(this[i], i, this)
       if (result) return true

@@ -7,7 +7,10 @@ const Example11 = () => {
 
   const result1 = arr.every(item => item > 4)
 
-  Array.prototype.myEvery = function (callback) {
+  Array.prototype.myEvery = function <T> (
+    callback: (element: T, index: number, array: T[]) => unknown,
+    thisArg?: any
+  ) {
     for (let i = 0; i < this.length; i++) {
       const result = callback(this[i], i, this)
       if (!result) return false

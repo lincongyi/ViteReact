@@ -19,9 +19,18 @@ declare type TResponse = {
 }
 
 declare interface Array<T> {
-  myForEach(callback: (value: T, index: number, array: T[]) => void): void
-  myMap(callback: (value: T, index: number, array: T[]) => U): T[]
-  myFilter(predicate: (value: T, index: number, array: T[]) => unknown): T[]
+  myForEach(
+    callback: (value: T, index: number, array: T[]) => void,
+    thisArg?: any
+  ): void
+  myMap(
+    callback: (value: T, index: number, array: T[]) => U,
+    thisArg?: any
+  ): T[]
+  myFilter(
+    predicate: (value: T, index: number, array: T[]) => unknown,
+    thisArg?: any
+  ): T[]
   myReduce(
     callbackfn: (
       previousValue: T,

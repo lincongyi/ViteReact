@@ -1,6 +1,21 @@
 import React, { useEffect, useState } from 'react'
-import { Button, Col, Input, Row, Slider, Space, Typography, Image } from 'antd'
-import { DownloadOutlined } from '@ant-design/icons'
+import {
+  Button,
+  Col,
+  Input,
+  Row,
+  Slider,
+  Space,
+  Typography,
+  Image,
+  Upload,
+  message,
+} from 'antd'
+import { UploadOutlined, DownloadOutlined } from '@ant-design/icons'
+import type { RcFile } from 'antd/es/upload/interface'
+import type { UploadRequestOption } from 'rc-upload/lib/interface'
+import compressImage01 from '@/assets/images/Compress Image/compressImage-01.jpg'
+import compressImage02 from '@/assets/images/Compress Image/compressImage-02.jpg'
 
 const Example1 = () => {
   /**
@@ -22,11 +37,7 @@ const Example1 = () => {
     setQuality(value)
   }
 
-  const imageList = [
-    'https://i0.hippopx.com/photos/604/288/839/technology-digital-tablet-digital-tablet-preview.jpg',
-    'https://i0.hippopx.com/photos/779/1006/559/coffee-hot-drink-espresso-preview.jpg',
-    'https://i0.hippopx.com/photos/829/226/490/coffee-shop-american-flag-america-coffee-preview.jpg',
-  ]
+  const imageList = [compressImage01, compressImage02]
 
   /**
    * canvas转blob类型文件
@@ -58,14 +69,14 @@ const Example1 = () => {
   ) => {
     const canvas = document.createElement('canvas')
     const img = document.createElement('img')
-    const context = canvas.getContext('2d')
+    const context = canvas.getContext('2d')!
     img.setAttribute('crossOrigin', 'anonymous')
     img.src = url
     return new Promise(resolve => {
       img.onload = async () => {
         canvas.width = img.width
         canvas.height = img.height
-        context!.drawImage(img, 0, 0, img.width, img.height)
+        context.drawImage(img, 0, 0, img.width, img.height)
         const size = await toBlob(canvas)
         resolve({
           url,
@@ -95,6 +106,43 @@ const Example1 = () => {
       setUnCompressList(result)
     })()
   }, [])
+
+  /**
+   * 上传前校验文件
+   */
+  const imgBeforeUpload = (file: RcFile, maxSize: number = 1) => {
+    const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png'
+    if (!isJpgOrPng) message.error('上传图片只允许JPG/PNG格式')
+    const isExceeded = file.size / 1024 / 1024 < maxSize
+    if (!isExceeded) message.error(`图片文件大小<${maxSize}MB`)
+    return (isJpgOrPng && isExceeded) || Upload.LIST_IGNORE
+  }
+
+  /**
+   * 覆盖默认的上传行为
+   */
+  const customRequest = (options: UploadRequestOption) => {
+    new Promise((resolve: (value: string) => void) => {
+      getBase64(options.file as RcFile, url => resolve(url))
+    }).then(url => {
+      const size = getBase64ImageSize(url)
+      unCompressList
+        ? setUnCompressList([...unCompressList!, { url, size }])
+        : setUnCompressList([{ url, size }])
+    })
+  }
+
+  /**
+   * 图片转base64
+   * @param {RcFile} img 图片文件
+   * @param {function} callback 回调函数，返回图片base64字符串
+   */
+  const getBase64 = (img: RcFile, callback: (url: string) => void) => {
+    const reader = new FileReader()
+    // eslint-disable-next-line n/no-callback-literal
+    reader.addEventListener('load', () => callback(reader.result as string))
+    reader.readAsDataURL(img)
+  }
 
   /**
    * 获取base64大小
@@ -148,10 +196,11 @@ const Example1 = () => {
    * 遍历图片数组，执行压缩方法
    */
   const onCompress = async () => {
+    if (!unCompressList) return
     const result: TImageList[] = []
-    for (let i = 0; i < imageList.length; i++) {
+    for (let i = 0; i < unCompressList.length; i++) {
       const item: TImageList = await compressImage(
-        imageList[i],
+        unCompressList[i].url,
         quality,
         imgLimit
       )
@@ -162,10 +211,24 @@ const Example1 = () => {
 
   return (
     <Row gutter={[0, 20]}>
-      <Col span={4}>
-        <Button type='primary' icon={<DownloadOutlined />} onClick={onCompress}>
-          Compress
-        </Button>
+      <Col span={24}>
+        <Space>
+          <Upload
+            maxCount={1}
+            showUploadList={false}
+            beforeUpload={file => imgBeforeUpload(file)}
+            customRequest={customRequest}
+          >
+            <Button icon={<UploadOutlined />}>Upload</Button>
+          </Upload>
+          <Button
+            type='primary'
+            icon={<DownloadOutlined />}
+            onClick={onCompress}
+          >
+            Compress
+          </Button>
+        </Space>
       </Col>
       <Col span={12}>
         <Row align='middle'>

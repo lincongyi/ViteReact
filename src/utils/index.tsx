@@ -1,5 +1,8 @@
 import React, { ComponentType, Suspense, lazy } from 'react'
 import { Spin } from 'antd'
+import { TModuleRoutes } from '@/router'
+import { useLocation, useNavigate } from 'react-router-dom'
+import style from './index.module.scss'
 
 /**
  * 生成随机id
@@ -33,17 +36,29 @@ const lazyLoad = (module: string) => {
 }
 
 /**
- * 锚点跳转
- * @param {string} id DOM id
+ * 获取对应模块侧边导航
  */
-const toAchor = (id: string) => {
-  const element = document.getElementById(id)
-  if (!element) return
-  const offsetTop = element.offsetTop
-  window.scroll({
-    top: offsetTop + 24,
-    behavior: 'smooth',
+const getSideNavigation = (routes: TModuleRoutes[]) => {
+  const { pathname } = useLocation()
+
+  const navigate = useNavigate()
+
+  return routes.map(item => {
+    const isCurrentPath =
+      pathname.toLocaleLowerCase() ===
+      `/${item.elementPath.toLocaleLowerCase()}`
+    return {
+      color: isCurrentPath ? 'blue' : 'gray',
+      children: (
+        <div
+          className={`${style.item} ${isCurrentPath && style.active}`}
+          onClick={() => navigate(`/${item.elementPath.toLowerCase()}`)}
+        >
+          {item.meta.title}
+        </div>
+      ),
+    }
   })
 }
 
-export { generateId, lazyLoad, toAchor }
+export { generateId, lazyLoad, getSideNavigation }

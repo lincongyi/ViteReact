@@ -14,7 +14,10 @@ const Example9 = () => {
 
   const result1 = arr.findIndex(item => item.age === 18)
 
-  Array.prototype.myFindIndex = function (callback) {
+  Array.prototype.myFindIndex = function <T> (
+    callback: (element: T, index: number, array: T[]) => unknown,
+    thisArg?: any
+  ): number {
     for (let i = 0; i < this.length; i++) {
       if (callback(this[i], i, this)) return i
     }

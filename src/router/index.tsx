@@ -49,7 +49,13 @@ const basicRoutes: TRoutes[] = [
   },
 ]
 
-const javascriptRoutes = [
+export type TModuleRoutes = TRoutes &
+  Required<Pick<TRoutes, 'elementPath' | 'meta'>>
+
+/**
+ * JS模块路由
+ */
+const JSRoutes: TModuleRoutes[] = [
   {
     path: 'debounce',
     elementPath: 'Summary/JavaScript/Debounce',
@@ -59,6 +65,43 @@ const javascriptRoutes = [
     path: 'throttle',
     elementPath: 'Summary/JavaScript/Throttle',
     meta: { title: '节流' },
+  },
+  {
+    path: 'arrayApi',
+    elementPath: 'Summary/JavaScript/ArrayApi',
+    meta: { title: '数组遍历的Api' },
+  },
+  {
+    path: 'forOf',
+    elementPath: 'Summary/JavaScript/ForOf',
+    meta: { title: 'ForOf' },
+  },
+  {
+    path: 'compressImage',
+    elementPath: 'Summary/JavaScript/CompressImage',
+    meta: { title: 'Compress Image' },
+  },
+]
+
+/**
+ * CSS模块路由
+ */
+const CSSRoutes: TModuleRoutes[] = [
+  {
+    path: 'CSSInJS',
+    elementPath: 'Summary/CSS/CSSInJS',
+    meta: { title: 'CSSInJS' },
+  },
+]
+
+/**
+ * Git模块路由
+ */
+const GitRoutes: TModuleRoutes[] = [
+  {
+    path: 'gitCommitizen',
+    elementPath: 'Summary/Git/GitCommitizen',
+    meta: { title: 'Commitizen' },
   },
 ]
 
@@ -122,17 +165,19 @@ const dynamicRoutes = [
             path: 'javaScript',
             elementPath: 'Summary/JavaScript',
             meta: { title: 'JavaScript' },
-            children: [...javascriptRoutes],
+            children: [...JSRoutes],
           },
           {
-            path: 'gitCommitizen',
-            elementPath: 'Summary/GitCommitizen',
-            meta: { title: 'Commitizen' },
+            path: 'css',
+            elementPath: 'Summary/CSS',
+            meta: { title: 'CSS' },
+            children: [...CSSRoutes],
           },
           {
-            path: 'arrayApi',
-            elementPath: 'Summary/ArrayApi',
-            meta: { title: '数组遍历的Api' },
+            path: 'git',
+            elementPath: 'Summary/Git',
+            meta: { title: 'Git' },
+            children: [...GitRoutes],
           },
           {
             path: 'reactUseState',
@@ -195,21 +240,6 @@ const dynamicRoutes = [
             meta: { title: 'Github Pages' },
           },
           {
-            path: 'compressImage',
-            elementPath: 'Summary/CompressImage',
-            meta: { title: 'Compress Image' },
-          },
-          {
-            path: 'forOf',
-            elementPath: 'Summary/ForOf',
-            meta: { title: 'ForOf' },
-          },
-          {
-            path: 'CSSInJS',
-            elementPath: 'Summary/CSSInJS',
-            meta: { title: 'CSSInJS' },
-          },
-          {
             path: 'miniProgramI18n',
             elementPath: 'Summary/MiniProgramI18n',
             meta: { title: 'MiniProgram I18n' },
@@ -255,4 +285,4 @@ const generateRoute = (routes: TRoutes[]): TRoutes[] => {
 
 const routes = generateRoute([...basicRoutes, ...dynamicRoutes])
 
-export { javascriptRoutes, dynamicRoutes, routes }
+export { JSRoutes, CSSRoutes, GitRoutes, dynamicRoutes, routes }

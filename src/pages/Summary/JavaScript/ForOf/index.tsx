@@ -1,5 +1,5 @@
 import React from 'react'
-import { Col, Row, Timeline, Typography } from 'antd'
+import { Anchor, Col, Row, Typography } from 'antd'
 import Example1 from './Example1'
 import CodeHighLight from '@/components/CodeHighLight'
 import { codeString1 } from './code'
@@ -8,24 +8,19 @@ const { Title, Paragraph, Text } = Typography
 
 const ForOf = () => {
   const items = [
-    { children: '前言' },
-    { children: '迭代器' },
-    { children: '原生的iteration接口' },
-    { children: '自定义iteration接口' },
+    { key: 'preface', href: '#preface', title: '前言' },
+    { key: 'iteration', href: '#iteration', title: '迭代器' },
+    { key: 'native', href: '#native', title: '原生的iteration接口' },
+    { key: 'custom', href: '#custom', title: '自定义iteration接口' },
   ]
   const nextCode1 = '{ value: undefined, done: true }'
   const nextCode2 = '{ value: xxx, done: false }'
   return (
-    <Row>
-      <Col span={6}>
-        <div style={{ position: 'fixed' }}>
-          <Timeline items={items} />
-        </div>
-      </Col>
-      <Col span={18}>
+    <Row gutter={10}>
+      <Col xs={18} xl={20}>
         <Typography>
           <Row>
-            <Col span={24}>
+            <Col span={24} id='preface'>
               <Title>前言</Title>
               <Paragraph>
                 JavaScript提供了四种数据集合，分别是
@@ -35,7 +30,7 @@ const ForOf = () => {
                 <Text code>iteration</Text>(迭代器)的支撑。
               </Paragraph>
             </Col>
-            <Col span={24}>
+            <Col span={24} id='iteration'>
               <Title>迭代器</Title>
               <Paragraph>
                 在 JavaScript
@@ -53,7 +48,7 @@ const ForOf = () => {
                 。
               </Paragraph>
             </Col>
-            <Col span={24}>
+            <Col span={24} id='native'>
               <Title>原生的iteration接口</Title>
               <Paragraph>
                 一种数据结构只要部署了 <Text code>Iterator</Text>
@@ -80,7 +75,7 @@ const ForOf = () => {
                 <li>NodeList 对象</li>
               </ul>
             </Col>
-            <Col span={24}>
+            <Col span={24} id='custom'>
               <Title>自定义iteration接口</Title>
               <Paragraph>
                 由于Object内部没有实现<Text code>Symbol.iterator()</Text>
@@ -95,6 +90,13 @@ const ForOf = () => {
             </Col>
           </Row>
         </Typography>
+      </Col>
+      <Col xs={6} xl={4}>
+        <Anchor
+          offsetTop={86}
+          items={items}
+          onClick={e => e.preventDefault()}
+        />
       </Col>
     </Row>
   )

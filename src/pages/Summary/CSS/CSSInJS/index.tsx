@@ -1,5 +1,5 @@
 import React from 'react'
-import { Col, Divider, Row, Timeline, Typography } from 'antd'
+import { Anchor, Col, Divider, Row, Typography } from 'antd'
 import CodeHighLight from '@/components/CodeHighLight'
 import {
   codeString1,
@@ -33,27 +33,22 @@ const { Title, Paragraph, Text } = Typography
 
 const CSSInJS = () => {
   const items = [
-    { children: 'CSS In Js 介绍' },
-    { children: '为什么会有CSS IN JS' },
-    { children: 'Emotion 库' },
+    { key: 'introduction', href: '#introduction', title: 'CSS In Js 介绍' },
+    { key: 'situation', href: '#situation', title: '为什么会有CSS IN JS' },
+    { key: 'emotion', href: '#emotion', title: 'Emotion 库' },
   ]
   return (
-    <Row>
-      <Col span={6}>
-        <div style={{ position: 'fixed' }}>
-          <Timeline items={items} />
-        </div>
-      </Col>
-      <Col span={18}>
+    <Row gutter={10}>
+      <Col xs={18} xl={20}>
         <Typography>
           <Row>
-            <Col span={24}>
+            <Col span={24} id='introduction'>
               <Title>CSS In Js 介绍</Title>
               <Paragraph>
                 CSS-in-JS是一种将CSS代码嵌入到JavaScript代码中的技术。使用CSS-in-JS，可以通过JavaScript来动态生成CSS，从而实现更加灵活和动态的样式。
               </Paragraph>
             </Col>
-            <Col span={24}>
+            <Col span={24} id='situation'>
               <Title>为什么会有CSS IN JS</Title>
               <Title level={5}>
                 1.CSS IN JS是WEB项目中将CSS代码捆绑在Javascript代码中的解决方案
@@ -78,7 +73,7 @@ const CSSInJS = () => {
                 CSS IN JS，可以利用js的动态功能，为元素动态添加样式。
               </Paragraph>
             </Col>
-            <Col span={24}>
+            <Col span={24} id='emotion'>
               <Title>Emotion 库</Title>
               {/* <Button1>@emotion/styled</Button1>
               <div css={style}>@emotion/react css</div> */}
@@ -233,6 +228,13 @@ const CSSInJS = () => {
             </Col>
           </Row>
         </Typography>
+      </Col>
+      <Col xs={6} xl={4}>
+        <Anchor
+          offsetTop={86}
+          items={items}
+          onClick={e => e.preventDefault()}
+        />
       </Col>
     </Row>
   )

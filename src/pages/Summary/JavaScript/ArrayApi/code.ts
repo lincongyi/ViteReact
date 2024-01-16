@@ -1,10 +1,15 @@
-export const codeString1 = `Array.prototype.myForEach = function (callback) {
+export const codeString1 = `Array.prototype.myForEach = function <T> (
+  callback: (element: T, index: number, array: T[]) => void,
+  thisArg?: any
+): undefined {
   for (let i = 0; i < this.length; i++) {
     callback(this[i], i, this)
   }
 }`
 
-export const codeString2 = `Array.prototype.myMap = function (callback) {
+export const codeString2 = `Array.prototype.myMap = function <T, U> (
+  callback: (element: T, index: number, array: T[]) => U
+): U[] {
   const result = []
   for (let i = 0; i < this.length; i++) {
     result.push(callback(this[i], i, this))
@@ -21,7 +26,15 @@ export const codeString3 = `Array.prototype.myFilter = function (callback) {
   return result
 }`
 
-export const codeString4 = `Array.prototype.myReduce = function (callback, initValue) {
+export const codeString4 = `Array.prototype.myReduce = function <T> (
+  callback: (
+    previousValue: T,
+    currentValue: T,
+    currentIndex: number,
+    array: T[]
+  ) => T,
+  initValue?: any
+): T[] {
   let prev = initValue || this[0]
   const start = initValue ? 0 : 1
   for (let i = start; i < this.length; i++) {
@@ -65,14 +78,20 @@ export const codeString8 = `Array.prototype.myFind = function (callback) {
   return undefined
 }`
 
-export const codeString9 = `Array.prototype.myFindIndex = function (callback) {
+export const codeString9 = `Array.prototype.myFindIndex = function <T> (
+  callback: (element: T, index: number, array: T[]) => unknown,
+  thisArg?: any
+): number {
   for (let i = 0; i < this.length; i++) {
     if (callback(this[i], i, this)) return i
   }
   return -1
 }`
 
-export const codeString10 = `Array.prototype.mySome = function (callback) {
+export const codeString10 = `Array.prototype.mySome = function <T> (
+  callback: (element: T, index: number, array: T[]) => unknown,
+  thisArg?: any
+) {
   for (let i = 0; i < this.length; i++) {
     const result = callback(this[i], i, this)
     if (result) return true
@@ -80,7 +99,10 @@ export const codeString10 = `Array.prototype.mySome = function (callback) {
   return false
 }`
 
-export const codeString11 = `Array.prototype.myEvery = function (callback) {
+export const codeString11 = `Array.prototype.myEvery = function <T> (
+  callback: (element: T, index: number, array: T[]) => unknown,
+  thisArg?: any
+) {
   for (let i = 0; i < this.length; i++) {
     const result = callback(this[i], i, this)
     if (!result) return false

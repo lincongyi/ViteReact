@@ -9,7 +9,15 @@ const Example4 = () => {
     return prev + next
   })
 
-  Array.prototype.myReduce = function (callback, initValue) {
+  Array.prototype.myReduce = function <T> (
+    callback: (
+      previousValue: T,
+      currentValue: T,
+      currentIndex: number,
+      array: T[]
+    ) => T,
+    initValue?: any
+  ): T[] {
     let prev = initValue || this[0]
     const start = initValue ? 0 : 1
     for (let i = start; i < this.length; i++) {

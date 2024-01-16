@@ -14,8 +14,8 @@ const Debounce = () => {
   ]
   return (
     <>
-      <Row>
-        <Col span={18}>
+      <Row gutter={10}>
+        <Col xs={18} xl={20}>
           <Typography>
             <Row>
               <Col span={24} id='definition'>
@@ -47,7 +47,7 @@ const Debounce = () => {
             </Row>
           </Typography>
         </Col>
-        <Col span={6} style={{ paddingLeft: 10 }}>
+        <Col xs={6} xl={4}>
           <Anchor
             offsetTop={86}
             items={items}

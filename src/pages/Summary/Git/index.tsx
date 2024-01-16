@@ -1,12 +1,11 @@
 import React from 'react'
 import { Affix, Col, Row, Timeline } from 'antd'
 import { Outlet } from 'react-router-dom'
-import { JSRoutes } from '@/router'
-// import style from './index.module.scss'
+import { GitRoutes } from '@/router'
 import { getSideNavigation } from '@/utils'
 
-const JavaScript = () => {
-  const items = getSideNavigation(JSRoutes)
+const Git = () => {
+  const items = getSideNavigation(GitRoutes)
 
   return (
     <Row>
@@ -22,4 +21,4 @@ const JavaScript = () => {
   )
 }
 
-export default JavaScript
+export default Git

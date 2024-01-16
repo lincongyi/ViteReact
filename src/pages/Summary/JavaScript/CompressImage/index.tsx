@@ -1,5 +1,5 @@
 import React from 'react'
-import { Col, Row, Timeline, Typography } from 'antd'
+import { Anchor, Col, Row, Typography } from 'antd'
 import Example1 from './Example1'
 import CodeHighLight from '@/components/CodeHighLight'
 import { codeString1 } from './code'
@@ -8,21 +8,16 @@ const { Title, Paragraph, Text } = Typography
 
 const CompressImage = () => {
   const items = [
-    { children: '图片压缩' },
-    { children: 'canvas.toDataURL' },
-    { children: '图片压缩具体实例' },
+    { key: 'introduction', href: '#introduction', title: '图片压缩' },
+    { key: 'toDataURL', href: '#toDataURL', title: 'canvas.toDataURL' },
+    { key: 'example', href: '#example', title: '图片压缩具体实例' },
   ]
   return (
-    <Row>
-      <Col span={6}>
-        <div style={{ position: 'fixed' }}>
-          <Timeline items={items} />
-        </div>
-      </Col>
-      <Col span={18}>
+    <Row gutter={10}>
+      <Col xs={18} xl={20}>
         <Typography>
           <Row>
-            <Col span={24}>
+            <Col span={24} id='introduction'>
               <Title>图片压缩</Title>
               <Paragraph>
                 前端图片压缩的主要思路就是将图片绘制到<Text code>canvas</Text>
@@ -30,7 +25,7 @@ const CompressImage = () => {
                 <Text code>toDataURL</Text>方法来控制图片的质量，对图片进行压缩
               </Paragraph>
             </Col>
-            <Col span={24}>
+            <Col span={24} id='toDataURL'>
               <Title>canvas.toDataURL</Title>
               <Paragraph>
                 <Text code>canvas.toDataURL(type, encoderOptions)</Text>
@@ -53,13 +48,20 @@ const CompressImage = () => {
                 0.92。其他参数会被忽略。
               </Paragraph>
             </Col>
-            <Col span={24}>
+            <Col span={24} id='example'>
               <Title>图片压缩具体实例</Title>
               <CodeHighLight codeString={codeString1} />
               <Example1 />
             </Col>
           </Row>
         </Typography>
+      </Col>
+      <Col xs={6} xl={4}>
+        <Anchor
+          offsetTop={86}
+          items={items}
+          onClick={e => e.preventDefault()}
+        />
       </Col>
     </Row>
   )

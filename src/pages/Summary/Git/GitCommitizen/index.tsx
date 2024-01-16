@@ -1,25 +1,20 @@
 import React from 'react'
-import { Col, Row, Timeline, Typography } from 'antd'
+import { Anchor, Col, Row, Typography } from 'antd'
 import CodeHighLight from '@components/CodeHighLight'
 import { codeString1, codeString2, codeString3, codeString4 } from './code'
 
 const { Title, Paragraph, Text } = Typography
 const GitCommitizen = () => {
   const items = [
-    { children: 'Commitizen的作用' },
-    { children: 'Commitizen的安装使用' },
+    { key: 'introduction', href: '#introduction', title: 'Commitizen的作用' },
+    { key: 'usage', href: '#usage', title: 'Commitizen的安装使用' },
   ]
   return (
-    <Row>
-      <Col span={6}>
-        <div style={{ position: 'fixed' }}>
-          <Timeline items={items} />
-        </div>
-      </Col>
-      <Col span={18}>
+    <Row gutter={10}>
+      <Col xs={18} xl={20}>
         <Typography>
           <Row>
-            <Col span={24}>
+            <Col span={24} id='introduction'>
               <Title>Commitizen的作用</Title>
               <Paragraph>
                 当你在使用 <Text code>git commit</Text>
@@ -28,7 +23,7 @@ const GitCommitizen = () => {
                 。从而对 Git 提交进行规范化处理
               </Paragraph>
             </Col>
-            <Col span={18}>
+            <Col span={24} id='usage'>
               <Typography>
                 <Row>
                   <Col span={24}>
@@ -97,6 +92,13 @@ const GitCommitizen = () => {
             </Col>
           </Row>
         </Typography>
+      </Col>
+      <Col xs={6} xl={4}>
+        <Anchor
+          offsetTop={86}
+          items={items}
+          onClick={e => e.preventDefault()}
+        />
       </Col>
     </Row>
   )
