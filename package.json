@@ -11,7 +11,7 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
-    "antd": "^5.2.0",
+    "antd": "^5.13.1",
     "axios": "^1.2.0",
     "echarts": "^5.4.0",
     "html2canvas": "^1.4.1",
@@ -27,8 +27,8 @@
   "devDependencies": {
     "@emotion/babel-plugin": "^11.11.0",
     "@types/node": "^18.11.9",
-    "@types/react": "^18.0.17",
-    "@types/react-dom": "^18.0.6",
+    "@types/react": "^18.2.48",
+    "@types/react-dom": "^18.2.18",
     "@types/react-syntax-highlighter": "^15.5.7",
     "@typescript-eslint/eslint-plugin": "^5.45.0",
     "@typescript-eslint/parser": "^5.45.0",

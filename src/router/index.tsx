@@ -81,6 +81,11 @@ const JSRoutes: TModuleRoutes[] = [
     elementPath: 'Summary/JavaScript/CompressImage',
     meta: { title: 'Compress Image' },
   },
+  {
+    path: 'typeConversion',
+    elementPath: 'Summary/JavaScript/TypeConversion',
+    meta: { title: '类型转换' },
+  },
 ]
 
 /**
