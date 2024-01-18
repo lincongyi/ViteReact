@@ -1,5 +1,5 @@
 import React from 'react'
-import { Col, Row, Timeline, Typography, Image, Space } from 'antd'
+import { Col, Row, Typography, Image, Space, Anchor } from 'antd'
 import screenshot01 from '@images/Vercel/screenshot-01.png'
 import screenshot02 from '@images/Vercel/screenshot-02.png'
 import screenshot03 from '@images/Vercel/screenshot-03.png'
@@ -13,26 +13,24 @@ import screenshot09 from '@images/Vercel/screenshot-09.png'
 const { Title, Paragraph } = Typography
 
 const Vercel = () => {
-  const items = [{ children: 'Vercel介绍' }, { children: 'Vercel使用步骤' }]
+  const items = [
+    { key: 'introduction', href: '#introduction', title: 'Vercel介绍' },
+    { key: 'step', href: '#step', title: 'Vercel使用步骤' },
+  ]
   return (
-    <Row>
-      <Col span={6}>
-        <div style={{ position: 'fixed' }}>
-          <Timeline items={items} />
-        </div>
-      </Col>
-      <Col span={18}>
+    <Row gutter={10}>
+      <Col xs={18} xl={20}>
         <Typography>
           <Row>
-            <Col span={24}>
+            <Col span={24} id='introduction'>
               <Title>Vercel介绍</Title>
               <Paragraph>
                 Vercel，可以理解为一个部署工具，支持部署静态网页和Node服务，部署后你还可以访问它自带生成的域名https。
               </Paragraph>
               <Image width={400} src={screenshot01} />
             </Col>
-            <Col span={24}>
-              <Title>Vercel使用方法（操作流程）</Title>
+            <Col span={24} id='step'>
+              <Title>Vercel使用步骤（操作流程）</Title>
               <Title level={5}>添加构建项目</Title>
               <Title level={5}>1:关联github账户</Title>
               <Space>
@@ -66,6 +64,13 @@ const Vercel = () => {
             </Col>
           </Row>
         </Typography>
+      </Col>
+      <Col xs={6} xl={4}>
+        <Anchor
+          offsetTop={86}
+          items={items}
+          onClick={e => e.preventDefault()}
+        />
       </Col>
     </Row>
   )

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Col, List, Row, Timeline, Typography, Image, Space } from 'antd'
+import { Col, List, Row, Typography, Image, Space, Anchor } from 'antd'
 import { SettingOutlined } from '@ant-design/icons'
 import screenshot01 from '@images/Github Pages/screenshot-01.png'
 import screenshot02 from '@images/Github Pages/screenshot-02.png'
@@ -17,10 +17,10 @@ const { Title, Paragraph, Link, Text } = Typography
 
 const GithubPages = () => {
   const items = [
-    { children: 'Github Pages 介绍' },
-    { children: 'Github Pages 使用限制' },
-    { children: '创建 GitHub Pages 站点' },
-    { children: 'GitHub Pages自动化部署' },
+    { key: 'introduction', href: '#introduction', title: 'Github Pages 介绍' },
+    { key: 'rule', href: '#rule', title: 'Github Pages 使用限制' },
+    { key: 'start', href: '#start', title: '创建 Github Pages 站点' },
+    { key: 'deploy', href: '#deploy', title: 'Github Pages 自动化部署' },
   ]
   const data = [
     'GitHub Pages 源存储库的建议限制为 1 GB。',
@@ -31,16 +31,11 @@ const GithubPages = () => {
     '为了为所有 GitHub Pages 站点提供一致的服务质量，可能会实施速率限制。 这些速率限制无意干扰 GitHub Pages 的合法使用。 如果你的请求触发了速率限制，你将收到相应响应，其中包含 HTTP 状态代码 429 以及信息性 HTML 正文。',
   ]
   return (
-    <Row>
-      <Col span={6}>
-        <div style={{ position: 'fixed' }}>
-          <Timeline items={items} />
-        </div>
-      </Col>
-      <Col span={18}>
+    <Row gutter={10}>
+      <Col xs={18} xl={20}>
         <Typography>
           <Row>
-            <Col span={24}>
+            <Col span={24} id='introduction'>
               <Title>Github Pages介绍</Title>
               <Paragraph>
                 GitHub Pages 是一项静态站点托管服务，它直接从 GitHub
@@ -60,7 +55,7 @@ const GithubPages = () => {
                 域或自己的自定义域上托管站点。
               </Paragraph>
             </Col>
-            <Col span={24}>
+            <Col span={24} id='rule'>
               <Title>Github Pages 使用限制</Title>
               <List
                 header={
@@ -71,7 +66,7 @@ const GithubPages = () => {
                 renderItem={item => <List.Item>{item}</List.Item>}
               />
             </Col>
-            <Col span={24}>
+            <Col span={24} id='start'>
               <Title>创建 GitHub Pages 站点</Title>
               <Title level={5}>
                 1:在任何页面的右上角下拉菜单选择<Text code>New repository</Text>
@@ -117,7 +112,7 @@ const GithubPages = () => {
                 可查看<Text code>Github Pages</Text>详细配置。
               </Text>
             </Col>
-            <Col span={24}>
+            <Col span={24} id='deploy'>
               <Title>GitHub Pages自动化部署</Title>
               <Title level={5}>
                 1:克隆项目到本地。由于构建项目是在main分支，所以需要新建一个dev分支来存放代码。
@@ -156,6 +151,13 @@ const GithubPages = () => {
             </Col>
           </Row>
         </Typography>
+      </Col>
+      <Col xs={6} xl={4}>
+        <Anchor
+          offsetTop={86}
+          items={items}
+          onClick={e => e.preventDefault()}
+        />
       </Col>
     </Row>
   )

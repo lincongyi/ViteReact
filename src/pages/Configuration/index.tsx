@@ -10,7 +10,7 @@ const Configuration = () => {
     '脚手架：Vite',
     'react hook',
     '状态管理：mobx',
-    'UI组件库：antd v4',
+    'UI组件库：antd v5',
     'ajax请求库：axios',
     '路由管理：react-router-dom',
     'css预编译：scss',

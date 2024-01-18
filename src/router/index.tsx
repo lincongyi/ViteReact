@@ -131,6 +131,22 @@ const PluginRoutes: TModuleRoutes[] = [
   },
 ]
 
+/**
+ * 网站托管服务模块路由
+ */
+const WebHostingRoutes: TModuleRoutes[] = [
+  {
+    path: 'vercel',
+    elementPath: 'Summary/WebHosting/Vercel',
+    meta: { title: 'Vercel' },
+  },
+  {
+    path: 'githubPages',
+    elementPath: 'Summary/WebHosting/GithubPages',
+    meta: { title: 'Github Pages' },
+  },
+]
+
 const dynamicRoutes = [
   {
     path: '/', // 首页
@@ -212,6 +228,12 @@ const dynamicRoutes = [
             children: [...PluginRoutes],
           },
           {
+            path: 'webHosting',
+            elementPath: 'Summary/WebHosting',
+            meta: { title: '网站托管服务' },
+            children: [...WebHostingRoutes],
+          },
+          {
             path: 'reactUseState',
             elementPath: 'Summary/ReactUseState',
             meta: { title: 'useState' },
@@ -256,17 +278,6 @@ const dynamicRoutes = [
             elementPath: 'Summary/ReactUseImperativeHandle',
             meta: { title: 'useImperativeHandle' },
           },
-
-          {
-            path: 'vercel',
-            elementPath: 'Summary/Vercel',
-            meta: { title: 'Vercel' },
-          },
-          {
-            path: 'githubPages',
-            elementPath: 'Summary/GithubPages',
-            meta: { title: 'Github Pages' },
-          },
         ],
         meta: {
           title: '记录&总结',
@@ -308,4 +319,12 @@ const generateRoute = (routes: TRoutes[]): TRoutes[] => {
 
 const routes = generateRoute([...basicRoutes, ...dynamicRoutes])
 
-export { JSRoutes, CSSRoutes, GitRoutes, PluginRoutes, dynamicRoutes, routes }
+export {
+  JSRoutes,
+  CSSRoutes,
+  GitRoutes,
+  PluginRoutes,
+  WebHostingRoutes,
+  dynamicRoutes,
+  routes,
+}

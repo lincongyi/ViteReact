@@ -11,8 +11,6 @@ import {
   PoweroffOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
-  FileDoneOutlined,
-  TagsOutlined,
 } from '@ant-design/icons'
 import { getMenuItems } from '@/utils/router'
 
@@ -47,21 +45,7 @@ const AppLayout = () => {
 
   const [collapsed, setCollapsed] = useState(false)
 
-  const items = [
-    ...getMenuItems(),
-    {
-      label: '子菜单1',
-      key: 'submenu-1',
-      icon: <FileDoneOutlined />,
-      children: [{ label: '子菜单项1-1', key: 'submenu-item-1-1' }],
-    },
-    {
-      label: '子菜单2',
-      key: 'submenu-2',
-      icon: <TagsOutlined />,
-      children: [{ label: '子菜单项2-1', key: 'submenu-item-2-1' }],
-    },
-  ]
+  const items = getMenuItems()
   const [current, setCurrent] = useState('')
   /**
    * 初始化导航菜单高亮
