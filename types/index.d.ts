@@ -60,3 +60,9 @@ declare interface Array<T> {
     thisArg?: any
   ): boolean
 }
+
+interface ImportMetaEnv {
+  readonly VITE_BASE_URL: string
+  readonly VITE_TITLE: string
+  readonly VITE_FLAG: string
+}

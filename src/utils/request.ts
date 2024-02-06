@@ -1,8 +1,9 @@
 import axios, { AxiosRequestConfig } from 'axios'
 import { getToken } from '@utils/token'
+const { VITE_BASE_URL } = import.meta.env
 
 const request = axios.create({
-  baseURL: 'http://127.0.0.1:3000',
+  baseURL: VITE_BASE_URL,
   timeout: 5000,
 })
 

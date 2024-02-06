@@ -2,9 +2,15 @@ import { defineConfig } from 'vite'
 import path from 'path'
 import react from '@vitejs/plugin-react'
 import { visualizer } from 'rollup-plugin-visualizer'
+import './env/config'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  envDir: 'env',
+  define: {
+    SERVER_TIMESTAMP: Date.now(),
+    PROJECT_VERSION: "'0.1.0'",
+  },
   plugins: [
     react({
       jsxImportSource: '@emotion/react',

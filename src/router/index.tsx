@@ -89,6 +89,17 @@ const JSRoutes: TModuleRoutes[] = [
 ]
 
 /**
+ * TS模块路由
+ */
+const TSRoutes: TModuleRoutes[] = [
+  {
+    path: 'basic',
+    elementPath: 'Summary/TypeScript/Basic',
+    meta: { title: '基础语法' },
+  },
+]
+
+/**
  * CSS模块路由
  */
 const CSSRoutes: TModuleRoutes[] = [
@@ -128,6 +139,11 @@ const PluginRoutes: TModuleRoutes[] = [
     path: 'miniProgramI18n',
     elementPath: 'Summary/Plugin/MiniProgramI18n',
     meta: { title: 'MiniProgram I18n' },
+  },
+  {
+    path: 'dotenv',
+    elementPath: 'Summary/Plugin/DotEnv',
+    meta: { title: 'dotenv' },
   },
 ]
 
@@ -208,6 +224,12 @@ const dynamicRoutes = [
             elementPath: 'Summary/JavaScript',
             meta: { title: 'JavaScript' },
             children: [...JSRoutes],
+          },
+          {
+            path: 'typeScript',
+            elementPath: 'Summary/TypeScript',
+            meta: { title: 'TypeScript' },
+            children: [...TSRoutes],
           },
           {
             path: 'css',
@@ -321,6 +343,7 @@ const routes = generateRoute([...basicRoutes, ...dynamicRoutes])
 
 export {
   JSRoutes,
+  TSRoutes,
   CSSRoutes,
   GitRoutes,
   PluginRoutes,
