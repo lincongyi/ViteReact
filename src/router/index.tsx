@@ -86,6 +86,11 @@ const JSRoutes: TModuleRoutes[] = [
     elementPath: 'Summary/JavaScript/TypeConversion',
     meta: { title: '类型转换' },
   },
+  {
+    path: 'fullscreen',
+    elementPath: 'Summary/JavaScript/Fullscreen',
+    meta: { title: '元素全屏' },
+  },
 ]
 
 /**

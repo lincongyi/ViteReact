@@ -38,6 +38,7 @@ import type { UploadFile } from 'antd/es/upload/interface'
 import type { UploadRequestOption } from 'rc-upload/lib/interface'
 import axios from 'axios'
 import { getMember } from '@api/member'
+import { enterFullscreen, exitFullscreen } from '@/utils/fullScreen'
 
 type TContext = {
   sonValue: string
@@ -507,6 +508,18 @@ const Playground = () => {
     setCompressList(result)
   }
 
+  function asyncFn (): Promise<string> {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (Math.random() > 0.5) {
+          resolve('Ackerman')
+        } else {
+          reject(new Error('Failed to get username'))
+        }
+      }, 1000)
+    })
+  }
+
   return (
     <>
       <div>
@@ -835,6 +848,15 @@ const Playground = () => {
           </Space>
         </Col>
       </Row>
+
+      <Space>
+        <Button type='primary' onClick={() => enterFullscreen()}>
+          进入全屏
+        </Button>
+        <Button type='primary' onClick={() => exitFullscreen()}>
+          退出全屏
+        </Button>
+      </Space>
     </>
   )
 }

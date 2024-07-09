@@ -3,6 +3,7 @@ import path from 'path'
 import react from '@vitejs/plugin-react'
 import { visualizer } from 'rollup-plugin-visualizer'
 import './env/config'
+import getBulidTime from './getBulidTime.cjs'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -12,6 +13,7 @@ export default defineConfig({
     PROJECT_VERSION: "'0.1.0'",
   },
   plugins: [
+    getBulidTime(),
     react({
       jsxImportSource: '@emotion/react',
       babel: {
@@ -31,8 +33,13 @@ export default defineConfig({
     port: 8090,
   },
   build: {
-    sourcemap: true,
+    // sourcemap: true,
     rollupOptions: {
+      // output: {
+      //   manualChunks (id) {
+      //     console.log('file id', id)
+      //   },
+      // },
       output: {
         chunkFileNames: 'js/[name]-[hash].js', // 引入文件名的名称
         entryFileNames: 'js/[name]-[hash].js', // 包的入口文件名称
