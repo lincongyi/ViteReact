@@ -23,6 +23,7 @@ project &&
 ......
 `
 
+// eslint-disable-next-line quotes
 export const codeString4 = "import './env/config'"
 
 export const codeString5 = `"scripts": {

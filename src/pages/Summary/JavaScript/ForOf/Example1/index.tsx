@@ -45,6 +45,7 @@ const Example1 = () => {
    * 绑定迭代器Function
    */
   const onBind = () => {
+    // eslint-disable-next-line no-extend-native
     Object.prototype[Symbol.iterator] = objectIterator
     const result: number[] = []
     for (const key of obj) {
@@ -58,6 +59,7 @@ const Example1 = () => {
    * 解绑迭代器Function
    */
   const onUnBind = () => {
+    // eslint-disable-next-line no-extend-native
     Object.prototype[Symbol.iterator] = () => {}
     try {
       for (const key of obj) {

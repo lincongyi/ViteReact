@@ -10,7 +10,8 @@ export default defineConfig({
   envDir: 'env',
   define: {
     SERVER_TIMESTAMP: Date.now(),
-    PROJECT_VERSION: '\'0.1.0\'',
+    // eslint-disable-next-line quotes
+    PROJECT_VERSION: "'0.1.0'",
   },
   plugins: [
     getBulidTime(),
