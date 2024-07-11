@@ -2,7 +2,7 @@
 import { makeAutoObservable } from 'mobx'
 
 class LoginStore {
-  constructor () {
+  constructor() {
     makeAutoObservable(this)
   }
 

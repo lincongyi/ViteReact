@@ -1,4 +1,3 @@
-import React from 'react'
 import { Button } from 'antd'
 import { useNavigate } from 'react-router-dom'
 
@@ -8,7 +7,7 @@ const AuthRoute = () => {
   return (
     <>
       权限路由
-      <Button type='primary' onClick={() => navigate(-1)}>
+      <Button type="primary" onClick={() => navigate(-1)}>
         Back
       </Button>
     </>

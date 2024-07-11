@@ -1,4 +1,3 @@
-import React from 'react'
 import { css, Global } from '@emotion/react'
 import { Space } from 'antd'
 
@@ -28,7 +27,7 @@ const Example9 = () => {
           }),
         ]}
       />
-      <p className='my-color my-size my-bold'>全局样式</p>
+      <p className="my-color my-size my-bold">全局样式</p>
     </Space>
   )
 }

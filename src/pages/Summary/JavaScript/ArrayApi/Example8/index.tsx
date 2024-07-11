@@ -1,5 +1,5 @@
 /* eslint-disable no-extend-native */
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Space, Button } from 'antd'
 
 const Example8 = () => {
@@ -27,7 +27,7 @@ const Example8 = () => {
   const [state, setState] = useState<string>()
 
   return (
-    <Space direction='vertical'>
+    <Space direction="vertical">
       <Space>
         <Button
           onClick={() =>
@@ -37,7 +37,7 @@ const Example8 = () => {
           原生find
         </Button>
         <Button
-          type='primary'
+          type="primary"
           onClick={() =>
             setState(result2 ? JSON.stringify(result2, null, 2) : 'not found')
           }
@@ -45,7 +45,7 @@ const Example8 = () => {
           myFind
         </Button>
         <Button
-          type='primary'
+          type="primary"
           onClick={() =>
             setState(result3 ? JSON.stringify(result3, null, 2) : 'not found')
           }

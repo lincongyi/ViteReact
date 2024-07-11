@@ -1,4 +1,4 @@
-import React, { ComponentType, Suspense, lazy } from 'react'
+import { ComponentType, Suspense, lazy } from 'react'
 import { Spin } from 'antd'
 import { TModuleRoutes } from '@/router'
 import { useLocation, useNavigate } from 'react-router-dom'
@@ -29,7 +29,7 @@ const lazyLoad = (module: string) => {
     }>
   )
   return (
-    <Suspense fallback={<Spin tip='Loading' size='large'></Spin>}>
+    <Suspense fallback={<Spin tip="Loading" size="large"></Spin>}>
       <Component />
     </Suspense>
   )

@@ -1,4 +1,3 @@
-import React from 'react'
 import { Alert, Anchor, Button, Col, Row, Space, Table, Typography } from 'antd'
 import CodeHighLight from '@/components/CodeHighLight'
 import {
@@ -84,7 +83,7 @@ const DotEnv = () => {
       <Col xs={18} xl={20}>
         <Typography>
           <Row>
-            <Col span={24} id='introduction'>
+            <Col span={24} id="introduction">
               <Title>介绍</Title>
               <Paragraph>
                 <Text code>dotenv</Text>
@@ -96,13 +95,13 @@ const DotEnv = () => {
                 环境目录 中的下列文件加载额外的环境变量
               </Paragraph>
               <Link
-                href='https://vitejs.cn/vite3-cn/guide/env-and-mode.html#env-variables'
-                target='_blank'
+                href="https://vitejs.cn/vite3-cn/guide/env-and-mode.html#env-variables"
+                target="_blank"
               >
                 环境变量和模式
               </Link>
             </Col>
-            <Col span={24} id='changePath'>
+            <Col span={24} id="changePath">
               <Title>更改.env文件默认路径</Title>
               <Paragraph>
                 默认情况下<Text code>.env</Text>
@@ -117,7 +116,7 @@ const DotEnv = () => {
                 2.在根目录下创建env文件夹，并将所有.env.xxx文件都放进去即可。
               </Paragraph>
             </Col>
-            <Col span={24} id='multiConfig'>
+            <Col span={24} id="multiConfig">
               <Title>多工程配置</Title>
               <Paragraph>假如当前有如下情景：</Paragraph>
               <Alert
@@ -126,7 +125,7 @@ const DotEnv = () => {
                     我们需要为项目1配置开发、测试和生产环境变量；同时需要为项目2配置开发、测试和生产环境变量......
                   </>
                 }
-                type='info'
+                type="info"
               />
               <Paragraph>
                 这时候<Text code>dotenv</Text>就可以派上用场了。
@@ -138,10 +137,10 @@ const DotEnv = () => {
               <Title level={5}>3.配置dotenv</Title>
               <Paragraph>1.在env文件夹下创建config.ts</Paragraph>
               <CodeHighLight codeString={codeString3} />
-              <Space direction='vertical'>
+              <Space direction="vertical">
                 <Alert
                   description={<>dotenv 规则：先配置的优先级更高</>}
-                  type='warning'
+                  type="warning"
                   showIcon
                 />
                 <Alert
@@ -155,7 +154,7 @@ const DotEnv = () => {
                       </div>
                     </>
                   }
-                  type='info'
+                  type="info"
                   showIcon
                 />
               </Space>
@@ -168,7 +167,7 @@ const DotEnv = () => {
                     <Text code>env/*.ts</Text>
                   </>
                 }
-                type='warning'
+                type="warning"
                 showIcon
               />
               <Table
@@ -178,7 +177,7 @@ const DotEnv = () => {
               />
               <Space>
                 <Button
-                  type='primary'
+                  type="primary"
                   onClick={() =>
                     console.log('VITE_DEFAULT ', import.meta.env.VITE_DEFAULT)
                   }
@@ -186,7 +185,7 @@ const DotEnv = () => {
                   打印VITE_DEFAULT
                 </Button>
                 <Button
-                  type='primary'
+                  type="primary"
                   onClick={() =>
                     console.log('VITE_FLAG ', import.meta.env.VITE_FLAG)
                   }
@@ -195,7 +194,7 @@ const DotEnv = () => {
                 </Button>
 
                 <Button
-                  type='primary'
+                  type="primary"
                   onClick={() =>
                     console.log('VITE_TITLE', import.meta.env.VITE_TITLE)
                   }
@@ -204,7 +203,7 @@ const DotEnv = () => {
                 </Button>
               </Space>
             </Col>
-            <Col span={24} id='minimist'>
+            <Col span={24} id="minimist">
               <Title>配合minimist</Title>
               <Paragraph>
                 倘若启动项具有多个参数时，可以搭配<Text code>minimist</Text>
@@ -216,7 +215,7 @@ const DotEnv = () => {
               <Title level={5}>2.修改env/config.js</Title>
               <CodeHighLight codeString={codeString6} />
               <Button
-                type='primary'
+                type="primary"
                 onClick={() =>
                   console.log('VITE_TITLE', import.meta.env.VITE_TITLE)
                 }

@@ -1,6 +1,6 @@
+import { useReducer, useRef } from 'react'
 import { Button, Input, Space } from 'antd'
 import type { InputRef } from 'antd'
-import React, { useReducer, useRef } from 'react'
 
 const Example1 = () => {
   const [count, countDispatch] = useReducer(
@@ -13,9 +13,9 @@ const Example1 = () => {
     <Space>
       useReducer count: {count}
       <br />
-      <Input placeholder='useReducer count Input' ref={ref} />
+      <Input placeholder="useReducer count Input" ref={ref} />
       <Button
-        type='primary'
+        type="primary"
         onClick={() => countDispatch(Number(ref.current?.input?.value))}
       >
         set count

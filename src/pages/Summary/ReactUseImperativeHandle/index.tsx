@@ -1,4 +1,3 @@
-import React from 'react'
 import { Col, Row, Timeline, Typography } from 'antd'
 import CodeHighLight from '@/components/CodeHighLight'
 import { codeString1 } from './code'
@@ -24,7 +23,7 @@ const ReactUseImperativeHandle = () => {
             <Col span={24}>
               <Title>useImperativeHandle的作用</Title>
               <Paragraph>
-                父组件调子组件<Text type='danger'>暴露</Text>
+                父组件调子组件<Text type="danger">暴露</Text>
                 的属性和方法的钩子函数
               </Paragraph>
               <Paragraph>

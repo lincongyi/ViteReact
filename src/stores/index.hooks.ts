@@ -4,7 +4,7 @@ import React from 'react'
 import CountStoreHooks from './count.hooks.store'
 
 const RootStore = React.createContext({
-  countStoreHooks: CountStoreHooks()
+  countStoreHooks: CountStoreHooks(),
 })
 
 const useStoreHooks = () => React.useContext(RootStore)

@@ -1,4 +1,3 @@
-import React from 'react'
 import { Affix, Col, Row, Timeline } from 'antd'
 import { Outlet } from 'react-router-dom'
 import { JSRoutes } from '@/router'

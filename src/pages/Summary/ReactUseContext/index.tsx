@@ -1,4 +1,3 @@
-import React from 'react'
 import { Col, Divider, Row, Timeline, Typography } from 'antd'
 import CodeHighLight from '@components/CodeHighLight'
 import {
@@ -52,7 +51,7 @@ const ReactUseContext = () => {
                     <br />
                     在父组件添加按钮，点击可同时改变传递给后代组件的值，从而刷新视图
                   </Title>
-                  <Text type='danger'>
+                  <Text type="danger">
                     PS : 子组件接收值有两种写法：
                     <br />
                     一种是

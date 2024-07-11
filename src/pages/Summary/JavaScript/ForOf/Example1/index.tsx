@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { Button, Col, Row, Space } from 'antd'
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 const Example1 = () => {
   const obj = {
@@ -73,7 +73,7 @@ const Example1 = () => {
     <Row>
       <Col span={12}>
         <Space>
-          <Button type='primary' onClick={onBind}>
+          <Button type="primary" onClick={onBind}>
             绑定迭代器Function
           </Button>
           <Button onClick={onUnBind}>解绑迭代器Function</Button>

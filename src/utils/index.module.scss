@@ -1,13 +1,13 @@
-.item{
+.item {
   color: #555;
   cursor: pointer;
-  &:hover{
+  &:hover {
     color: #bfbfbf;
   }
 
-  &.active{
+  &.active {
     color: #1677ff;
-    &:hover{
+    &:hover {
       color: #1677ff9c;
     }
   }

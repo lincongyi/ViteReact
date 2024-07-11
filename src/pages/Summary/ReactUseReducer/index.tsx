@@ -1,4 +1,3 @@
-import React from 'react'
 import { Col, Divider, Row, Timeline, Typography } from 'antd'
 import CodeHighLight from '@components/CodeHighLight'
 import { codeString1, codeString2, codeString3, codeString4 } from './code'
@@ -60,7 +59,7 @@ const ReactUseReducer = () => {
                 <Col span={24}>
                   <Title level={5}>Example 2:</Title>
                   <Title level={5}>1.表单新增项，添加到表格中</Title>
-                  <Text type='warning'>
+                  <Text type="warning">
                     PS : antd部分代码较多，就只放核心代码了
                   </Text>
                   <CodeHighLight codeString={codeString2} />
@@ -70,7 +69,7 @@ const ReactUseReducer = () => {
                   <Title level={5}>
                     2.如果要实现表格项delete功能，需要调整action数据结构
                   </Title>
-                  <Text type='warning'>
+                  <Text type="warning">
                     PS : antd部分代码较多，就只放核心代码了
                   </Text>
                   <CodeHighLight codeString={codeString3} />

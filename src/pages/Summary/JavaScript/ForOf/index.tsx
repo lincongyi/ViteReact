@@ -1,4 +1,3 @@
-import React from 'react'
 import { Anchor, Col, Row, Typography } from 'antd'
 import Example1 from './Example1'
 import CodeHighLight from '@/components/CodeHighLight'
@@ -20,7 +19,7 @@ const ForOf = () => {
       <Col xs={18} xl={20}>
         <Typography>
           <Row>
-            <Col span={24} id='preface'>
+            <Col span={24} id="preface">
               <Title>前言</Title>
               <Paragraph>
                 JavaScript提供了四种数据集合，分别是
@@ -30,7 +29,7 @@ const ForOf = () => {
                 <Text code>iteration</Text>(迭代器)的支撑。
               </Paragraph>
             </Col>
-            <Col span={24} id='iteration'>
+            <Col span={24} id="iteration">
               <Title>迭代器</Title>
               <Paragraph>
                 在 JavaScript
@@ -48,7 +47,7 @@ const ForOf = () => {
                 。
               </Paragraph>
             </Col>
-            <Col span={24} id='native'>
+            <Col span={24} id="native">
               <Title>原生的iteration接口</Title>
               <Paragraph>
                 一种数据结构只要部署了 <Text code>Iterator</Text>
@@ -75,7 +74,7 @@ const ForOf = () => {
                 <li>NodeList 对象</li>
               </ul>
             </Col>
-            <Col span={24} id='custom'>
+            <Col span={24} id="custom">
               <Title>自定义iteration接口</Title>
               <Paragraph>
                 由于Object内部没有实现<Text code>Symbol.iterator()</Text>

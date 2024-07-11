@@ -1,5 +1,5 @@
 /* eslint-disable no-extend-native */
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Space, Button } from 'antd'
 
 const Example3 = () => {
@@ -9,7 +9,7 @@ const Example3 = () => {
     return item % 2 === 0
   })
 
-  Array.prototype.myFilter = function <T> (
+  Array.prototype.myFilter = function <T>(
     callback: (element: T, index: number, array: T[]) => unknown,
     thisArg?: any
   ): T[] {
@@ -26,10 +26,10 @@ const Example3 = () => {
   const [state, setState] = useState<string>()
 
   return (
-    <Space direction='vertical'>
+    <Space direction="vertical">
       <Space>
         <Button onClick={() => setState(result1.toString())}>原生filter</Button>
-        <Button type='primary' onClick={() => setState(result2.toString())}>
+        <Button type="primary" onClick={() => setState(result2.toString())}>
           myFilter
         </Button>
       </Space>

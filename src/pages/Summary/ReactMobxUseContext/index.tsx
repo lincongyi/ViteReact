@@ -1,4 +1,3 @@
-import React from 'react'
 import { Col, Divider, Row, Timeline, Typography } from 'antd'
 import CodeHighLight from '@components/CodeHighLight'
 import Example1 from './Example1'

@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react'
+import { useReducer } from 'react'
 import 'reset-css'
 import './App.scss'
 import { HashRouter, useRoutes } from 'react-router-dom'

@@ -1,4 +1,3 @@
-import React from 'react'
 import { Col, Row, Timeline, Typography, Divider } from 'antd'
 import CodeHighLight from '@components/CodeHighLight'
 import {
@@ -77,7 +76,7 @@ const ReactUseState = () => {
               <Title level={5}>1.基本结构</Title>
               <CodeHighLight codeString={codeString1} />
               <Example1 />
-              <Divider orientation='left' plain>
+              <Divider orientation="left" plain>
                 分析
               </Divider>
               <Paragraph>
@@ -91,7 +90,7 @@ const ReactUseState = () => {
               <Title level={5}>2.调整变量作用域</Title>
               <CodeHighLight codeString={codeString2} />
               <Example2 />
-              <Divider orientation='left' plain>
+              <Divider orientation="left" plain>
                 分析
               </Divider>
               <Paragraph>
@@ -100,7 +99,7 @@ const ReactUseState = () => {
               <Title level={5}>3.多次调用myUseState可声明多个state</Title>
               <CodeHighLight codeString={codeString3} />
               <Example3 />
-              <Divider orientation='left' plain>
+              <Divider orientation="left" plain>
                 分析
               </Divider>
               <Paragraph>
@@ -112,7 +111,7 @@ const ReactUseState = () => {
               <Title level={5}>3.存储多个状态值</Title>
               <CodeHighLight codeString={codeString4} />
               <Example4 />
-              <Divider orientation='left' plain>
+              <Divider orientation="left" plain>
                 分析
               </Divider>
               <Paragraph>
@@ -120,7 +119,7 @@ const ReactUseState = () => {
                 <br />
                 所以需要把setState也声明成一个数组，用过stateIndex来对应；
                 <br />
-                <Text type='danger'>关键点：</Text>
+                <Text type="danger">关键点：</Text>
                 <br />
                 同时在声明set函数时，为了拿到该状态对应的下标，需要采用[ 闭包
                 ]的方式，把各自状态对应的下标保存一份。这样才能在触发set函数时，拿到准确的下标值；

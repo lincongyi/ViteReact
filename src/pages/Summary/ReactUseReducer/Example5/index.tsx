@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from 'react'
+import { useReducer, useState } from 'react'
 import { Button, Space } from 'antd'
 
 const reducer = (state: number, action: { type: string }) => {
@@ -30,7 +30,7 @@ const Example5 = () => {
   const [myCount, myCountDispatch] = myUseReducer(reducer, 0)
 
   return (
-    <Space direction='vertical'>
+    <Space direction="vertical">
       <Space>
         default useReducer count: {count}
         <Button onClick={() => countDispatch({ type: 'increment' })}>
@@ -42,26 +42,47 @@ const Example5 = () => {
         <Button onClick={() => countDispatch({ type: 'reset' })}>
           count reset
         </Button>
+        <Button
+          onClick={() => {
+            countDispatch({ type: 'increment' })
+            console.log('count', count)
+            const newCount = reducer(count, { type: 'increment' })
+            console.log('newCount', newCount)
+          }}
+        >
+          获取更新后count的值
+        </Button>
       </Space>
       <Space>
         myUseReducer count: {myCount}
         <Button
-          type='primary'
+          type="primary"
           onClick={() => myCountDispatch({ type: 'increment' })}
         >
           count++
         </Button>
         <Button
-          type='primary'
+          type="primary"
           onClick={() => myCountDispatch({ type: 'decrement' })}
         >
           count--
         </Button>
         <Button
-          type='primary'
+          type="primary"
           onClick={() => myCountDispatch({ type: 'reset' })}
         >
           count reset
+        </Button>
+        <Button
+          type="primary"
+          onClick={() => {
+            myCountDispatch({ type: 'increment' })
+            console.log('count', myCount)
+            const newCount = reducer(myCount, { type: 'increment' })
+            console.log('newCount', newCount)
+          }}
+        >
+          获取更新后count的值
         </Button>
       </Space>
     </Space>

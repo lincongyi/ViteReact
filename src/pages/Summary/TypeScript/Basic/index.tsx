@@ -1,4 +1,3 @@
-import React from 'react'
 import { Anchor, Col, Row, Typography } from 'antd'
 import CodeHighLight from '@/components/CodeHighLight'
 import {
@@ -35,7 +34,7 @@ const Basic = () => {
       <Col xs={18} xl={20}>
         <Typography>
           <Row>
-            <Col span={24} id='initial'>
+            <Col span={24} id="initial">
               <Title>安装、编译、运行</Title>
               <Paragraph>
                 1.全局安装typescript
@@ -61,43 +60,43 @@ const Basic = () => {
             </Col>
             <Col span={24}>
               <Title>基本语法</Title>
-              <Title level={5} id='section1'>
+              <Title level={5} id="section1">
                 1.基础类型
               </Title>
               <CodeHighLight codeString={codeString1} />
-              <Title level={5} id='section2'>
+              <Title level={5} id="section2">
                 2.枚举
               </Title>
               <CodeHighLight codeString={codeString2} />
-              <Title level={5} id='section3'>
+              <Title level={5} id="section3">
                 3.断言
               </Title>
               <CodeHighLight codeString={codeString3} />
-              <Title level={5} id='section4'>
+              <Title level={5} id="section4">
                 4.联合类型
               </Title>
               <CodeHighLight codeString={codeString4} />
-              <Title level={5} id='section5'>
+              <Title level={5} id="section5">
                 5.交叉类型
               </Title>
               <CodeHighLight codeString={codeString5} />
-              <Title level={5} id='section6'>
+              <Title level={5} id="section6">
                 6.类
               </Title>
               <CodeHighLight codeString={codeString6} />
-              <Title level={5} id='section7'>
+              <Title level={5} id="section7">
                 7.类的单例模式
               </Title>
               <CodeHighLight codeString={codeString7} />
-              <Title level={5} id='section8'>
+              <Title level={5} id="section8">
                 8.类访问器
               </Title>
               <CodeHighLight codeString={codeString8} />
-              <Title level={5} id='section9'>
+              <Title level={5} id="section9">
                 9.映射类型
               </Title>
               <CodeHighLight codeString={codeString9} />
-              <Title level={5} id='section10'>
+              <Title level={5} id="section10">
                 10.type和interface
               </Title>
               <CodeHighLight codeString={codeString10} />

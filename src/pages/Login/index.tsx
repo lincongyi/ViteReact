@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import { FC, useEffect, useRef } from 'react'
 import style from './index.module.scss'
 import { Card, Button, Checkbox, Form, Input, message } from 'antd'
 import type { FormInstance } from 'antd/es/form'
@@ -7,7 +7,7 @@ import { login } from '@api/login'
 import { useStore } from '@stores/index'
 import { setToken } from '@utils/token'
 
-const Login: React.FC = () => {
+const Login: FC = () => {
   const [messageApi, contextHolder] = message.useMessage()
   const navigate = useNavigate()
   const { loginStore } = useStore()
@@ -48,20 +48,20 @@ const Login: React.FC = () => {
       {contextHolder}
       <div className={style.wrapper}>
         <div className={style['card-wrapper']}>
-          <Card title='登录' bordered={false} style={{ width: 400 }}>
+          <Card title="登录" bordered={false} style={{ width: 400 }}>
             <Form
               ref={form}
-              name='form'
+              name="form"
               labelCol={{ span: 6 }}
               wrapperCol={{ span: 16 }}
               initialValues={{ remember: true }}
               onFinish={onFinish}
               onFinishFailed={onFinishFailed}
-              autoComplete='off'
+              autoComplete="off"
             >
               <Form.Item
-                label='用户名'
-                name='username'
+                label="用户名"
+                name="username"
                 rules={[
                   { required: true, message: 'Please input your username!' },
                 ]}
@@ -70,8 +70,8 @@ const Login: React.FC = () => {
               </Form.Item>
 
               <Form.Item
-                label='密码'
-                name='password'
+                label="密码"
+                name="password"
                 rules={[
                   { required: true, message: 'Please input your password!' },
                 ]}
@@ -80,15 +80,15 @@ const Login: React.FC = () => {
               </Form.Item>
 
               <Form.Item
-                name='remember'
-                valuePropName='checked'
+                name="remember"
+                valuePropName="checked"
                 wrapperCol={{ offset: 6, span: 16 }}
               >
                 <Checkbox>Remember me</Checkbox>
               </Form.Item>
 
               <Form.Item wrapperCol={{ offset: 2, span: 20 }}>
-                <Button type='primary' htmlType='submit' block>
+                <Button type="primary" htmlType="submit" block>
                   Submit
                 </Button>
               </Form.Item>

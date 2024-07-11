@@ -76,8 +76,8 @@ const AppLayout = () => {
         >
           <div className={style.logo}>还没想好用什么标题</div>
           <Menu
-            theme='dark'
-            mode='inline'
+            theme="dark"
+            mode="inline"
             items={items}
             selectedKeys={[current]}
             defaultOpenKeys={['summary']}
@@ -101,11 +101,11 @@ const AppLayout = () => {
             <div className={style['user-tool']}>
               {userStore.profile?.username}
               <Popconfirm
-                placement='bottomRight'
+                placement="bottomRight"
                 title={text}
                 onConfirm={onConfirm}
-                okText='确定'
-                cancelText='取消'
+                okText="确定"
+                cancelText="取消"
               >
                 <div className={style.logoff}>
                   <PoweroffOutlined />

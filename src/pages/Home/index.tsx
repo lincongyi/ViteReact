@@ -1,9 +1,9 @@
-import React, { useEffect, useRef } from 'react'
+import { FC, useEffect, useRef } from 'react'
 import * as echarts from 'echarts'
 import Line from '@components/charts/Line'
 import Doughnut from '@components/charts/Doughnut'
 
-const Home: React.FC = () => {
+const Home: FC = () => {
   const myChart = useRef<HTMLDivElement>(null)
   let eChartsInstance: echarts.EChartsType
 

@@ -1,7 +1,7 @@
 import { computed, makeAutoObservable } from 'mobx'
 
 class CountStore {
-  constructor () {
+  constructor() {
     makeAutoObservable(this)
   }
 

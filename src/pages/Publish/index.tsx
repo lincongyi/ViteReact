@@ -1,6 +1,6 @@
-import React from 'react'
+import { FC } from 'react'
 
-const Publish: React.FC = () => {
+const Publish: FC = () => {
   return <div>Publish</div>
 }
 

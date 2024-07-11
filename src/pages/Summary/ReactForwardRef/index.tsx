@@ -1,4 +1,3 @@
-import React from 'react'
 import { Col, Row, Timeline, Typography } from 'antd'
 import CodeHighLight from '@/components/CodeHighLight'
 import { codeString1, codeString2 } from './code'
@@ -28,7 +27,7 @@ const ReactForwardRef = () => {
                 在函数式组件直接写<Text code>ref</Text>属性时，会报个警告：
               </Paragraph>
               <Paragraph>
-                <Text type='danger'>
+                <Text type="danger">
                   Warning: Function components cannot be given refs. Attempts to
                   access this ref will fail. Did you mean to use
                   React.forwardRef()?

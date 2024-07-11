@@ -1,5 +1,5 @@
 /* eslint-disable no-extend-native */
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Space, Button } from 'antd'
 
 const Example10 = () => {
@@ -7,7 +7,7 @@ const Example10 = () => {
 
   const result1 = arr.some(item => item > 4)
 
-  Array.prototype.mySome = function <T> (
+  Array.prototype.mySome = function <T>(
     callback: (element: T, index: number, array: T[]) => unknown,
     thisArg?: any
   ) {
@@ -23,10 +23,10 @@ const Example10 = () => {
   const [state, setState] = useState<string>()
 
   return (
-    <Space direction='vertical'>
+    <Space direction="vertical">
       <Space>
         <Button onClick={() => setState(result1.toString())}>原生some</Button>
-        <Button type='primary' onClick={() => setState(result2.toString())}>
+        <Button type="primary" onClick={() => setState(result2.toString())}>
           mySome
         </Button>
       </Space>

@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import { useRef } from 'react'
 import html2Canvas from 'html2canvas'
 import JsPDF from 'jspdf'
 import {
@@ -43,7 +43,7 @@ const Html2Pdf = () => {
   }
   return (
     <>
-      <div id='oDiv' ref={ref} style={{ width: 800, padding: 40 }}>
+      <div id="oDiv" ref={ref} style={{ width: 800, padding: 40 }}>
         <div
           style={{
             width: 200,
@@ -73,18 +73,18 @@ const Html2Pdf = () => {
         <Form
           labelCol={{ span: 4 }}
           wrapperCol={{ span: 14 }}
-          layout='horizontal'
+          layout="horizontal"
           style={{ maxWidth: 600 }}
         >
-          <Form.Item label='Input'>
+          <Form.Item label="Input">
             <Input />
           </Form.Item>
-          <Form.Item label='Select'>
+          <Form.Item label="Select">
             <Select>
-              <Select.Option value='demo'>Demo</Select.Option>
+              <Select.Option value="demo">Demo</Select.Option>
             </Select>
           </Form.Item>
-          <Form.Item label='TreeSelect'>
+          <Form.Item label="TreeSelect">
             <TreeSelect
               treeData={[
                 {
@@ -95,7 +95,7 @@ const Html2Pdf = () => {
               ]}
             />
           </Form.Item>
-          <Form.Item label='Cascader'>
+          <Form.Item label="Cascader">
             <Cascader
               options={[
                 {
@@ -106,19 +106,19 @@ const Html2Pdf = () => {
               ]}
             />
           </Form.Item>
-          <Form.Item label='DatePicker'>
+          <Form.Item label="DatePicker">
             <DatePicker />
           </Form.Item>
-          <Form.Item label='Switch' valuePropName='checked'>
+          <Form.Item label="Switch" valuePropName="checked">
             <Switch />
           </Form.Item>
-          <Form.Item label='Button'>
+          <Form.Item label="Button">
             <Button>Button</Button>
           </Form.Item>
         </Form>
       </div>
 
-      <Button type='primary' onClick={onExport}>
+      <Button type="primary" onClick={onExport}>
         导出pdf
       </Button>
       <div ref={boxRef}></div>

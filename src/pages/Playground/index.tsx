@@ -54,9 +54,9 @@ const SonComponent = () => {
   const context = useContext(myContext)
   return (
     <>
-      <Typography.Text type='success'>son component</Typography.Text>
+      <Typography.Text type="success">son component</Typography.Text>
       <br />
-      <Typography.Text type='warning'>{context.sonValue}</Typography.Text>
+      <Typography.Text type="warning">{context.sonValue}</Typography.Text>
       <br />
       <Divider />
       <GrandsonComponent />
@@ -68,9 +68,9 @@ const GrandsonComponent = () => {
   const context = useContext(myContext)
   return (
     <>
-      <Typography.Text type='secondary'>grandson component</Typography.Text>
+      <Typography.Text type="secondary">grandson component</Typography.Text>
       <br />
-      <Typography.Text type='danger'>{context.grandsonValue}</Typography.Text>
+      <Typography.Text type="danger">{context.grandsonValue}</Typography.Text>
     </>
   )
 }
@@ -121,7 +121,7 @@ const Playground = () => {
       key: 'action',
       render: ({ id }) => {
         return (
-          <Button type='text' danger onClick={() => onDelete(id)}>
+          <Button type="text" danger onClick={() => onDelete(id)}>
             Delete
           </Button>
         )
@@ -242,15 +242,15 @@ const Playground = () => {
       }
     }
     return (
-      <div id='bar'>
+      <div id="bar">
         bar 组件
-        <Space direction='vertical'>
+        <Space direction="vertical">
           <Input
             ref={ref}
-            placeholder='Basic usage'
+            placeholder="Basic usage"
             defaultValue={props.value || 'input ref'}
           />
-          <Button type='primary' onClick={onClick}>
+          <Button type="primary" onClick={onClick}>
             Primary Button
           </Button>
         </Space>
@@ -274,14 +274,14 @@ const Playground = () => {
       return (
         <>
           baz 组件({type || 'common'})
-          <Space direction='vertical'>
+          <Space direction="vertical">
             <Input
               ref={ref}
-              placeholder='Bazzzzz component'
+              placeholder="Bazzzzz component"
               value={inputValue}
               onChange={onChange}
             />
-            <Button type='primary' onClick={onClick}>
+            <Button type="primary" onClick={onClick}>
               Primary Button
             </Button>
           </Space>
@@ -329,7 +329,7 @@ const Playground = () => {
       'http://127.0.0.1:3000/article/type',
       {},
       {
-        cancelToken: new CancelToken(function execotor (c) {
+        cancelToken: new CancelToken(function execotor(c) {
           cancel = c
         }),
       }
@@ -508,7 +508,10 @@ const Playground = () => {
     setCompressList(result)
   }
 
-  function asyncFn (): Promise<string> {
+  /**
+   * 随机异步函数
+   */
+  function asyncFn(): Promise<string> {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         if (Math.random() > 0.5) {
@@ -520,6 +523,8 @@ const Playground = () => {
     })
   }
 
+  asyncFn()
+
   return (
     <>
       <div>
@@ -528,10 +533,10 @@ const Playground = () => {
             __html: '<i style="color:red;">dangerouslySetInnerHTML</i>',
           }}
         />
-        <Button type='primary' onClick={() => setState(state + 1)}>
+        <Button type="primary" onClick={() => setState(state + 1)}>
           plus 1
         </Button>
-        <Button type='primary' onClick={() => setState(value => value + 2)}>
+        <Button type="primary" onClick={() => setState(value => value + 2)}>
           plus 2
         </Button>
         {state}
@@ -540,9 +545,9 @@ const Playground = () => {
         <Divider />
         useReducer count: {count}
         <br />
-        <Input placeholder='useReducer count Input' ref={ref} />
+        <Input placeholder="useReducer count Input" ref={ref} />
         <Button
-          type='primary'
+          type="primary"
           onClick={() => countDispatch(Number(ref.current?.input?.value))}
         >
           set count
@@ -553,41 +558,41 @@ const Playground = () => {
 
       <div>
         <Form
-          name='form'
+          name="form"
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 16 }}
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
-          autoComplete='off'
+          autoComplete="off"
           style={{ padding: '0 4px' }}
         >
           <Row gutter={8}>
             <Col span={6}>
               <Form.Item
-                label='Username'
-                name='name'
+                label="Username"
+                name="name"
                 rules={[{ required: true, message: 'Please input your name!' }]}
               >
-                <Input placeholder='Usename' />
+                <Input placeholder="Usename" />
               </Form.Item>
             </Col>
             <Col span={6}>
               <Form.Item
-                label='Age'
-                name='age'
+                label="Age"
+                name="age"
                 rules={[{ required: true, message: 'Please input your age!' }]}
               >
-                <Input placeholder='Age' />
+                <Input placeholder="Age" />
               </Form.Item>
             </Col>
             <Col span={6}>
               <Form.Item
-                label='Sex'
-                name='sex'
+                label="Sex"
+                name="sex"
                 rules={[{ required: true, message: 'Please select your sex!' }]}
               >
                 <Select
-                  placeholder='Sex'
+                  placeholder="Sex"
                   options={[
                     { value: 0, label: '男' },
                     { value: 1, label: '女' },
@@ -597,19 +602,19 @@ const Playground = () => {
             </Col>
             <Col span={6}>
               <Form.Item
-                label='Score'
-                name='score'
+                label="Score"
+                name="score"
                 rules={[
                   { required: true, message: 'Please input your score!' },
                 ]}
               >
-                <Input placeholder='Score' />
+                <Input placeholder="Score" />
               </Form.Item>
             </Col>
             <Col span={24}>
               <Form.Item wrapperCol={{ offset: 2, span: 4 }}>
                 <Space>
-                  <Button type='primary' htmlType='submit'>
+                  <Button type="primary" htmlType="submit">
                     Submit
                   </Button>
                   <Button onClick={() => dataDispatch({ type: 'clear' })}>
@@ -620,7 +625,7 @@ const Playground = () => {
             </Col>
           </Row>
         </Form>
-        <Table columns={columns} dataSource={data} rowKey='id' />
+        <Table columns={columns} dataSource={data} rowKey="id" />
       </div>
 
       <Divider />
@@ -647,22 +652,22 @@ const Playground = () => {
       <div style={{ padding: '0 4px' }}>
         <Row gutter={8}>
           <Col span={6}>
-            <Input placeholder='Basic usage' value={countStore.count} />
+            <Input placeholder="Basic usage" value={countStore.count} />
           </Col>
           <Col span={18}>
             <Space>
               <Button onClick={() => countStore.increment()}>+</Button>
-              <Button type='dashed' onClick={() => countStore.decrement()}>
+              <Button type="dashed" onClick={() => countStore.decrement()}>
                 -
               </Button>
               <Button
-                type='dashed'
+                type="dashed"
                 onClick={() => console.log(countStore.getDoubleCount())}
               >
                 double
               </Button>
               <Button
-                type='dashed'
+                type="dashed"
                 onClick={() => console.log(countStore.getTrebleCount.get())}
               >
                 trible
@@ -679,22 +684,22 @@ const Playground = () => {
       <div style={{ padding: '0 4px' }}>
         <Row gutter={8}>
           <Col span={6}>
-            <Input placeholder='Basic usage' value={countStoreHooks.count} />
+            <Input placeholder="Basic usage" value={countStoreHooks.count} />
           </Col>
           <Col span={18}>
             <Space>
               <Button onClick={() => countStoreHooks.increment()}>+</Button>
-              <Button type='dashed' onClick={() => countStoreHooks.decrement()}>
+              <Button type="dashed" onClick={() => countStoreHooks.decrement()}>
                 -
               </Button>
               <Button
-                type='dashed'
+                type="dashed"
                 onClick={() => console.log(countStoreHooks.getDoubleCount())}
               >
                 double
               </Button>
               <Button
-                type='dashed'
+                type="dashed"
                 onClick={() => console.log(countStoreHooks.getTrebleCount)}
               >
                 trible
@@ -706,8 +711,8 @@ const Playground = () => {
 
       <Divider />
 
-      <Space direction='vertical'>
-        <Button type='primary' onClick={() => navigate('/authRoute')}>
+      <Space direction="vertical">
+        <Button type="primary" onClick={() => navigate('/authRoute')}>
           路由跳转
         </Button>
         <Button
@@ -729,10 +734,10 @@ const Playground = () => {
       <Typography.Title level={3}>单文件上传</Typography.Title>
 
       <Space>
-        <Button type='primary' onClick={handleFetch}>
+        <Button type="primary" onClick={handleFetch}>
           请求接口
         </Button>
-        <Button type='primary' onClick={initFileList}>
+        <Button type="primary" onClick={initFileList}>
           初始化照片墙
         </Button>
       </Space>
@@ -741,7 +746,7 @@ const Playground = () => {
 
       <Card>
         <Upload
-          listType='picture-card'
+          listType="picture-card"
           fileList={fileList}
           onChange={onChange}
           customRequest={customRequest}
@@ -765,24 +770,24 @@ const Playground = () => {
       <HOCBaz ref={HOCRef} />
 
       <Button
-        type='primary'
+        type="primary"
         onClick={() => console.log(HOCRef.current?.input?.value)}
       >
         获取current
       </Button>
 
-      <Divider orientation='left'>针对单个请求，进行处理</Divider>
+      <Divider orientation="left">针对单个请求，进行处理</Divider>
 
       <Space>
-        <Button type='primary' onClick={() => onRequest()}>
+        <Button type="primary" onClick={() => onRequest()}>
           发起请求
         </Button>
         <Button onClick={() => onCancelRequest()}>终止请求</Button>
       </Space>
 
-      <Divider orientation='left'>在拦截器上统一封装，防止重复请求</Divider>
+      <Divider orientation="left">在拦截器上统一封装，防止重复请求</Divider>
 
-      <Button type='primary' onClick={() => onRequest2()}>
+      <Button type="primary" onClick={() => onRequest2()}>
         发起请求
       </Button>
 
@@ -791,7 +796,7 @@ const Playground = () => {
       <Row gutter={[0, 20]}>
         <Col span={4}>
           <Button
-            type='primary'
+            type="primary"
             icon={<DownloadOutlined />}
             onClick={onCompress}
           >
@@ -799,7 +804,7 @@ const Playground = () => {
           </Button>
         </Col>
         <Col span={8}>
-          <Row align='middle'>
+          <Row align="middle">
             <Col span={16}>
               <Slider
                 min={0}
@@ -811,8 +816,8 @@ const Playground = () => {
             <Col span={8}>图片质量：{quality / 10}</Col>
             <Col span={24}>
               <Input
-                addonBefore='图片大小限制（最大）'
-                addonAfter='kb'
+                addonBefore="图片大小限制（最大）"
+                addonAfter="kb"
                 defaultValue={imgLimit}
                 onChange={onChangeLimit}
               />
@@ -824,7 +829,7 @@ const Playground = () => {
           <Space>
             {unCompressList &&
               unCompressList.map((item, index) => (
-                <Space direction='vertical' key={index}>
+                <Space direction="vertical" key={index}>
                   <Image key={index} width={200} src={item.url} />
                   <Typography.Text strong>
                     图片大小：{item.size.toFixed(2)}kb
@@ -838,7 +843,7 @@ const Playground = () => {
           <Space>
             {compressList &&
               compressList.map((item, index) => (
-                <Space direction='vertical' key={index}>
+                <Space direction="vertical" key={index}>
                   <Image key={index} width={200} src={item.url} />
                   <Typography.Text strong>
                     图片大小：{item.size.toFixed(2)}kb
@@ -850,10 +855,10 @@ const Playground = () => {
       </Row>
 
       <Space>
-        <Button type='primary' onClick={() => enterFullscreen()}>
+        <Button type="primary" onClick={() => enterFullscreen()}>
           进入全屏
         </Button>
-        <Button type='primary' onClick={() => exitFullscreen()}>
+        <Button type="primary" onClick={() => exitFullscreen()}>
           退出全屏
         </Button>
       </Space>

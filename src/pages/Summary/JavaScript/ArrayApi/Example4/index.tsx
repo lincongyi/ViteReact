@@ -1,5 +1,5 @@
 /* eslint-disable no-extend-native */
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Space, Button } from 'antd'
 
 const Example4 = () => {
@@ -9,7 +9,7 @@ const Example4 = () => {
     return prev + next
   })
 
-  Array.prototype.myReduce = function <T> (
+  Array.prototype.myReduce = function <T>(
     callback: (
       previousValue: T,
       currentValue: T,
@@ -32,13 +32,13 @@ const Example4 = () => {
   const [state, setState] = useState<string>()
 
   return (
-    <Space direction='vertical'>
+    <Space direction="vertical">
       <Space>
         <Button onClick={() => setState(result1.toString())}>原生reduce</Button>
-        <Button type='primary' onClick={() => setState(result2.toString())}>
+        <Button type="primary" onClick={() => setState(result2.toString())}>
           myReduce
         </Button>
-        <Button type='primary' onClick={() => setState(result3.toString())}>
+        <Button type="primary" onClick={() => setState(result3.toString())}>
           myReduce(默认值：100)
         </Button>
       </Space>

@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   Anchor,
   Col,
@@ -133,7 +132,7 @@ const TypeConversion = () => {
       <Col xs={18} xl={20}>
         <Typography>
           <Row>
-            <Col span={24} id='type'>
+            <Col span={24} id="type">
               <Title>JS 中的数据类型</Title>
               <Paragraph>8 种数据类型</Paragraph>
               <Paragraph>1.基本类型：</Paragraph>
@@ -145,7 +144,7 @@ const TypeConversion = () => {
                 对象（包括object / array / function / RegExp / Date）
               </Paragraph>
             </Col>
-            <Col span={24} id='feature'>
+            <Col span={24} id="feature">
               <Title>基本类型和引用类型的特点</Title>
               <Paragraph>1.基本类型：</Paragraph>
               <Paragraph>
@@ -153,9 +152,9 @@ const TypeConversion = () => {
               </Paragraph>
               <CodeHighLight codeString={codeString1} />
               <Descriptions
-                title='栈 区'
+                title="栈 区"
                 bordered
-                size='small'
+                size="small"
                 column={1}
                 style={{ width: '50%' }}
                 items={descriptionsItems1}
@@ -168,9 +167,9 @@ const TypeConversion = () => {
               <Row gutter={10}>
                 <Col span={10}>
                   <Descriptions
-                    title='栈 区'
+                    title="栈 区"
                     bordered
-                    size='small'
+                    size="small"
                     column={1}
                     items={descriptionsItems2}
                   />
@@ -187,16 +186,16 @@ const TypeConversion = () => {
                 </Col>
                 <Col span={10}>
                   <Descriptions
-                    title='堆 区'
+                    title="堆 区"
                     bordered
-                    size='small'
+                    size="small"
                     column={1}
                     items={descriptionsItems3}
                   />
                 </Col>
               </Row>
             </Col>
-            <Col span={24} id='typeConversion'>
+            <Col span={24} id="typeConversion">
               <Title>类型转换</Title>
               <Paragraph>
                 类型转换主要分为两种：隐式类型转换和显式类型转换。
@@ -212,92 +211,92 @@ const TypeConversion = () => {
               </Paragraph>
               <CodeHighLight codeString={codeString3} />
             </Col>
-            <Col span={24} id='explicit'>
+            <Col span={24} id="explicit">
               <Title>显式转换</Title>
               <Title level={3}>原始类型转其他类型</Title>
-              <Title level={5} id='primitiveToBoolean'>
+              <Title level={5} id="primitiveToBoolean">
                 1. 原始类型转换成布尔值
               </Title>
               <CodeHighLight codeString={codeString4} />
               <Image width={400} src={typeConversion01} />
               <Alert
-                message='总结：'
+                message="总结："
                 description={
-                  <Space direction='vertical'>
+                  <Space direction="vertical">
                     <div>
                       false、(+-)0、&apos;&apos;、null、undefined、NaN都转成
-                      <Text type='danger'>false</Text>
+                      <Text type="danger">false</Text>
                     </div>
                     <div>
-                      其他所有值转换为<Text type='danger'>true</Text>
+                      其他所有值转换为<Text type="danger">true</Text>
                     </div>
                   </Space>
                 }
-                type='info'
+                type="info"
                 showIcon
               />
-              <Title level={5} id='primitiveToNumber'>
+              <Title level={5} id="primitiveToNumber">
                 2. 原始类型转换成数字
               </Title>
               <CodeHighLight codeString={codeString5} />
               <Image width={400} src={typeConversion02} />
               <Alert
-                message='总结：'
+                message="总结："
                 description={
-                  <Space direction='vertical'>
+                  <Space direction="vertical">
                     <div>如果是数字字符串，则转换为对应的数字。</div>
                     <div>
                       如果是非数字字符串或无法解析为数字的字符串，则转换为
-                      <Text type='danger'>NaN</Text>。
+                      <Text type="danger">NaN</Text>。
                     </div>
                     <div>
                       true转为1，false转为0；null转为
-                      <Text type='danger'>0</Text>；undefined转为
-                      <Text type='danger'>NaN</Text>。
+                      <Text type="danger">0</Text>；undefined转为
+                      <Text type="danger">NaN</Text>。
                     </div>
                   </Space>
                 }
-                type='info'
+                type="info"
                 showIcon
               />
-              <Title level={5} id='primitiveToString'>
+              <Title level={5} id="primitiveToString">
                 3. 原始类型转换成字符串
               </Title>
               <CodeHighLight codeString={codeString6} />
               <Image width={400} src={typeConversion03} />
               <Alert
-                message='总结：'
+                message="总结："
                 description={
-                  <Space direction='vertical'>
+                  <Space direction="vertical">
                     <div>数字直接转字符串</div>
                     <div>
                       true、false、null、undefined都转为各自对应的字符串
                     </div>
                   </Space>
                 }
-                type='info'
+                type="info"
                 showIcon
               />
-              <Title level={5} id='primitiveToObject'>
+              <Title level={5} id="primitiveToObject">
                 4. 原始类型转对象
               </Title>
               <CodeHighLight codeString={codeString7} />
               <Image width={400} src={typeConversion04} />
               <Alert
-                message='总结：'
+                message="总结："
                 description={
-                  <Space direction='vertical'>
+                  <Space direction="vertical">
                     <div>Number、String、Boolean类型转为各自对应的对象</div>
                     <div>
                       null、undefined转为
-                      <Text type='danger'>
+                      <Text type="danger">
                         {'\u007b'}
                         {'\u007d'}
                       </Text>
                     </div>
                   </Space>
                 }
-                type='info'
+                type="info"
                 showIcon
               />
               <Table
@@ -352,16 +351,16 @@ const TypeConversion = () => {
               </Paragraph>
               <Title level={5}>3. 对象转布尔值</Title>
               <Paragraph>
-                对象转换为布尔值时，结果总是<Text type='danger'>true</Text>。
+                对象转换为布尔值时，结果总是<Text type="danger">true</Text>。
               </Paragraph>
             </Col>
-            <Col span={24} id='implicit'>
+            <Col span={24} id="implicit">
               <Title>隐式转换</Title>
-              <Title level={3} id='unary'>
+              <Title level={3} id="unary">
                 一元运算符 +
               </Title>
               <Paragraph>
-                作为一元运算符时，<Text type='danger'> + </Text>
+                作为一元运算符时，<Text type="danger"> + </Text>
                 号后无论接什么类型的数值，都需要强制转换成
                 <Text code>Number</Text>类型。
               </Paragraph>
@@ -371,11 +370,11 @@ const TypeConversion = () => {
                 <Text code>ToPrimitive</Text>方法，转成数字类型。
               </Paragraph>
               <CodeHighLight codeString={codeString9} />
-              <Title level={3} id='binary'>
+              <Title level={3} id="binary">
                 二元运算符 +
               </Title>
               <Paragraph>
-                二元运算符<Text type='danger'> + </Text>
+                二元运算符<Text type="danger"> + </Text>
                 ，用于字符串的连接，或者数字运算。
               </Paragraph>
               <Paragraph>

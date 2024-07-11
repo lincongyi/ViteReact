@@ -2,19 +2,19 @@ import { makeAutoObservable, runInAction } from 'mobx'
 import { getUerProfile } from '@api/login'
 
 type TProfile = {
-  username:string,
-  phone:string,
-  authority:number
+  username: string
+  phone: string
+  authority: number
 }
 
 class User {
-  constructor () {
+  constructor() {
     makeAutoObservable(this)
   }
 
-  profile:TProfile | undefined
+  profile: TProfile | undefined
 
-  getProfile = async ():Promise<TProfile | undefined> => {
+  getProfile = async (): Promise<TProfile | undefined> => {
     const { data } = await getUerProfile()
     const { username, phone, authority } = data
     runInAction(() => {

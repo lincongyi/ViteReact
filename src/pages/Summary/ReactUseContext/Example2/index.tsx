@@ -1,4 +1,3 @@
-import React from 'react'
 import { Provider } from './components/Provider'
 import ComponentA from './components/ComponentA'
 import ComponentB from './components/ComponentB'

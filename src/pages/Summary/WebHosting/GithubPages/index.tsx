@@ -1,4 +1,3 @@
-import React from 'react'
 import { Col, List, Row, Typography, Image, Space, Anchor } from 'antd'
 import { SettingOutlined } from '@ant-design/icons'
 import screenshot01 from '@images/Github Pages/screenshot-01.png'
@@ -35,7 +34,7 @@ const GithubPages = () => {
       <Col xs={18} xl={20}>
         <Typography>
           <Row>
-            <Col span={24} id='introduction'>
+            <Col span={24} id="introduction">
               <Title>Github Pages介绍</Title>
               <Paragraph>
                 GitHub Pages 是一项静态站点托管服务，它直接从 GitHub
@@ -43,8 +42,8 @@ const GithubPages = () => {
                 文件，（可选）通过构建过程运行文件，然后发布网站。 可以在 GitHub
                 Pages 示例集合中看到
                 <Link
-                  href='https://github.com/collections/github-pages-examples'
-                  target='_blank'
+                  href="https://github.com/collections/github-pages-examples"
+                  target="_blank"
                 >
                   GitHub Pages
                 </Link>
@@ -55,7 +54,7 @@ const GithubPages = () => {
                 域或自己的自定义域上托管站点。
               </Paragraph>
             </Col>
-            <Col span={24} id='rule'>
+            <Col span={24} id="rule">
               <Title>Github Pages 使用限制</Title>
               <List
                 header={
@@ -66,7 +65,7 @@ const GithubPages = () => {
                 renderItem={item => <List.Item>{item}</List.Item>}
               />
             </Col>
-            <Col span={24} id='start'>
+            <Col span={24} id="start">
               <Title>创建 GitHub Pages 站点</Title>
               <Title level={5}>
                 1:在任何页面的右上角下拉菜单选择<Text code>New repository</Text>
@@ -84,7 +83,7 @@ const GithubPages = () => {
               </Title>
               <Image width={400} src={screenshot02} />
               <br />
-              <Text type='warning'>
+              <Text type="warning">
                 备注：
                 <br />
                 若要发布用户站点，必须创建名为{' '}
@@ -100,7 +99,7 @@ const GithubPages = () => {
                 <Image width={400} src={screenshot03} />
                 <Image width={400} src={screenshot04} />
               </Space>
-              <Text type='success'>
+              <Text type="success">
                 可以通过<Text code>Add File</Text>
                 添加一个简单的html文件进行展示。
                 <br />
@@ -112,12 +111,12 @@ const GithubPages = () => {
                 可查看<Text code>Github Pages</Text>详细配置。
               </Text>
             </Col>
-            <Col span={24} id='deploy'>
+            <Col span={24} id="deploy">
               <Title>GitHub Pages自动化部署</Title>
               <Title level={5}>
                 1:克隆项目到本地。由于构建项目是在main分支，所以需要新建一个dev分支来存放代码。
               </Title>
-              <Space direction='vertical'>
+              <Space direction="vertical">
                 <Text code>git switch -c dev</Text>
                 <Text code>npm create vite@latest</Text>
                 <Text code>npm i</Text>

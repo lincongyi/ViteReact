@@ -1,4 +1,3 @@
-import React from 'react'
 import { Col, Row } from 'antd'
 import { Outlet } from 'react-router-dom'
 
@@ -7,7 +6,7 @@ const Scss = () => {
   return (
     <Row>
       <Col flex={flexBasic}>200px</Col>
-      <Col flex='auto'>
+      <Col flex="auto">
         <Outlet />
       </Col>
       <Col flex={flexBasic}>200px</Col>

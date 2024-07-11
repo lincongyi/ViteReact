@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
   Button,
   Col,
@@ -50,44 +50,44 @@ const Member = () => {
       <Form form={form} labelCol={{ span: 6 }} onFinish={onFinish}>
         <Row gutter={[20, 20]}>
           <Col span={6}>
-            <Form.Item label='用户名' name='name'>
+            <Form.Item label="用户名" name="name">
               <Input />
             </Form.Item>
           </Col>
           <Col span={6}>
-            <Form.Item label='用户等级' name='level'>
+            <Form.Item label="用户等级" name="level">
               <Input />
             </Form.Item>
           </Col>
           <Col span={6}>
-            <Form.Item label='注册日期' name='datePicker'>
+            <Form.Item label="注册日期" name="datePicker">
               <ConfigProvider locale={locale}>
                 <DatePicker onChange={onChange} />
               </ConfigProvider>
             </Form.Item>
           </Col>
-          <Col span={24} className='tr'>
-            <Button type='primary' htmlType='submit'>
+          <Col span={24} className="tr">
+            <Button type="primary" htmlType="submit">
               查询
             </Button>
           </Col>
         </Row>
       </Form>
-      <Table rowKey='id' dataSource={memberList}>
-        <Column title='用户名' dataIndex='name' key='name' />
-        <Column title='用户等级' dataIndex='level' key='level' />
-        <Column title='关注数' dataIndex='followers' key='followers' />
+      <Table rowKey="id" dataSource={memberList}>
+        <Column title="用户名" dataIndex="name" key="name" />
+        <Column title="用户等级" dataIndex="level" key="level" />
+        <Column title="关注数" dataIndex="followers" key="followers" />
         <Column
-          title='发布数量'
-          dataIndex='articleAmount'
-          key='articleAmount'
+          title="发布数量"
+          dataIndex="articleAmount"
+          key="articleAmount"
         />
-        <Column title='注册日期' dataIndex='createDate' key='createDate' />
+        <Column title="注册日期" dataIndex="createDate" key="createDate" />
         <Column
-          title='操作'
+          title="操作"
           render={props => (
             <>
-              <Button type='primary' onClick={() => onEdit(props)}>
+              <Button type="primary" onClick={() => onEdit(props)}>
                 编辑
               </Button>
             </>

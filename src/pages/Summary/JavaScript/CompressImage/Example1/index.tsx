@@ -222,7 +222,7 @@ const Example1 = () => {
             <Button icon={<UploadOutlined />}>Upload</Button>
           </Upload>
           <Button
-            type='primary'
+            type="primary"
             icon={<DownloadOutlined />}
             onClick={onCompress}
           >
@@ -231,7 +231,7 @@ const Example1 = () => {
         </Space>
       </Col>
       <Col span={12}>
-        <Row align='middle'>
+        <Row align="middle">
           <Col span={16}>
             <Slider
               min={0}
@@ -243,8 +243,8 @@ const Example1 = () => {
           <Col span={8}>图片质量：{quality / 10}</Col>
           <Col span={24}>
             <Input
-              addonBefore='图片大小限制（最大）'
-              addonAfter='kb'
+              addonBefore="图片大小限制（最大）"
+              addonAfter="kb"
               defaultValue={imgLimit}
               onChange={onChangeLimit}
             />
@@ -256,7 +256,7 @@ const Example1 = () => {
         <Space>
           {unCompressList &&
             unCompressList.map((item, index) => (
-              <Space direction='vertical' key={index}>
+              <Space direction="vertical" key={index}>
                 <Image key={index} width={200} src={item.url} />
                 <Typography.Text strong>
                   图片大小：{item.size.toFixed(2)}kb
@@ -270,7 +270,7 @@ const Example1 = () => {
         <Space>
           {compressList &&
             compressList.map((item, index) => (
-              <Space direction='vertical' key={index}>
+              <Space direction="vertical" key={index}>
                 <Image key={index} width={200} src={item.url} />
                 <Typography.Text strong>
                   图片大小：{item.size.toFixed(2)}kb

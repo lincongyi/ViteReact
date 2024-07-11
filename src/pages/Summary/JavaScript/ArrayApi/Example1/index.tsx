@@ -1,5 +1,5 @@
 /* eslint-disable no-extend-native */
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Space, Button } from 'antd'
 
 const Example1 = () => {
@@ -11,7 +11,7 @@ const Example1 = () => {
     result1.push((item *= 2))
   })
 
-  Array.prototype.myForEach = function <T> (
+  Array.prototype.myForEach = function <T>(
     callback: (element: T, index: number, array: T[]) => void,
     thisArg?: any
   ): undefined {
@@ -29,12 +29,12 @@ const Example1 = () => {
   const [state, setState] = useState<string>()
 
   return (
-    <Space direction='vertical'>
+    <Space direction="vertical">
       <Space>
         <Button onClick={() => setState(result1.toString())}>
           原生forEach
         </Button>
-        <Button type='primary' onClick={() => setState(result2.toString())}>
+        <Button type="primary" onClick={() => setState(result2.toString())}>
           myForEach
         </Button>
       </Space>

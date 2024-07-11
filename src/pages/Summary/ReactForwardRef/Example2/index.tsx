@@ -1,6 +1,6 @@
+import React, { Ref, useEffect, useRef, useState } from 'react'
 import { Button, Input, Space } from 'antd'
 import type { InputRef } from 'antd'
-import React, { Ref, useEffect, useRef, useState } from 'react'
 
 /**
  * 子组件
@@ -23,11 +23,11 @@ const Baz = React.forwardRef<InputRef, { value?: string; type?: string }>(
         <Space>
           <Input
             ref={ref}
-            placeholder='Bazzzzz component'
+            placeholder="Bazzzzz component"
             value={inputValue}
             onChange={onChange}
           />
-          <Button type='primary' onClick={onClick}>
+          <Button type="primary" onClick={onClick}>
             Primary Button
           </Button>
         </Space>
@@ -68,7 +68,7 @@ const Example2 = () => {
 
   const HOCBaz = wrapComponent(Baz)
   return (
-    <Space direction='vertical'>
+    <Space direction="vertical">
       <HOCBaz ref={HOCRef} />
       <HOCBaz ref={HOCRef} value={'123123'} />
     </Space>

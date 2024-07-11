@@ -25,12 +25,12 @@ const Child = React.forwardRef<{
       {defaultValue}:
       <div ref={ref as LegacyRef<HTMLDivElement> | undefined}>div</div>
       <Input
-        placeholder='Basic usage'
+        placeholder="Basic usage"
         value={inputValue}
         onChange={onChange}
         defaultValue={defaultValue}
       />
-      <Button type='primary' onClick={getValue}>
+      <Button type="primary" onClick={getValue}>
         Primary Button
       </Button>
     </Space>
@@ -42,16 +42,16 @@ Child.displayName = 'child'
 const Example1 = () => {
   const childRef = useRef<{ inputValue: string; getValue: Function }>(null)
   return (
-    <Space direction='vertical'>
+    <Space direction="vertical">
       <Space>
         father component:
         <Button
-          type='primary'
+          type="primary"
           onClick={() => message.warning(childRef.current!.inputValue)}
         >
           调用子组件暴露出来的值
         </Button>
-        <Button type='primary' onClick={() => childRef.current!.getValue()}>
+        <Button type="primary" onClick={() => childRef.current!.getValue()}>
           调用子组件暴露出来的方法
         </Button>
       </Space>

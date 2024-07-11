@@ -1,4 +1,4 @@
-.wrapper{
+.wrapper {
   width: 100vw;
   height: 100vh;
   background: url('@images/background2.jpg') no-repeat;
@@ -6,12 +6,12 @@
   position: relative;
 }
 
-.card-wrapper{
+.card-wrapper {
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   padding: 10px;
-  background-color: rgba($color: #e5e5e5, $alpha: .5);
+  background-color: rgba($color: #e5e5e5, $alpha: 0.5);
   border-radius: 10px;
 }

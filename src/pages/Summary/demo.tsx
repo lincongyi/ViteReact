@@ -1,4 +1,3 @@
-import React from 'react'
 import { Col, Row, Timeline, Typography } from 'antd'
 
 const { Title, Paragraph } = Typography

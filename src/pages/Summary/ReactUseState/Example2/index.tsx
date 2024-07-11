@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import type { Root } from 'react-dom/client'
 import { Button, Space } from 'antd'
@@ -29,16 +29,16 @@ const Child = () => {
   const [count2, setCount2] = myUseState(100)
 
   return (
-    <Space direction='vertical'>
+    <Space direction="vertical">
       <Space>
         count1:{count1}
-        <Button type='primary' onClick={() => setCount1(count1 + 1)}>
+        <Button type="primary" onClick={() => setCount1(count1 + 1)}>
           默认useState setCount
         </Button>
       </Space>
       <Space>
         count2:{count2}
-        <Button type='primary' onClick={() => setCount2(count2 + 1)}>
+        <Button type="primary" onClick={() => setCount2(count2 + 1)}>
           myUseState setCount
         </Button>
       </Space>
@@ -48,7 +48,7 @@ const Child = () => {
 
 const Example2 = () => {
   return (
-    <div id='Example2'>
+    <div id="Example2">
       <Child />
     </div>
   )

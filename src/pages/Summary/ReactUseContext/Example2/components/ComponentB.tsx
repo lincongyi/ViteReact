@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { Button, Space, Typography } from 'antd'
 import { context } from './Provider'
 import ButtonGroup from './ButtonGroup'
@@ -10,14 +10,14 @@ const ComponentB = () => {
   const ctx = useContext(context)
   const { id, dispatchId } = ctx!
   return (
-    <Space direction='vertical'>
+    <Space direction="vertical">
       <>
-        Component B id : <Text type='danger'>{id.componentB}</Text>
+        Component B id : <Text type="danger">{id.componentB}</Text>
       </>
       <>
         <ButtonGroup>
           <Button
-            type='primary'
+            type="primary"
             onClick={() =>
               dispatchId({
                 componentA: `has changed id: ~ ${generateId()}`,

@@ -1,4 +1,3 @@
-import React from 'react'
 import { Anchor, Col, Row, Typography } from 'antd'
 
 const { Title, Paragraph, Text } = Typography
@@ -82,7 +81,7 @@ const GitDirectives = () => {
       <Col xs={18} xl={20}>
         <Typography>
           <Row>
-            <Col span={24} id='directives'>
+            <Col span={24} id="directives">
               <Title>git常用指令</Title>
               {directivesList.map((item, index) => (
                 <Paragraph key={index}>
@@ -91,7 +90,7 @@ const GitDirectives = () => {
                 </Paragraph>
               ))}
             </Col>
-            <Col span={24} id='rebase'>
+            <Col span={24} id="rebase">
               <Title>git rebase</Title>
               <Paragraph>
                 <Text code>git rebase -i [commit id]</Text>

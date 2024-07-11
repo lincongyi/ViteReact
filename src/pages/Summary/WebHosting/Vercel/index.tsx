@@ -1,4 +1,3 @@
-import React from 'react'
 import { Col, Row, Typography, Image, Space, Anchor } from 'antd'
 import screenshot01 from '@images/Vercel/screenshot-01.png'
 import screenshot02 from '@images/Vercel/screenshot-02.png'
@@ -22,14 +21,14 @@ const Vercel = () => {
       <Col xs={18} xl={20}>
         <Typography>
           <Row>
-            <Col span={24} id='introduction'>
+            <Col span={24} id="introduction">
               <Title>Vercel介绍</Title>
               <Paragraph>
                 Vercel，可以理解为一个部署工具，支持部署静态网页和Node服务，部署后你还可以访问它自带生成的域名https。
               </Paragraph>
               <Image width={400} src={screenshot01} />
             </Col>
-            <Col span={24} id='step'>
+            <Col span={24} id="step">
               <Title>Vercel使用步骤（操作流程）</Title>
               <Title level={5}>添加构建项目</Title>
               <Title level={5}>1:关联github账户</Title>

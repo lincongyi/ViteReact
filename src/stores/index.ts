@@ -9,7 +9,7 @@ class RootStore {
   loginStore
   userStore
   countStore
-  constructor () {
+  constructor() {
     this.loginStore = new LoginStore()
     this.userStore = new UserStore()
     this.countStore = new CountStore()

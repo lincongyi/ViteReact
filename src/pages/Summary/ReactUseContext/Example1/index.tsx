@@ -41,9 +41,9 @@ const SonComponent = () => {
   const context = useContext(myContext)
   return (
     <>
-      <Typography.Text type='success'>son component</Typography.Text>
+      <Typography.Text type="success">son component</Typography.Text>
       <br />
-      <Typography.Text type='warning'>{context.sonValue}</Typography.Text>
+      <Typography.Text type="warning">{context.sonValue}</Typography.Text>
       <br />
       <Divider />
       <GrandsonComponent />
@@ -56,9 +56,9 @@ const GrandsonComponent = () => {
     <myContext.Consumer>
       {context => (
         <>
-          <Typography.Text type='secondary'>grandson component</Typography.Text>
+          <Typography.Text type="secondary">grandson component</Typography.Text>
           <br />
-          <Typography.Text type='danger'>
+          <Typography.Text type="danger">
             {context.grandsonValue}
           </Typography.Text>
         </>

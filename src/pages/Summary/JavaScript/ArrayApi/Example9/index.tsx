@@ -1,5 +1,5 @@
 /* eslint-disable no-extend-native */
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Space, Button } from 'antd'
 
 const Example9 = () => {
@@ -14,7 +14,7 @@ const Example9 = () => {
 
   const result1 = arr.findIndex(item => item.age === 18)
 
-  Array.prototype.myFindIndex = function <T> (
+  Array.prototype.myFindIndex = function <T>(
     callback: (element: T, index: number, array: T[]) => unknown,
     thisArg?: any
   ): number {
@@ -29,7 +29,7 @@ const Example9 = () => {
   const [state, setState] = useState<number | string>()
 
   return (
-    <Space direction='vertical'>
+    <Space direction="vertical">
       <Space>
         <Button
           onClick={() => setState(result1 !== -1 ? result1 : 'not found')}
@@ -37,7 +37,7 @@ const Example9 = () => {
           原生findIndex
         </Button>
         <Button
-          type='primary'
+          type="primary"
           onClick={() => setState(result2 !== -1 ? result2 : 'not found')}
         >
           myFindIndex

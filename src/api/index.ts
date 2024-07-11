@@ -2,7 +2,7 @@ import { request } from '@utils/request'
 /**
  * 获取热门音乐
  */
-const getMusic = (params?:object) => {
+const getMusic = (params?: object) => {
   return request.post('/music', params)
 }
 

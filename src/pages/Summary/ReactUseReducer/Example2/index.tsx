@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react'
+import { useReducer } from 'react'
 import { Button, Col, Form, Input, Row, Select, Table } from 'antd'
 import type { ColumnsType } from 'antd/es/table'
 import { generateId } from '@utils/index'
@@ -41,7 +41,7 @@ const Example2 = () => {
       key: 'action',
       render: ({ id }) => {
         return (
-          <Button type='text' danger onClick={() => console.log(id)}>
+          <Button type="text" danger onClick={() => console.log(id)}>
             Delete
           </Button>
         )
@@ -71,40 +71,40 @@ const Example2 = () => {
     <>
       <Form
         form={form}
-        name='form'
+        name="form"
         labelCol={{ span: 8 }}
         wrapperCol={{ span: 16 }}
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
-        autoComplete='off'
+        autoComplete="off"
       >
         <Row gutter={10}>
           <Col span={6}>
             <Form.Item
-              label='Username'
-              name='name'
+              label="Username"
+              name="name"
               rules={[{ required: true, message: 'Please input your name!' }]}
             >
-              <Input placeholder='Usename' />
+              <Input placeholder="Usename" />
             </Form.Item>
           </Col>
           <Col span={6}>
             <Form.Item
-              label='Age'
-              name='age'
+              label="Age"
+              name="age"
               rules={[{ required: true, message: 'Please input your age!' }]}
             >
-              <Input placeholder='Age' />
+              <Input placeholder="Age" />
             </Form.Item>
           </Col>
           <Col span={6}>
             <Form.Item
-              label='Sex'
-              name='sex'
+              label="Sex"
+              name="sex"
               rules={[{ required: true, message: 'Please select your sex!' }]}
             >
               <Select
-                placeholder='Sex'
+                placeholder="Sex"
                 options={[
                   { value: 0, label: '男' },
                   { value: 1, label: '女' },
@@ -114,23 +114,23 @@ const Example2 = () => {
           </Col>
           <Col span={6}>
             <Form.Item
-              label='Score'
-              name='score'
+              label="Score"
+              name="score"
               rules={[{ required: true, message: 'Please input your score!' }]}
             >
-              <Input placeholder='Score' />
+              <Input placeholder="Score" />
             </Form.Item>
           </Col>
           <Col span={24}>
             <Form.Item wrapperCol={{ offset: 2, span: 4 }}>
-              <Button type='primary' htmlType='submit'>
+              <Button type="primary" htmlType="submit">
                 Submit
               </Button>
             </Form.Item>
           </Col>
         </Row>
       </Form>
-      <Table columns={columns} dataSource={data} rowKey='id' />
+      <Table columns={columns} dataSource={data} rowKey="id" />
     </>
   )
 }

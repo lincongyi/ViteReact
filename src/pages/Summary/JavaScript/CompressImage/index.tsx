@@ -1,4 +1,3 @@
-import React from 'react'
 import { Anchor, Col, Row, Typography } from 'antd'
 import Example1 from './Example1'
 import CodeHighLight from '@/components/CodeHighLight'
@@ -17,7 +16,7 @@ const CompressImage = () => {
       <Col xs={18} xl={20}>
         <Typography>
           <Row>
-            <Col span={24} id='introduction'>
+            <Col span={24} id="introduction">
               <Title>图片压缩</Title>
               <Paragraph>
                 前端图片压缩的主要思路就是将图片绘制到<Text code>canvas</Text>
@@ -25,7 +24,7 @@ const CompressImage = () => {
                 <Text code>toDataURL</Text>方法来控制图片的质量，对图片进行压缩
               </Paragraph>
             </Col>
-            <Col span={24} id='toDataURL'>
+            <Col span={24} id="toDataURL">
               <Title>canvas.toDataURL</Title>
               <Paragraph>
                 <Text code>canvas.toDataURL(type, encoderOptions)</Text>
@@ -48,7 +47,7 @@ const CompressImage = () => {
                 0.92。其他参数会被忽略。
               </Paragraph>
             </Col>
-            <Col span={24} id='example'>
+            <Col span={24} id="example">
               <Title>图片压缩具体实例</Title>
               <CodeHighLight codeString={codeString1} />
               <Example1 />

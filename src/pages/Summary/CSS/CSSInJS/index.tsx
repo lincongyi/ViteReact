@@ -1,4 +1,3 @@
-import React from 'react'
 import { Anchor, Col, Divider, Row, Typography } from 'antd'
 import CodeHighLight from '@/components/CodeHighLight'
 import {
@@ -42,13 +41,13 @@ const CSSInJS = () => {
       <Col xs={18} xl={20}>
         <Typography>
           <Row>
-            <Col span={24} id='introduction'>
+            <Col span={24} id="introduction">
               <Title>CSS In Js 介绍</Title>
               <Paragraph>
                 CSS-in-JS是一种将CSS代码嵌入到JavaScript代码中的技术。使用CSS-in-JS，可以通过JavaScript来动态生成CSS，从而实现更加灵活和动态的样式。
               </Paragraph>
             </Col>
-            <Col span={24} id='situation'>
+            <Col span={24} id="situation">
               <Title>为什么会有CSS IN JS</Title>
               <Title level={5}>
                 1.CSS IN JS是WEB项目中将CSS代码捆绑在Javascript代码中的解决方案
@@ -73,7 +72,7 @@ const CSSInJS = () => {
                 CSS IN JS，可以利用js的动态功能，为元素动态添加样式。
               </Paragraph>
             </Col>
-            <Col span={24} id='emotion'>
+            <Col span={24} id="emotion">
               <Title>Emotion 库</Title>
               {/* <Button1>@emotion/styled</Button1>
               <div css={style}>@emotion/react css</div> */}
@@ -90,13 +89,13 @@ const CSSInJS = () => {
               <Paragraph>
                 <Text>Browsers:</Text>
                 <br />
-                <Text type='secondary'>Chrome: 114.0.5735.199</Text>
+                <Text type="secondary">Chrome: 114.0.5735.199</Text>
                 <br />
                 <Text>npm package:</Text>
                 <br />
-                <Text type='secondary'>@vitejs/plugin-react: 2.1.0</Text>
+                <Text type="secondary">@vitejs/plugin-react: 2.1.0</Text>
                 <br />
-                <Text type='secondary'>vite: 3.1.0</Text>
+                <Text type="secondary">vite: 3.1.0</Text>
               </Paragraph>
               <Title level={5}>1.@emotion/styled的基础使用（样式化组件）</Title>
               <Paragraph>
@@ -134,7 +133,7 @@ const CSSInJS = () => {
               <Paragraph>(3)声明css变量，并在组件中引用即可。</Paragraph>
               <CodeHighLight codeString={codeString2} />
               <Example2 />
-              <Text type='warning'>
+              <Text type="warning">
                 缺点：每个文件都要引入运行时（编辑器会有一堆警告提示）。
               </Text>
               <Paragraph>Babel Preset</Paragraph>
@@ -155,7 +154,7 @@ const CSSInJS = () => {
                   &apos;@emotion/react&apos;
                 </Text>
               </Paragraph>
-              <Divider orientation='left'>
+              <Divider orientation="left">
                 以下规则好像添加或不添加都不影响
               </Divider>
               <Paragraph>
@@ -166,7 +165,7 @@ const CSSInJS = () => {
                 (6)修改<Text code>vite-env.d.ts</Text>配置
               </Paragraph>
               <CodeHighLight codeString={codeString6} />
-              <Text type='success'>更推荐使用该方式，一步到位。</Text>
+              <Text type="success">更推荐使用该方式，一步到位。</Text>
               <Title level={5}>3.css方法的使用方式</Title>
               <Paragraph>
                 (1)string style : <Text mark>字符串模板类型</Text>

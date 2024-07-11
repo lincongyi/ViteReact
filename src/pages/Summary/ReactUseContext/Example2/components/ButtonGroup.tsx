@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { Button, Space } from 'antd'
 import { generateId } from '@utils/index'
 import { context } from './Provider'
@@ -10,7 +10,7 @@ const ButtonGroup = ({ children }: { children?: JSX.Element }) => {
     <>
       <Space>
         <Button
-          type='primary'
+          type="primary"
           onClick={() =>
             dispatchId({
               componentA: `has changed id: ~ ${generateId()}`,
@@ -20,7 +20,7 @@ const ButtonGroup = ({ children }: { children?: JSX.Element }) => {
           改变Component A
         </Button>
         <Button
-          type='primary'
+          type="primary"
           onClick={() =>
             dispatchId({
               componentAchild: `has changed id: ~ ${generateId()}`,
@@ -30,7 +30,7 @@ const ButtonGroup = ({ children }: { children?: JSX.Element }) => {
           改变Component A child
         </Button>
         <Button
-          type='primary'
+          type="primary"
           onClick={() =>
             dispatchId({
               componentB: `has changed id: ~ ${generateId()}`,

@@ -1,4 +1,3 @@
-import React from 'react'
 import { Col, Row, Typography, Image, Anchor } from 'antd'
 import CodeHighLight from '@/components/CodeHighLight'
 import {
@@ -39,15 +38,15 @@ const MiniProgramI18n = () => {
       <Col xs={18} xl={20}>
         <Typography>
           <Row>
-            <Col span={24} id='introduction'>
+            <Col span={24} id="introduction">
               <Title>微信小程序国际化</Title>
               <Paragraph>微信小程序国际化可以通过一下2种方式实现：</Paragraph>
               <Paragraph>
                 1.miniprogram-i18n是官方提供的国际化方案。具体可参考
                 <br />
                 <Link
-                  href='https://github.com/wechat-miniprogram/miniprogram-i18n'
-                  target='_blank'
+                  href="https://github.com/wechat-miniprogram/miniprogram-i18n"
+                  target="_blank"
                 >
                   https://github.com/wechat-miniprogram/miniprogram-i18n
                 </Link>
@@ -56,14 +55,14 @@ const MiniProgramI18n = () => {
                 2.miniprogram-i18n-plus，这是大佬写的一个插件，比起官方提供的更加便捷。具体可参考
                 <br />
                 <Link
-                  href='https://github.com/hefeng6500/miniprogram-i18n-plus'
-                  target='_blank'
+                  href="https://github.com/hefeng6500/miniprogram-i18n-plus"
+                  target="_blank"
                 >
                   https://github.com/hefeng6500/miniprogram-i18n-plus
                 </Link>
               </Paragraph>
             </Col>
-            <Col span={24} id='miniprogram-i18n'>
+            <Col span={24} id="miniprogram-i18n">
               <Title>miniprogram-i18n</Title>
               <Paragraph>
                 官方提供的国际化方案，针对老项目的配置流程可直接跟着README文件走。以下介绍针对新项目的目录结构进行国际化的配置。
@@ -123,7 +122,7 @@ const MiniProgramI18n = () => {
                 编译，即可构建成国际化后的文件。
               </Paragraph>
             </Col>
-            <Col span={24} id='miniprogram-i18n-plus'>
+            <Col span={24} id="miniprogram-i18n-plus">
               <Title>miniprogram-i18n-plus</Title>
               <Paragraph>更加方便快捷的接入i18n</Paragraph>
               <Title level={5}>1.安装依赖</Title>

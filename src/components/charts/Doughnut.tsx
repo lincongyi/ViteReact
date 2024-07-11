@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import * as echarts from 'echarts'
 
 const Doughnut: React.FC = () => {
@@ -53,7 +53,7 @@ const Doughnut: React.FC = () => {
 
   return (
     <>
-      <div id='doughnut' style={{ width: 600, height: 400 }}></div>
+      <div id="doughnut" style={{ width: 600, height: 400 }}></div>
     </>
   )
 }

@@ -1,5 +1,5 @@
 /* eslint-disable no-extend-native */
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Space, Button } from 'antd'
 
 const Example2 = () => {
@@ -9,7 +9,7 @@ const Example2 = () => {
     return item * 2
   })
 
-  Array.prototype.myMap = function <T, U> (
+  Array.prototype.myMap = function <T, U>(
     callback: (element: T, index: number, array: T[], thisArg?: any) => U
   ): U[] {
     const result = []
@@ -24,10 +24,10 @@ const Example2 = () => {
   const [state, setState] = useState<string>()
 
   return (
-    <Space direction='vertical'>
+    <Space direction="vertical">
       <Space>
         <Button onClick={() => setState(result1.toString())}>原生map</Button>
-        <Button type='primary' onClick={() => setState(result2.toString())}>
+        <Button type="primary" onClick={() => setState(result2.toString())}>
           myMap
         </Button>
       </Space>

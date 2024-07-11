@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react'
+import { useReducer } from 'react'
 import { Button, Form, Input, Space, Spin } from 'antd'
 
 const Example4 = () => {
@@ -66,54 +66,54 @@ const Example4 = () => {
   return (
     <>
       <Form
-        name='basic'
+        name="basic"
         form={form}
         labelCol={{ span: 6 }}
         wrapperCol={{ span: 18 }}
         style={{ maxWidth: 600 }}
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
-        autoComplete='off'
+        autoComplete="off"
       >
         <Form.Item
-          label='Username'
-          name='username'
+          label="Username"
+          name="username"
           rules={[{ required: true, message: 'Please input your username!' }]}
         >
           <Input />
         </Form.Item>
 
         <Form.Item
-          label='Password'
-          name='password'
+          label="Password"
+          name="password"
           rules={[{ required: true, message: 'Please input your password!' }]}
         >
-          <Input.Password placeholder='input password' />
+          <Input.Password placeholder="input password" />
         </Form.Item>
 
         <Form.Item wrapperCol={{ offset: 6, span: 18 }}>
-          <Space direction='vertical'>
-            <Button type='primary' htmlType='submit'>
+          <Space direction="vertical">
+            <Button type="primary" htmlType="submit">
               Submit
             </Button>
             <Space>
               <Button
-                type='primary'
+                type="primary"
                 onClick={() => dispatch({ type: 'before' })}
               >
                 onLoading
               </Button>
               <Button
-                type='primary'
+                type="primary"
                 onClick={() => dispatch({ type: 'after' })}
               >
                 offLoading
               </Button>
-              <Button type='primary' disabled>
+              <Button type="primary" disabled>
                 onLogin
               </Button>
               <Button
-                type='primary'
+                type="primary"
                 onClick={() => {
                   form.resetFields()
                   dispatch({ type: 'toReset' })
@@ -122,12 +122,12 @@ const Example4 = () => {
                 onReset
               </Button>
             </Space>
-            <Button type='primary' onClick={() => console.log(state)}>
+            <Button type="primary" onClick={() => console.log(state)}>
               get data
             </Button>
           </Space>
         </Form.Item>
-        {state.isLoading && <Spin tip='Loading' size='large'></Spin>}
+        {state.isLoading && <Spin tip="Loading" size="large"></Spin>}
       </Form>
     </>
   )

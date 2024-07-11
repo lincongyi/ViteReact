@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from '@emotion/styled'
 import { Space } from 'antd'
 
@@ -16,14 +15,14 @@ const StyledDiv2 = styled.div(({ color }) => ({
 
 const Example6 = () => {
   return (
-    <Space direction='vertical'>
+    <Space direction="vertical">
       <Space>
         <StyledDiv1>StyledDiv1</StyledDiv1>
-        <StyledDiv1 bgColor='#f6eb9a'>StyledDiv1</StyledDiv1>
+        <StyledDiv1 bgColor="#f6eb9a">StyledDiv1</StyledDiv1>
       </Space>
       <Space>
         <StyledDiv2>StyledDiv2</StyledDiv2>
-        <StyledDiv2 color='#a61f69'>StyledDiv2</StyledDiv2>
+        <StyledDiv2 color="#a61f69">StyledDiv2</StyledDiv2>
       </Space>
     </Space>
   )

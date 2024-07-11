@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import { useState, useRef } from 'react'
 import { Row, Col, Space, Button } from 'antd'
 
 const Example1 = () => {
@@ -23,7 +23,7 @@ const Example1 = () => {
       <Row gutter={[0, 20]}>
         <Col span={24}>
           <Space>
-            <Button type='primary' onClick={() => setCount1(count1 + 1)}>
+            <Button type="primary" onClick={() => setCount1(count1 + 1)}>
               default button
             </Button>
             {count1}
@@ -31,7 +31,7 @@ const Example1 = () => {
         </Col>
         <Col span={24}>
           <Space>
-            <Button type='primary' onClick={() => handleDebounce()}>
+            <Button type="primary" onClick={() => handleDebounce()}>
               debounce button
             </Button>
             {count2}

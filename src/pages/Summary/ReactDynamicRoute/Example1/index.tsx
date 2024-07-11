@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { Button, Space } from 'antd'
 import { useNavigate } from 'react-router-dom'
 import { context } from '@/context'
@@ -10,8 +10,8 @@ const Example1 = () => {
   const { dispatchRoute } = useContext(context)!
 
   return (
-    <Space direction='vertical'>
-      <Button type='primary' onClick={() => navigate('/authRoute')}>
+    <Space direction="vertical">
+      <Button type="primary" onClick={() => navigate('/authRoute')}>
         路由跳转
       </Button>
       <Button

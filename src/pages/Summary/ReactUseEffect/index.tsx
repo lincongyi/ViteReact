@@ -1,4 +1,3 @@
-import React from 'react'
 import { Col, Row, Timeline, Typography } from 'antd'
 import CodeHighLight from '@/components/CodeHighLight'
 import { codeString1, codeString2, codeString3 } from './code'

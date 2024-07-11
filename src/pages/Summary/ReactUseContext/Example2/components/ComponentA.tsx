@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { Space, Typography } from 'antd'
 import { context } from './Provider'
 import ComponentAChild from './ComponentAChild'
@@ -10,9 +10,9 @@ const ComponentA = () => {
   const ctx = useContext(context)
   const { id } = ctx!
   return (
-    <Space direction='vertical'>
+    <Space direction="vertical">
       <>
-        Component A id : <Text type='danger'>{id.componentA}</Text>
+        Component A id : <Text type="danger">{id.componentA}</Text>
       </>
       <>
         <ButtonGroup />

@@ -1,4 +1,3 @@
-import React from 'react'
 import CodeHighLight from '@/components/CodeHighLight'
 import { Anchor, Col, Row, Typography } from 'antd'
 import Example1 from './Example1'
@@ -96,7 +95,7 @@ const Fullscreen = () => {
           <Anchor
             offsetTop={86}
             items={items}
-            onClick={(e) => e.preventDefault()}
+            onClick={e => e.preventDefault()}
           />
         </Col>
       </Row>

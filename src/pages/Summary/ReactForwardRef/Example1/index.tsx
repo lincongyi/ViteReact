@@ -11,15 +11,15 @@ const Bar = React.forwardRef<InputRef, { value?: string }>((props, ref) => {
     }
   }
   return (
-    <div id='bar'>
+    <div id="bar">
       bar 组件：
       <Space>
         <Input
           ref={ref}
-          placeholder='Basic usage'
+          placeholder="Basic usage"
           defaultValue={props.value || 'input ref'}
         />
-        <Button type='primary' onClick={onClick}>
+        <Button type="primary" onClick={onClick}>
           Primary Button
         </Button>
       </Space>

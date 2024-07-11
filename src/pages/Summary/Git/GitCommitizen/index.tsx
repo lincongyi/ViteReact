@@ -1,4 +1,3 @@
-import React from 'react'
 import { Anchor, Col, Row, Typography } from 'antd'
 import CodeHighLight from '@components/CodeHighLight'
 import { codeString1, codeString2, codeString3, codeString4 } from './code'
@@ -14,7 +13,7 @@ const GitCommitizen = () => {
       <Col xs={18} xl={20}>
         <Typography>
           <Row>
-            <Col span={24} id='introduction'>
+            <Col span={24} id="introduction">
               <Title>Commitizen的作用</Title>
               <Paragraph>
                 当你在使用 <Text code>git commit</Text>
@@ -23,7 +22,7 @@ const GitCommitizen = () => {
                 。从而对 Git 提交进行规范化处理
               </Paragraph>
             </Col>
-            <Col span={24} id='usage'>
+            <Col span={24} id="usage">
               <Typography>
                 <Row>
                   <Col span={24}>
@@ -42,7 +41,7 @@ const GitCommitizen = () => {
                     </Paragraph>
 
                     <Paragraph>
-                      <Text type='danger'>
+                      <Text type="danger">
                         PS : 经常要使用到 Commitizen 来规范提交代码，建议
                       </Text>
                       全局安装<Text code>npm i commitizen -g</Text>

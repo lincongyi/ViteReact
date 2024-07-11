@@ -1,4 +1,3 @@
-import React from 'react'
 import { Anchor, Col, Row, Typography } from 'antd'
 import CodeHighLight from '@/components/CodeHighLight'
 import {
@@ -48,13 +47,13 @@ const ArrayApi = () => {
       <Col xs={18} xl={20}>
         <Typography>
           <Row>
-            <Col span={24} id='forEach'>
+            <Col span={24} id="forEach">
               <Title>1.forEach</Title>
               <Paragraph>对数组的每个元素执行一次给定的函数。</Paragraph>
               <CodeHighLight codeString={codeString1} />
               <Example1 />
             </Col>
-            <Col span={24} id='map'>
+            <Col span={24} id="map">
               <Title>2.map</Title>
               <Paragraph>
                 创建一个新数组，这个新数组由原数组中的每个元素都调用一次提供的函数后的返回值组成。
@@ -62,7 +61,7 @@ const ArrayApi = () => {
               <CodeHighLight codeString={codeString2} />
               <Example2 />
             </Col>
-            <Col span={24} id='filter'>
+            <Col span={24} id="filter">
               <Title>3.filter</Title>
               <Paragraph>
                 创建给定数组一部分的浅拷贝，其包含通过所提供函数实现的测试的所有元素。
@@ -70,7 +69,7 @@ const ArrayApi = () => {
               <CodeHighLight codeString={codeString3} />
               <Example3 />
             </Col>
-            <Col span={24} id='reduce'>
+            <Col span={24} id="reduce">
               <Title>4.reduce</Title>
               <Paragraph>
                 对数组中的每个元素按序执行一个提供的 reducer 函数，每一次运行
@@ -80,7 +79,7 @@ const ArrayApi = () => {
               <CodeHighLight codeString={codeString4} />
               <Example4 />
             </Col>
-            <Col span={24} id='fill'>
+            <Col span={24} id="fill">
               <Title>5.fill</Title>
               <Paragraph>
                 用一个固定值填充一个数组中从起始索引（默认为
@@ -90,7 +89,7 @@ const ArrayApi = () => {
               <CodeHighLight codeString={codeString5} />
               <Example5 />
             </Col>
-            <Col span={24} id='includes'>
+            <Col span={24} id="includes">
               <Title>6.includes</Title>
               <Paragraph>
                 用来判断一个数组是否包含一个指定的值，根据情况，如果包含则返回
@@ -99,7 +98,7 @@ const ArrayApi = () => {
               <CodeHighLight codeString={codeString6} />
               <Example6 />
             </Col>
-            <Col span={24} id='join'>
+            <Col span={24} id="join">
               <Title>7.join</Title>
               <Paragraph>
                 将一个数组（或一个类数组对象）的所有元素连接成一个字符串并返回这个字符串。
@@ -107,7 +106,7 @@ const ArrayApi = () => {
               <CodeHighLight codeString={codeString7} />
               <Example7 />
             </Col>
-            <Col span={24} id='find'>
+            <Col span={24} id="find">
               <Title>8.find</Title>
               <Paragraph>
                 回数组中满足提供的测试函数的第一个元素的值。否则返回 undefined。
@@ -115,7 +114,7 @@ const ArrayApi = () => {
               <CodeHighLight codeString={codeString8} />
               <Example8 />
             </Col>
-            <Col span={24} id='findIndex'>
+            <Col span={24} id="findIndex">
               <Title>9.findIndex</Title>
               <Paragraph>
                 返回数组中满足提供的测试函数的第一个元素的索引。若没有找到对应元素则返回
@@ -124,7 +123,7 @@ const ArrayApi = () => {
               <CodeHighLight codeString={codeString9} />
               <Example9 />
             </Col>
-            <Col span={24} id='some'>
+            <Col span={24} id="some">
               <Title>10.some</Title>
               <Paragraph>
                 返回数组中满足提供的测试函数的第一个元素的索引。若没有找到对应元素则返回
@@ -133,7 +132,7 @@ const ArrayApi = () => {
               <CodeHighLight codeString={codeString10} />
               <Example10 />
             </Col>
-            <Col span={24} id='every'>
+            <Col span={24} id="every">
               <Title>11.every</Title>
               <Paragraph>
                 测试一个数组内的所有元素是否都能通过指定函数的测试。它返回一个布尔值。

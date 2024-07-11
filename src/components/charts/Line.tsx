@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react'
+import { useEffect, FC } from 'react'
 import * as echarts from 'echarts'
 
-const Line: React.FC = () => {
+const Line: FC = () => {
   type EChartsOption = echarts.EChartsOption
   let myChart: echarts.EChartsType
   const option: EChartsOption = {
@@ -28,7 +28,7 @@ const Line: React.FC = () => {
   }, [])
   return (
     <>
-      <div id='line' style={{ width: 600, height: 400 }}></div>
+      <div id="line" style={{ width: 600, height: 400 }}></div>
     </>
   )
 }

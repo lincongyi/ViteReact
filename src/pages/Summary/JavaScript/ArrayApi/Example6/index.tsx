@@ -1,5 +1,5 @@
 /* eslint-disable no-extend-native */
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Space, Button } from 'antd'
 
 const Example6 = () => {
@@ -24,15 +24,15 @@ const Example6 = () => {
   const [state, setState] = useState<string>()
 
   return (
-    <Space direction='vertical'>
+    <Space direction="vertical">
       <Space>
         <Button onClick={() => setState(result1.toString())}>
           原生includes
         </Button>
-        <Button type='primary' onClick={() => setState(result2.toString())}>
+        <Button type="primary" onClick={() => setState(result2.toString())}>
           myIncludes
         </Button>
-        <Button type='primary' onClick={() => setState(result3.toString())}>
+        <Button type="primary" onClick={() => setState(result3.toString())}>
           myIncludes(带索引)
         </Button>
       </Space>

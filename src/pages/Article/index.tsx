@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import './index.scss'
 import {
   Col,
@@ -69,10 +69,10 @@ const columns: ColumnsType<IcolumnsType> = [
     render: props => {
       return (
         <Space>
-          <Button type='primary' onClick={() => onDetail(props)}>
+          <Button type="primary" onClick={() => onDetail(props)}>
             详情
           </Button>
-          <Button type='text' danger onClick={() => onDelete(props.id)}>
+          <Button type="text" danger onClick={() => onDelete(props.id)}>
             删除
           </Button>
         </Space>
@@ -94,10 +94,10 @@ const onDelete = (id: string) => {
     content: '是否确认删除该项？',
     okText: '确认',
     cancelText: '取消',
-    onOk () {
+    onOk() {
       console.log('确认')
     },
-    onCancel () {
+    onCancel() {
       console.log('取消')
     },
   })
@@ -173,29 +173,29 @@ const Article = () => {
       >
         <Row gutter={16}>
           <Col span={6}>
-            <Form.Item label='文章标题' name='title'>
+            <Form.Item label="文章标题" name="title">
               <Input />
             </Form.Item>
           </Col>
           <Col span={6}>
-            <Form.Item label='文章标题' name='title'>
+            <Form.Item label="文章标题" name="title">
               <Input />
             </Form.Item>
           </Col>
           <Col span={6}>
-            <Form.Item label='文章标题' name='title'>
+            <Form.Item label="文章标题" name="title">
               <Input />
             </Form.Item>
           </Col>
           <Col span={6}>
-            <Form.Item label='DatePicker' name='datePicker'>
+            <Form.Item label="DatePicker" name="datePicker">
               <ConfigProvider locale={locale}>
                 <DatePicker onChange={onChange} />
               </ConfigProvider>
             </Form.Item>
           </Col>
           <Col span={6}>
-            <Form.Item label='发布状态' name='status'>
+            <Form.Item label="发布状态" name="status">
               <Radio.Group>
                 {statusList.map((item, index) => (
                   <Radio.Button value={index} key={index}>
@@ -206,7 +206,7 @@ const Article = () => {
             </Form.Item>
           </Col>
           <Col span={6}>
-            <Form.Item label='文章类型' name='variety'>
+            <Form.Item label="文章类型" name="variety">
               <Select>
                 {articleType.map((item: { value: string; label: string }) => (
                   <Select.Option value={item.value} key={item.value}>
@@ -217,25 +217,25 @@ const Article = () => {
             </Form.Item>
           </Col>
           <Col span={12}>
-            <Form.Item label='发布区间' name='rangeDate'>
+            <Form.Item label="发布区间" name="rangeDate">
               <ConfigProvider locale={locale}>
                 <RangePicker onChange={onRangePickerChange} />
               </ConfigProvider>
             </Form.Item>
           </Col>
         </Row>
-        <Row justify='end'>
-          <Col span={6} className='tr'>
+        <Row justify="end">
+          <Col span={6} className="tr">
             <Space>
               <Button onClick={onReset}>重置</Button>
-              <Button type='primary' htmlType='submit'>
+              <Button type="primary" htmlType="submit">
                 查询
               </Button>
             </Space>
           </Col>
         </Row>
       </Form>
-      <Table rowKey='id' columns={columns} dataSource={articleList} />
+      <Table rowKey="id" columns={columns} dataSource={articleList} />
     </>
   )
 }

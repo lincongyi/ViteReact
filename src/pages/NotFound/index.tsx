@@ -1,5 +1,4 @@
 import { Button, Result, Space } from 'antd'
-import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const NotFound = () => {

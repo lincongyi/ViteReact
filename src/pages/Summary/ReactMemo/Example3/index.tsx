@@ -30,7 +30,7 @@ const ChildMemo = ({
         child memo component id: {id} , info: {info.createDate.getTime()}
       </p>
       <p>parent prop count: {count}</p>
-      <Button type='primary' onClick={() => onPureEvent && onPureEvent()}>
+      <Button type="primary" onClick={() => onPureEvent && onPureEvent()}>
         trigger memo component event
       </Button>
       <Divider />
@@ -75,16 +75,16 @@ const Parent = () => {
         </Col>
         <Col>
           <Space>
-            <Button type='primary' onClick={() => onPlus()}>
+            <Button type="primary" onClick={() => onPlus()}>
               status + 1
             </Button>
             <Button
-              type='primary'
+              type="primary"
               onClick={() => setCommonCount(commonCount + 1)}
             >
               commonCount plus
             </Button>
-            <Button type='primary' onClick={() => setMemoCount(memoCount + 1)}>
+            <Button type="primary" onClick={() => setMemoCount(memoCount + 1)}>
               memoCount plus
             </Button>
           </Space>

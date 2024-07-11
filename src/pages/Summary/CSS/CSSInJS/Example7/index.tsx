@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from '@emotion/styled'
 
 const Demo = ({
@@ -23,8 +22,8 @@ const Example7 = () => {
   return (
     <>
       <Demo />
-      <WrapDemo1 description='WrapDemo1 string styled' />
-      <WrapDemo2 description='WrapDemo2 object styled' />
+      <WrapDemo1 description="WrapDemo1 string styled" />
+      <WrapDemo2 description="WrapDemo2 object styled" />
     </>
   )
 }

@@ -1,4 +1,3 @@
-import React from 'react'
 import CodeHighLight from '@components/CodeHighLight'
 import { Col, Divider, Row, Timeline, Typography } from 'antd'
 import {
@@ -58,7 +57,7 @@ const ReactMemo = () => {
                   <Divider />
                   <Example1 />
                   <Divider />
-                  <Text type='success'>
+                  <Text type="success">
                     点击所有按钮后，可以从控制台的输出中看到：
                     <br />
                     当数值改变时，ChildCommon组件每次都会重新渲染，而ChildMemo组件仅有当自身接收的值改变时，才会重新渲染；
@@ -76,7 +75,7 @@ const ReactMemo = () => {
                   <Divider />
                   <Example2 />
                   <Divider />
-                  <Text type='danger'>
+                  <Text type="danger">
                     现在能从控制台中看到，无论点击哪一个按钮，都会触发PureComponent组件的重新渲染
                     <br />
                     由于PureComponent组件接收了一个onclick函数（引用类型）传入，当Parent组件重新渲染，它也会被重新创建，使得React.memo()失效；
@@ -92,7 +91,7 @@ const ReactMemo = () => {
                   <Divider />
                   <Example3 />
                   <Divider />
-                  <Text type='success'>
+                  <Text type="success">
                     现在就能实现React.memo()的缓存功能了
                   </Text>
                   <Divider />
