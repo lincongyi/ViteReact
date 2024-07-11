@@ -82,7 +82,7 @@ module.exports = {
    * @default "lf"
    * @type {"lf"|"crlf"|"cr"|"auto"}
    */
-  endOfLine: 'lf',
+  endOfLine: 'auto',
   /**
    * HTML\VUE\JSX每行只有单个属性
    * @default true
