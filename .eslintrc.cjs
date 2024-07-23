@@ -36,6 +36,7 @@ module.exports = {
     'multiline-ternary': 0,
     'space-before-function-paren': 0,
     'react/no-unknown-property': ['error', { ignore: ['css'] }],
+    'prettier/prettier': 'error',
   },
   settings: {
     react: {

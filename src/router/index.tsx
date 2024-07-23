@@ -260,6 +260,11 @@ const dynamicRoutes = [
             children: [...WebHostingRoutes],
           },
           {
+            path: 'standard',
+            elementPath: 'Summary/Standard',
+            meta: { title: '项目规范' },
+          },
+          {
             path: 'reactUseState',
             elementPath: 'Summary/ReactUseState',
             meta: { title: 'useState' },
