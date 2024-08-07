@@ -167,6 +167,17 @@ const WebHostingRoutes: TModuleRoutes[] = [
   },
 ]
 
+/**
+ * 前端工程化
+ */
+const FrontEndToolingRoutes: TModuleRoutes[] = [
+  {
+    path: 'BrowsersList',
+    elementPath: 'Summary/FrontEndTooling/BrowsersList',
+    meta: { title: 'BrowsersList' },
+  },
+]
+
 const dynamicRoutes = [
   {
     path: '/', // 首页
@@ -258,6 +269,12 @@ const dynamicRoutes = [
             elementPath: 'Summary/WebHosting',
             meta: { title: '网站托管服务' },
             children: [...WebHostingRoutes],
+          },
+          {
+            path: 'frontEndTooling',
+            elementPath: 'Summary/FrontEndTooling',
+            meta: { title: '前端工程化' },
+            children: [...FrontEndToolingRoutes],
           },
           {
             path: 'standard',
@@ -357,6 +374,7 @@ export {
   GitRoutes,
   PluginRoutes,
   WebHostingRoutes,
+  FrontEndToolingRoutes,
   dynamicRoutes,
   routes,
 }
