@@ -4,6 +4,7 @@ import react from '@vitejs/plugin-react'
 import { visualizer } from 'rollup-plugin-visualizer'
 import './env/config'
 import getBulidTime from './getBulidTime.cjs'
+import legacy from '@vitejs/plugin-legacy'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -24,6 +25,14 @@ export default defineConfig({
           '@babel/plugin-proposal-nullish-coalescing-operator',
         ],
       },
+    }),
+    legacy({
+      targets: ['chrome>=75'], // default 'last 2 versions and not dead, > 0.3%, Firefox ESR'
+      // If it's not set, plugin-legacy will fallback to the default value.
+      // modernTargets: [] default 'edge>=79, firefox>=67, chrome>=64, safari>=12, chromeAndroid>=64, iOS>=12'
+      additionalLegacyPolyfills: ['regenerator-runtime/runtime'],
+      // polyfills: ['es.array.at'],
+      modernPolyfills: ['es.array.at'],
     }),
     visualizer({
       emitFile: true,
