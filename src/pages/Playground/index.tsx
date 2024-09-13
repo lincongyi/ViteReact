@@ -39,6 +39,8 @@ import type { UploadRequestOption } from 'rc-upload/lib/interface'
 import axios from 'axios'
 import { getMember } from '@api/member'
 import { enterFullscreen, exitFullscreen } from '@/utils/fullScreen'
+import IncreaseBtnGroup from './components/IncreaseBtnGroup'
+import Calculation from './components/Calculation'
 
 type TContext = {
   sonValue: string
@@ -862,6 +864,18 @@ const Playground = () => {
           退出全屏
         </Button>
       </Space>
+
+      <Row gutter={[0, 20]}>
+        <Typography.Title level={3}>
+          兄弟组件传值（发布订阅模式）
+        </Typography.Title>
+        <Col span={24}>
+          <IncreaseBtnGroup />
+        </Col>
+        <Col span={24}>
+          <Calculation />
+        </Col>
+      </Row>
     </>
   )
 }

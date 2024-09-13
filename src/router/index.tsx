@@ -326,6 +326,11 @@ const dynamicRoutes = [
             elementPath: 'Summary/ReactUseImperativeHandle',
             meta: { title: 'useImperativeHandle' },
           },
+          {
+            path: 'eventBus',
+            elementPath: 'Summary/EventBus',
+            meta: { title: '跨组件传值' },
+          },
         ],
         meta: {
           title: '记录&总结',
